@@ -1,5 +1,8 @@
 package io.warp10.warpscriptDSL
 
+//
+// First WarpScript commands generator
+//
 
 fun main(args: Array<String>) {
     //println("Hello world!")
@@ -17,6 +20,10 @@ fun main(args: Array<String>) {
     print(tmp)
 
 }
+
+//
+// Warp Script init functions
+//
 
 fun warpScript(init: WarpScript.() -> Unit): WarpScript {
     val ws = WarpScript("ws")

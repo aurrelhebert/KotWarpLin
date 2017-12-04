@@ -1,5 +1,9 @@
 package io.warp10.warpscriptDSL
 
+//
+// Main builder
+//
+
 @WarpScriptTagMarker
 abstract class Tag(val name: String) : Element {
     val children = arrayListOf<Element>()

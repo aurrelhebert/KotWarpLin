@@ -1,8 +1,22 @@
 package io.warp10.warpscriptDSL
 
+//
+// Function builder
+//
 abstract class FunctionElement(val name: String) : Element {
 
+    //
+    // Function parameters
+    //
+
     val attributes = hashMapOf<Number, String>()
+
+    //
+    // Build render for a WS function:
+    //   param0
+    //   param1
+    //   FUNCTION
+    //
 
     override fun render(builder: StringBuilder, indent: String) {
 

@@ -1,6 +1,9 @@
 package io.warp10.warpscriptDSL
 
-@WarpScriptTagMarker
+//
+// Not used
+//
+
 abstract class StringElement(val name: String) : Element {
 
     override fun render(builder: StringBuilder, indent: String) {
