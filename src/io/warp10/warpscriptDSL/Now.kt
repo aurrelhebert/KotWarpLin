@@ -1,3 +1,3 @@
 package io.warp10.warpscriptDSL
 
-class Now : Tag("NOW")
+class Now : FunctionElement("NOW")

@@ -5,12 +5,13 @@ fun main(args: Array<String>) {
     //println("Hello world!")
 
     var tmp = warpScript {
+        now()
         fetch("token", "name")
         fetch("token2", "name", hashMapOf("key" to "value", "k2" to "3" ))
-        fetch("token", "name", "-100")
-        fetch("token", "name","150000", "-100")
+        //fetch("token", "name", now(), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
-        fetch("token", "name", hashMapOf("key" to "value"), "15s0000", "-100")
+        fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
+        fetch("token", "name", hashMapOf("key" to "value"), now(), "-100")
     }
 
     print(tmp)

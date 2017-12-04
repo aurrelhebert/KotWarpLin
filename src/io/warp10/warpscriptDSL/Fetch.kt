@@ -1,5 +1,7 @@
 package io.warp10.warpscriptDSL
 
+import java.util.*
+
 class Fetch : ListTag("FETCH") {
 
     // Token attribute --> always in first position
@@ -59,12 +61,18 @@ class Fetch : ListTag("FETCH") {
         this.selector="\'" + selector + "\'"
         this.labels= parseLabels(labels)
 
-        this.checkTicks(start, end)
+        //this.checkTicks(start, end)
+
         this.start=start
         this.end=end
     }
 
-    private fun checkTicks(start: String, end: String) {
+    fun setAttr(token : String, selector : String, labels : Map<String, String>, start : FunctionElement, end : String) {
+        this.token="\'" + token + "\'"
+        this.selector="\'" + selector + "\'"
+        this.labels= parseLabels(labels)
+        this.start = start.toString().removeSuffix("\n").removePrefix(" ")
+        this.end=end
     }
 
     private fun parseLabels(labels: Map<String, String>) : String {
@@ -78,4 +86,8 @@ class Fetch : ListTag("FETCH") {
         sb.append("}")
         return sb.toString()
     }
+
+    //fun now(init: Now.
+
+    fun now() = Now()
 }

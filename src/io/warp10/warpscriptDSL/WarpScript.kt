@@ -31,4 +31,13 @@ class WarpScript(name: String) : Tag(name) {
         val fetch = initTag(Fetch(), init)
         fetch.setAttr(token, selector, labels, start, end)
     }
+
+    fun fetch(token: String, selector: String, labels: Map<String, String>, start: FunctionElement, end: String, init: Fetch.() -> Unit = {}) {
+        val fetch = initTag(Fetch(), init)
+        this.children.remove(start)
+        fetch.setAttr(token, selector, labels, start, end)
+    }
+
+    //fun now() = Now()
+    fun now() = initTag(Now(), {})
 }

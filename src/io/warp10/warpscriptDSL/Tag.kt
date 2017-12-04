@@ -1,7 +1,5 @@
 package io.warp10.warpscriptDSL
 
-import org.omg.CORBA.Object
-
 @WarpScriptTagMarker
 abstract class Tag(val name: String) : Element {
     val children = arrayListOf<Element>()
