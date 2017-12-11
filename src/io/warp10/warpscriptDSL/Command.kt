@@ -14,16 +14,21 @@ fun main(args: Array<String>) {
         drop()
         now()
         store("now")
-        fetch("token", "name")
+        fetch(token= "token", selector="name")
         fetch("token2", "name", hashMapOf("key" to "value", "k2" to "3" ))
         fetch("token", "name", start = now(), end = "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
         fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
+        bucketize(bucketizer = "bucketizer.max", bucketcount = 1L)
+        bucketize(drop(), bucketizer = "bucketizer.max", bucketcount = 1L)
 
+        bucketize(
+                fetch("token", "test")
+                , bucketizer = "bucketizer.max", bucketcount = 1L)
 
         load("test")
-        drop()
+        //drop()
 
         fetch("token", "name", hashMapOf("key" to "value"), load("now"), "-100")
         timeShift(100)

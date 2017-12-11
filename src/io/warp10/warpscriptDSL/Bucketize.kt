@@ -1,5 +1,3 @@
 package io.warp10.warpscriptDSL
 
-class Bucketize : ListTag("BUCKETIZE") {
-
-}
+class Bucketize (name: String) : ListTag(name)
