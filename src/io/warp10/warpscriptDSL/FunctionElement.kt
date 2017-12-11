@@ -21,10 +21,10 @@ abstract class FunctionElement(val name: String) : Element {
     override fun render(builder: StringBuilder, indent: String) {
 
         for ((_,value) in attributes) {
-            builder.append(" $value \n")
+            builder.append(" $value")
         }
 
-        builder.append("$indent $name \n")
+        builder.append(" $name \n")
     }
 
     override fun toString(): String {

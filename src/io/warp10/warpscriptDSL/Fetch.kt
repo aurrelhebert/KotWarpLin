@@ -1,6 +1,7 @@
 package io.warp10.warpscriptDSL
 
 import java.util.*
+import kotlin.collections.HashMap
 
 //
 // Fetch Framework class
@@ -44,28 +45,9 @@ class Fetch : ListTag("FETCH") {
         }
 
     // Constructors
-    fun setAttr(token : String, selector : String) {
-        this.setAttr(token, selector, HashMap(), "NOW", "-1")
-    }
 
-    fun setAttr(token : String, selector : String, end: String) {
-        this.setAttr(token, selector, HashMap(), end)
-    }
-
-    fun setAttr(token : String, selector : String, start: String, end: String) {
-        this.setAttr(token, selector, HashMap(), start, end)
-    }
-
-    fun setAttr(token : String, selector : String, labels : Map<String, String>) {
-        this.setAttr(token, selector,labels, "NOW", "-1")
-    }
-
-    fun setAttr(token : String, selector : String, labels : Map<String, String>, end : String) {
-        this.setAttr(token, selector, labels, "NOW", end)
-    }
-
-    fun setAttr(token : String, selector : String, labels : Map<String, String>, start : String, end : String) {
-        this.token="\'" + token + "\'"
+    fun setAttr(token : String, selector : String, labels : Map<String, String> = HashMap(), start : String = "NOW", end : String="-1") {
+        this.token=token
         this.selector="\'" + selector + "\'"
         this.labels= parseLabels(labels)
 
@@ -76,7 +58,7 @@ class Fetch : ListTag("FETCH") {
     }
 
     fun setAttr(token : String, selector : String, labels : Map<String, String>, start : FunctionElement, end : String) {
-        this.token="\'" + token + "\'"
+        this.token=token
         this.selector="\'" + selector + "\'"
         this.labels= parseLabels(labels)
         this.start = start.toString().removeSuffix("\n").removePrefix(" ")
@@ -95,8 +77,4 @@ class Fetch : ListTag("FETCH") {
         sb.append("}")
         return sb.toString()
     }
-
-    //fun now(init: Now.
-
-    fun now() = Now()
 }
