@@ -367,6 +367,28 @@ class WarpScript(name: String) : Tag(name) {
         return whileW
     }
 
+    //
+    // Define macro
+    //
+
+    fun macro(bodyTab: Element.() -> Unit, init: Element.() -> Unit = {}): Macro {
+        val macro = initTag(Macro(), init)
+        macro.applyBody(this, bodyTab)
+        return macro
+    }
+
+    //
+    // Define macro
+    //
+
+    fun macro(name: String, bodyTab: Element.() -> Unit, init: Element.() -> Unit = {}): Macro {
+        val macro = initTag(Macro(), init)
+        macro.applyBody(this, bodyTab)
+        this.store(name)
+        return macro
+    }
+
+
 
     //
     // Implement some single functions of the WarpScript language

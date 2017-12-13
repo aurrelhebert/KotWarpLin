@@ -116,6 +116,18 @@ fun main(args: Array<String>) {
         whileW("test", "test")
 
         foreach("test")
+
+        macro({
+            now()
+        })
+
+        macro("titi", {
+            now()
+            drop()
+        })
+
+        evalMacro("titi")
+        load("titi")
     }
 
     print(tmp)
