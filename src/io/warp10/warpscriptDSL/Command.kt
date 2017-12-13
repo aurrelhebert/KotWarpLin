@@ -24,11 +24,22 @@ fun main(args: Array<String>) {
         bucketize(drop(), bucketizer = "bucketizer.max", bucketcount = 1L)
 
         bucketize(
-                fetch("token", "test")
+                    bucketize(fetch("token", "test"), bucketizer = "bucketizer.max", bucketcount = 1L)
                 , bucketizer = "bucketizer.max", bucketcount = 1L)
 
+        bucketize(
+                {
+                    fetch("token", "test")
+                    bucketize(
+                            {
+                                swap()
+                                drop()
+                                swap()
+                            }, bucketizer = "bucketizer.min", bucketcount = 1L)
+                }
+                , bucketizer = "bucketizer.count", bucketcount = 1L)
         load("test")
-        //drop()
+        drop()
 
         fetch("token", "name", hashMapOf("key" to "value"), load("now"), "-100")
         timeShift(100)

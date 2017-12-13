@@ -4,10 +4,8 @@ package io.warp10.warpscriptDSL
 // Main builder
 //
 
-@WarpScriptTagMarker
 abstract class Tag(val name: String) : Element {
     val children = arrayListOf<Element>()
-    val attributes = hashMapOf<Number, String>()
 
     fun <T : Element> initTag(tag: T, init:  T.() -> Unit) : T {
         tag.init()
@@ -19,7 +17,7 @@ abstract class Tag(val name: String) : Element {
 
         // Load all render, and do not indent for basic WS
         for (c in children) {
-            c.render(builder, "")
+            c.render(builder, indent + "")
         }
     }
 

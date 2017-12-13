@@ -10,6 +10,7 @@ abstract class FunctionElement(val name: String) : Element {
     //
 
     val attributes = hashMapOf<Number, String>()
+    val loader = arrayListOf<Element>()
 
     //
     // Build render for a WS function:
@@ -21,10 +22,10 @@ abstract class FunctionElement(val name: String) : Element {
     override fun render(builder: StringBuilder, indent: String) {
 
         for ((_,value) in attributes) {
-            builder.append(" $value")
+            builder.append(indent + " $value")
         }
 
-        builder.append(" $name \n")
+        builder.append(indent + " $name \n")
     }
 
     override fun toString(): String {
