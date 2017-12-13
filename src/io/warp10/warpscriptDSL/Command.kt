@@ -5,7 +5,8 @@ package io.warp10.warpscriptDSL
 //
 
 fun main(args: Array<String>) {
-    //println("Hello world!")
+    //println(true.toString())
+
 
     var tmp = warpScript {
         allowVariableName(listOf("test", "token"))
@@ -20,12 +21,12 @@ fun main(args: Array<String>) {
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
         fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
-        bucketize(bucketizer = "bucketizer.max", bucketcount = 1L)
-        bucketize(drop(), bucketizer = "bucketizer.max", bucketcount = 1L)
+        bucketize(bucketizer = Bucketizer.MAX, bucketcount = 1L)
+        bucketize(drop(), bucketizer =  Bucketizer.MAX, bucketcount = 1L)
 
         bucketize(
-                    bucketize(fetch("token", "test"), bucketizer = "bucketizer.max", bucketcount = 1L)
-                , bucketizer = "bucketizer.max", bucketcount = 1L)
+                    bucketize(fetch("token", "test"), bucketizer = Bucketizer.MAX, bucketcount = 1L)
+                , Bucketizer.MAX, bucketcount = 1L)
 
         bucketize(
                 {
@@ -35,11 +36,49 @@ fun main(args: Array<String>) {
                                 swap()
                                 drop()
                                 swap()
-                            }, bucketizer = "bucketizer.min", bucketcount = 1L)
+                            }, Bucketizer.MIN, bucketcount = 1L)
                 }
-                , bucketizer = "bucketizer.count", bucketcount = 1L)
+                , bucketizer = Bucketizer.COUNT, bucketcount = 1L)
         load("test")
         drop()
+
+        ifThen(true, {
+            fetch("token", "test")
+        })
+
+        ifThen(false, {
+            fetch("token", "test")
+        })
+
+        ifThen({
+            now()
+        }, {
+            fetch("token", "test")
+        })
+
+
+        ifThenElse(true, {
+            fetch("token", "test")
+        },
+                {
+                    fetch("token", "test-2")
+                })
+
+        ifThenElse(false, {
+            fetch("token", "test")
+        },
+                {
+                    fetch("token", "test-2")
+                })
+
+        ifThenElse({
+            now()
+        }, {
+            fetch("token", "test")
+        },
+                {
+                    fetch("token", "test-2")
+                })
 
         fetch("token", "name", hashMapOf("key" to "value"), load("now"), "-100")
         timeShift(100)
@@ -53,6 +92,30 @@ fun main(args: Array<String>) {
         )
 
         evalMacro("test")
+
+        forW(0, 10, {
+            now()
+        })
+
+        foreach({
+            now()
+        })
+
+        lmap({
+            now()
+        })
+        now()
+
+        forStep(0, 10, {
+            now()
+            drop()
+        }, {
+            now()
+        })
+
+        whileW("test", "test")
+
+        foreach("test")
     }
 
     print(tmp)
