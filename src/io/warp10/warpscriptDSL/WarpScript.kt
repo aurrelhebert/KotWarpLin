@@ -112,11 +112,52 @@ class WarpScript(name: String) : Tag(name) {
 
     fun map(load: Element, mapper: MapperFunction, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L, init: ListTag.() -> Unit = {}): MapFw {
 
-        val tmp = mapper.toString()
-        println(tmp)
         val map = initTag(MapFw(load, mapper, pre, post, occurrences), init)
         this.children.remove(load)
         return map
+    }
+
+    //
+    // Filter framework
+    //
+
+    fun <T> filter(entry: Element.() -> Unit,labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
+
+        val filter = initTag(FilterFw(labels, filter), init)
+        filter.applyLoader(this, entry)
+        return filter
+    }
+
+    fun <T> filter(load: String = "SWAP", labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
+        var internLoad = "SWAP"
+        if (load != "SWAP") {
+            if (storedVariable.contains(load)) {
+                internLoad = "$" + load
+            } else {
+                throw WarpScriptDSLException("BUCKETIZE", load)
+            }
+        }
+
+        val filter = initTag(FilterFw(internLoad, labels, filter), init)
+        return filter
+    }
+
+    fun <T> filter(load: Element, labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
+
+        val filter = initTag(FilterFw(load, labels, filter), init)
+        this.children.remove(load)
+        return filter
+    }
+
+    //
+    // Apply framework
+    //
+
+    fun <T> apply(entry: Element.() -> Unit,labels: List<T>, op: ApplyFunction, init: ListTag.() -> Unit = {}): ApplyFw<T> {
+
+        val filter = initTag(ApplyFw(labels, op), init)
+        filter.applyLoader(this, entry)
+        return filter
     }
 
     //
@@ -507,6 +548,10 @@ class WarpScript(name: String) : Tag(name) {
     //
 
     fun push(data: String) = initTag(Push(data), {})
+
+    fun <T>push(data: List<T>) = initTag(Push(this.getListString(data)), {})
+
+    fun <T, U>push(data: Map<T, U>) = initTag(Push(this.getMapString(data)), {})
 
     //
     // Add WarpScript parameters function

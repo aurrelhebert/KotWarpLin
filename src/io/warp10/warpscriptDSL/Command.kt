@@ -148,6 +148,33 @@ fun main(args: Array<String>) {
                     }, Bucketizer().min(), bucketcount = 1L)
         }, Mapper().abs(), 0, 0,1)
 
+        filter(swap(), ArrayList<String>(), Filter().byclass("myClass"))
+        filter("test", ArrayList<String>(), Filter().byclass("myClass"))
+
+        val test = HashMap<String,String>()
+        test.put("2","label0")
+        filter("test", ArrayList<String>(), Filter().bylabels(test))
+
+        push(test)
+        filter({
+            fetch("token", "test")
+            bucketize(
+                    {
+                        swap()
+                        drop()
+                        swap()
+                    }, Bucketizer().min(), bucketcount = 1L)
+        }, ArrayList<String>(), Filter().byclass("myClass"))
+
+        apply({
+            fetch("token", "test")
+            bucketize(
+                    {
+                        swap()
+                        drop()
+                        swap()
+                    }, Bucketizer().min(), bucketcount = 1L)
+        }, ArrayList<String>(), Apply().and())
     }
 
     print(tmp)

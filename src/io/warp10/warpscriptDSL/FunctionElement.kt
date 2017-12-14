@@ -72,10 +72,18 @@ abstract class FunctionElement(val name: String) : Element {
     }
 
     // Generate valid WarpScript for a Java Map
-    protected fun <T> getMapString(map: Map<T, T>): String {
-        val sb = StringBuilder()
+    protected fun <T, U> getMapString(map: Map<T, U>): String {
 
+        // Case empty Map
+        if (map.isEmpty()) {
+            return  "{}"
+        }
+
+        // Open stringBuilder and map
+        val sb = StringBuilder()
         sb.append("{ ")
+
+        // Append each map keys and value
         map.forEach {
             t, u ->
             var key = t.toString()
@@ -89,15 +97,24 @@ abstract class FunctionElement(val name: String) : Element {
             sb.append(key + " " + value + " ")
         }
 
-        sb.append(" }")
+        // Close Map and return value
+        sb.append("}")
         return sb.toString()
     }
 
     // Generate valid WarpScript for a Java List
     protected fun <T> getListString(list: List<T>): String {
-        val sb = StringBuilder()
 
+        // Case empty List
+        if (list.isEmpty()) {
+            return  "[]"
+        }
+
+        // Open stringBuilder and list
+        val sb = StringBuilder()
         sb.append("[ ")
+
+        // Append each list items
         list.forEach {
             t ->
             var value = t.toString()
@@ -107,9 +124,8 @@ abstract class FunctionElement(val name: String) : Element {
             sb.append(value + " ")
         }
 
-        sb.append(" ]")
+        // Close List and return value
+        sb.append("]")
         return sb.toString()
     }
-
-
 }
