@@ -1,6 +1,12 @@
 package io.warp10.warpscriptDSL
 
 //
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
+//
 // Class to call want to store WarpScript elements to re-use
 //
 

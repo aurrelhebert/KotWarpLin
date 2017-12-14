@@ -1,5 +1,11 @@
 package io.warp10.warpscriptDSL
 
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
 class IF : FunctionElement {
 
     var condArray = arrayListOf<Element>()

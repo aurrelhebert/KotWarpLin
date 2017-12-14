@@ -1,8 +1,15 @@
 package io.warp10.warpscriptDSL
 
 //
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
+//
 // Function builder
 //
+
 abstract class FunctionElement(val name: String) : Element {
 
     //

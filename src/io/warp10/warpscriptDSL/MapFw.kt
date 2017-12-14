@@ -1,5 +1,11 @@
 package io.warp10.warpscriptDSL
 
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
 class MapFw : ListTag {
 
     private fun createMapper(mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) {

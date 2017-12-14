@@ -1,6 +1,11 @@
 package io.warp10.warpscriptDSL
 
-import java.util.*
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
 import kotlin.collections.HashMap
 
 //

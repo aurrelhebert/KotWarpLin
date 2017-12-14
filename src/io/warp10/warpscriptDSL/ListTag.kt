@@ -1,7 +1,13 @@
 package io.warp10.warpscriptDSL
 
 //
-// TODO: update and change
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
+//
+// Common code for FILTER, BUCKETIZE, MAPPER, APPLY and FETCH frameworks
 //
 
 abstract class ListTag (name: String) : FunctionElement(name) {

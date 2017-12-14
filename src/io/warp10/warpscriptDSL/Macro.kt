@@ -1,5 +1,11 @@
 package io.warp10.warpscriptDSL
 
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
 class Macro : FunctionElement {
 
     val bodyArray = arrayListOf<Element>()

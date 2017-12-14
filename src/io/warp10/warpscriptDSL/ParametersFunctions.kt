@@ -1,6 +1,10 @@
 package io.warp10.warpscriptDSL
 
-import java.util.jar.Attributes
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
 
 class ParametersFunctions : FunctionElement {
 

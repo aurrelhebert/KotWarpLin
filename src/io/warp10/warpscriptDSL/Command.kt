@@ -1,6 +1,12 @@
 package io.warp10.warpscriptDSL
 
 //
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
+//
 // First WarpScript commands generator
 //
 
