@@ -6,13 +6,6 @@ class Bucketize: ListTag {
     // Function parameters
     //
 
-    fun <T : Element> initTag(entry: Element.() -> Unit, tag: T, init:  T.() -> Unit) : T {
-        //println(tag)
-        tag.init()
-        //children.add(tag)
-        return tag
-    }
-
     private fun createBucketize(bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) {
         if (bucketspan == 0L && bucketcount == 0L ) {
             throw Exception("Inside BUCKETIZE framework, one of bucketspan or bucketcount must be different from zero")

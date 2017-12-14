@@ -2,25 +2,6 @@ package io.warp10.warpscriptDSL
 
 class MapFw : ListTag {
 
-    fun abs() : String {
-        return ("mapper.abs")
-    }
-
-    fun add(value: Long) : String {
-        return ("$value mapper.add")
-    }
-
-    //
-    // Function parameters
-    //
-
-    fun <T : Element> initTag(entry: Element.() -> Unit, tag: T, init:  T.() -> Unit) : T {
-        //println(tag)
-        tag.init()
-        //children.add(tag)
-        return tag
-    }
-
     private fun createMapper(mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) {
         this.attributes.put(1, mapper.toString().removeSuffix("\n").removePrefix(" "))
         this.attributes.put(2, pre.toString())

@@ -26,4 +26,25 @@ abstract class Tag(val name: String) : Element {
         render(builder, "")
         return builder.toString()
     }
+
+    protected fun <T> getMapString(map: Map<T, T>): String {
+        val sb = StringBuilder()
+
+        sb.append("{ ")
+        map.forEach {
+            t, u ->
+            var key = t.toString()
+            if ( t is String) {
+                key = "\'$t\'"
+            }
+            var value = u.toString()
+            if ( u is String) {
+                key = "\'$t\'"
+            }
+            sb.append(key + " " + value)
+        }
+
+        sb.append(" }")
+        return sb.toString()
+    }
 }
