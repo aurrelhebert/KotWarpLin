@@ -6,25 +6,24 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
-class FilterFw : ListTag {
+//
+// Filter framework builder
+//
 
-    private fun createFilter(filter: Element) {
-        this.attributes.put(1, filter.toString().removeSuffix("\n").removePrefix(" "))
+class FilterFw<T> : ListTag {
+
+    //
+    // Create a filter framework
+    // labels to create an equivalence class
+    // Filter operator
+    //
+
+    private fun createFilter(labels: List<T>, filter: Element) {
+        this.attributes.put(1, this.getListString(labels))
+        this.attributes.put(2, filter.toString().removeSuffix("\n").removePrefix(" "))
     }
 
-    constructor(load: String = "SWAP", filter: Element) : super("FILTER") {
-
-        this.attributes.put(0, load)
-        this.createFilter(filter)
-    }
-
-    constructor(load: Element, filter: Element) : super("FILTER") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
-        this.createFilter(filter)
-    }
-
+    // Filter rendering output
     override fun render(builder: StringBuilder, indent: String) {
 
         builder.append("$indent [ \n")
@@ -42,7 +41,23 @@ class FilterFw : ListTag {
         builder.append(indent + " ] $name\n")
     }
 
-    constructor(filter: Element) : super("FILTER") {
-        this.createFilter(filter)
+    // Constructor when loader is a String (variable)
+    constructor(load: String = "SWAP",labels: List<T>, filter: Element) : super("FILTER") {
+
+        this.attributes.put(0, load)
+        this.createFilter(labels, filter)
+    }
+
+    // Constructor when loader is an Element (function)
+    constructor(load: Element,labels: List<T>, filter: Element) : super("FILTER") {
+
+        //this.attributes.put(0, load.render())
+        this.loader.add(load)
+        this.createFilter(labels, filter)
+    }
+
+    // Basic constructor
+    constructor(labels: List<T>, filter: Element) : super("FILTER") {
+        this.createFilter(labels, filter)
     }
 }

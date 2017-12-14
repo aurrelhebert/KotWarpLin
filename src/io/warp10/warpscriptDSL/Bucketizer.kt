@@ -8,6 +8,10 @@ package io.warp10.warpscriptDSL
 
 class Bucketizer: Tag("") {
 
+    //
+    // All bucketizer operators available on WarpScript
+    //
+
     fun and() = initTag(BucketizerFunction("bucketizer.and"), {})
     fun count() = initTag(BucketizerFunction("bucketizer.count"), {})
     fun first() = initTag(BucketizerFunction("bucketizer.first"), {})

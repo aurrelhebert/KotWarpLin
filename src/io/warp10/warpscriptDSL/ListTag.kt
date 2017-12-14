@@ -12,13 +12,11 @@ package io.warp10.warpscriptDSL
 
 abstract class ListTag (name: String) : FunctionElement(name) {
 
+    // Child element of the current list tag element
     val loader = arrayListOf<Element>()
 
+    // Output rendering
     override fun render(builder: StringBuilder, indent: String) {
-
-        //for (c in children) {
-        //    c.render(builder,indent + "  ")
-        //}
 
         builder.append("$indent [ \n")
 
@@ -31,7 +29,7 @@ abstract class ListTag (name: String) : FunctionElement(name) {
 
 
     //
-    // Function used to fill loader of all the child elemenet of the current List tag function
+    // Function used to fill loader of all the child element of the current List tag function
     //
 
     fun applyLoader(ws: WarpScript, entry: Element.() -> Unit) {

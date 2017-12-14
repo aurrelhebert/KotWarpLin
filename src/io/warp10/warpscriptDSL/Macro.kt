@@ -6,10 +6,16 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+//
+// WarpScript Macro builder
+//
+
 class Macro : FunctionElement {
 
+    // Macro body elements
     val bodyArray = arrayListOf<Element>()
 
+    // Macro output rendering
     override fun render(builder: StringBuilder, indent: String) {
         if (!bodyArray.isEmpty()) {
 
@@ -29,6 +35,7 @@ class Macro : FunctionElement {
         this.bodyArray.addAll(this.getChilds(ws,entry))
     }
 
+    // Basic constructor
     constructor() : super("") {
     }
 }

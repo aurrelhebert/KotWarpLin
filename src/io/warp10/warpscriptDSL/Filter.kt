@@ -8,6 +8,9 @@ package io.warp10.warpscriptDSL
 
 class Filter: Tag("") {
 
+    //
+    // All filter operators available on WarpScript
+    //
 
     fun and() = initTag(BucketizerFunction("bucketizer.and"), {})
     fun count() = initTag(BucketizerFunction("bucketizer.count"), {})

@@ -6,17 +6,25 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+//
+// Logic for IF WarpScript function
+//
+
 class IF : FunctionElement {
 
+    // Conditional WarpScript elements
     var condArray = arrayListOf<Element>()
 
+    // Case then WarpScript elements
     val thenArray = arrayListOf<Element>()
 
+    // Case else WarpScript elements
     val elseArray = arrayListOf<Element>()
 
+    // If output rendering
     override fun render(builder: StringBuilder, indent: String) {
 
-
+        // Render conditional in a WarpScript Macro
         if (!condArray.isEmpty()) {
 
             builder.append("$indent <% \n")
@@ -28,6 +36,7 @@ class IF : FunctionElement {
             builder.append("$indent %> \n")
         }
 
+        // Render then case in a second WarpScript Macro
         if (!thenArray.isEmpty()) {
 
             builder.append("$indent <% \n")
@@ -37,6 +46,7 @@ class IF : FunctionElement {
             builder.append(indent + " %> \n")
         }
 
+        // Render else case in a third WarpScript Macro (if existing)
         if (!elseArray.isEmpty()) {
 
             builder.append("$indent <% \n")

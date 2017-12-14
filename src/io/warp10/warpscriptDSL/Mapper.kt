@@ -8,6 +8,10 @@ package io.warp10.warpscriptDSL
 
 class Mapper: Tag("") {
 
+    //
+    // All mapper operators available on WarpScript
+    //
+
     fun abs() = initTag(MapperFunction("mapper.abs"), {})
 
     fun add(value: Long): MapperFunction {

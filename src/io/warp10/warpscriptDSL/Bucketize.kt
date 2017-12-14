@@ -6,10 +6,18 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+//
+// Class to build a Bucketize function
+//
+
 class Bucketize: ListTag {
 
     //
-    // Function parameters
+    // Initialize bucketize with it's main parameters:
+    // a bucketizer function
+    // the lastbucket parameter
+    // the bucketspan parameter
+    // bucketcount parameter
     //
 
     private fun createBucketize(bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) {
@@ -23,19 +31,7 @@ class Bucketize: ListTag {
         this.attributes.put(4, bucketcount.toString())
     }
 
-    constructor(load: String = "SWAP", bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
-
-        this.attributes.put(0, load)
-        this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
-    }
-
-    constructor(load: Element, bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
-        this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
-    }
-
+    // Bucketize rendering output
     override fun render(builder: StringBuilder, indent: String) {
 
         builder.append("$indent [ \n")
@@ -53,6 +49,22 @@ class Bucketize: ListTag {
         builder.append(indent + " ] $name\n")
     }
 
+    // Constructor using String as main loader
+    constructor(load: String = "SWAP", bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
+
+        this.attributes.put(0, load)
+        this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
+    }
+
+    // Constructor using an Element as Loader
+    constructor(load: Element, bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
+
+        //this.attributes.put(0, load.render())
+        this.loader.add(load)
+        this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
+    }
+
+    // Bucketize main element init
     constructor(bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
         this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
     }

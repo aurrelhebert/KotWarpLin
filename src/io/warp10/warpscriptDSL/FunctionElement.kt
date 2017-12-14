@@ -12,19 +12,10 @@ package io.warp10.warpscriptDSL
 
 abstract class FunctionElement(val name: String) : Element {
 
-    //
-    // Function parameters
-    //
-
+    // Current function parameters
     val attributes = hashMapOf<Number, String>()
 
-    //
     // Build render for a WS function:
-    //   param0
-    //   param1
-    //   FUNCTION
-    //
-
     override fun render(builder: StringBuilder, indent: String) {
 
         for ((_,value) in attributes) {
@@ -34,17 +25,14 @@ abstract class FunctionElement(val name: String) : Element {
         builder.append(indent + " $name \n")
     }
 
+    // Current function output
     override fun toString(): String {
         val builder = StringBuilder()
         render(builder, "")
         return builder.toString()
     }
 
-
-    //
     // Get current element child for a given entry
-    //
-
     protected fun getChilds(ws: WarpScript, entry: Element.() -> Unit): ArrayList<Element> {
 
         //
@@ -83,6 +71,7 @@ abstract class FunctionElement(val name: String) : Element {
         return currentWs
     }
 
+    // Generate valid WarpScript for a Java Map
     protected fun <T> getMapString(map: Map<T, T>): String {
         val sb = StringBuilder()
 
@@ -97,11 +86,30 @@ abstract class FunctionElement(val name: String) : Element {
             if ( u is String) {
                 key = "\'$t\'"
             }
-            sb.append(key + " " + value)
+            sb.append(key + " " + value + " ")
         }
 
         sb.append(" }")
         return sb.toString()
     }
+
+    // Generate valid WarpScript for a Java List
+    protected fun <T> getListString(list: List<T>): String {
+        val sb = StringBuilder()
+
+        sb.append("[ ")
+        list.forEach {
+            t ->
+            var value = t.toString()
+            if ( t is String) {
+                value = "\'$t\'"
+            }
+            sb.append(value + " ")
+        }
+
+        sb.append(" ]")
+        return sb.toString()
+    }
+
 
 }

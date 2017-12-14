@@ -6,6 +6,10 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+//
+// Indicate that the current operator belongs to Bucketize framework
+//
+
 class BucketizerFunction : FunctionElement {
 
     constructor(name: String) : super(name)

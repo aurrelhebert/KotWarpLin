@@ -6,13 +6,22 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+//
+// WarpScript LOOP builder
+//
+
 class LOOP : FunctionElement {
 
+    // Body elements
     val bodyArray = arrayListOf<Element>()
+
+    // Second data elements : Step or conditional
     val stepArray = arrayListOf<Element>()
 
+    // Output rendering
     override fun render(builder: StringBuilder, indent: String) {
 
+        // Push LOOP parameters if exists
         if (!attributes.isEmpty()) {
             builder.append(indent)
             for ((_, value) in attributes) {
@@ -22,7 +31,7 @@ class LOOP : FunctionElement {
             builder.append("\n")
         }
 
-
+        // Push step or conditional if exists
         if (!stepArray.isEmpty()) {
 
             builder.append("$indent <% \n")
@@ -32,7 +41,7 @@ class LOOP : FunctionElement {
             builder.append(indent + " %> \n")
         }
 
-
+        // Push LOOP body
         if (!bodyArray.isEmpty()) {
 
             builder.append("$indent <% \n")
