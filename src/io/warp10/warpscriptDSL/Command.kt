@@ -21,12 +21,12 @@ fun main(args: Array<String>) {
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
         fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
-        bucketize(bucketizer = Bucketizer.MAX, bucketcount = 1L)
-        bucketize(drop(), bucketizer =  Bucketizer.MAX, bucketcount = 1L)
+        bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
+        bucketize(drop(), bucketizer =  Bucketizer().max(), bucketcount = 1L)
 
         bucketize(
-                    bucketize(fetch("token", "test"), bucketizer = Bucketizer.MAX, bucketcount = 1L)
-                , Bucketizer.MAX, bucketcount = 1L)
+                    bucketize(fetch("token", "test"), bucketizer = Bucketizer().max(), bucketcount = 1L)
+                , Bucketizer().max(), bucketcount = 1L)
 
         bucketize(
                 {
@@ -36,9 +36,9 @@ fun main(args: Array<String>) {
                                 swap()
                                 drop()
                                 swap()
-                            }, Bucketizer.MIN, bucketcount = 1L)
+                            }, Bucketizer().min(), bucketcount = 1L)
                 }
-                , bucketizer = Bucketizer.COUNT, bucketcount = 1L)
+                , bucketizer = Bucketizer().count(), bucketcount = 1L)
         load("test")
         drop()
 
@@ -128,10 +128,23 @@ fun main(args: Array<String>) {
 
         evalMacro("titi")
         load("titi")
+        map(swap(), Mapper().add(2), 0, 0,1)
+
+        map("titi", Mapper().abs(), 0, 0,1)
+
+        map({
+            fetch("token", "test")
+            bucketize(
+                    {
+                        swap()
+                        drop()
+                        swap()
+                    }, Bucketizer().min(), bucketcount = 1L)
+        }, Mapper().abs(), 0, 0,1)
+
     }
 
     print(tmp)
-
 }
 
 //
@@ -143,3 +156,4 @@ fun warpScript(init: WarpScript.() -> Unit): WarpScript {
     ws.init()
     return ws
 }
+
