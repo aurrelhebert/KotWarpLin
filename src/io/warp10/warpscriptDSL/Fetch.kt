@@ -12,63 +12,36 @@ import kotlin.collections.HashMap
 // Fetch Framework class
 //
 
-class Fetch : ListTag("FETCH") {
+class Fetch : FunctionElement {
 
-    // Token attribute --> always in first position
-    var token: String
-        get() = attributes[0]!!
-        set(value) {
-            attributes.put(0, value)
-        }
+    private fun createFetch(token: String, selector: String, labels: String, start: String, end: String ) {
 
-    // Selector attribute --> always in second position
-    var selector: String
-        get() = attributes[1]!!
-        set(value) {
-            attributes.put(1, value)
-        }
+        this.pre = "["
+        this.post = "]"
 
-    // Labels as string -> 3rd
-    var labels: String
-        get() = attributes[2]!!
-        set(value) {
-            attributes.put(2, value)
-        }
-
-    // Start date --> String
-    var start: String
-        get() = attributes[3]!!
-        set(value) {
-            attributes.put(3, value)
-        }
-
-    // End date --> String
-    var end: String
-        get() = attributes[4]!!
-        set(value) {
-            attributes.put(4, value)
-        }
-
-    // Constructors
-
-    fun setAttr(token : String, selector : String, labels : Map<String, String> = HashMap(), start : String = "NOW", end : String="-1") {
-        this.token=token
-        this.selector="\'" + selector + "\'"
-        this.labels= parseLabels(labels)
-
-        //this.checkTicks(start, end)
-
-        this.start=start
-        this.end=end
+        this.setelements(hashMapOf<Number, Any>(  1 to StringElement(token), 2 to selector,
+                3 to StringElement(labels), 4 to StringElement(start), 5 to StringElement(end)))
     }
 
-    fun setAttr(token : String, selector : String, labels : Map<String, String>, start : FunctionElement, end : String) {
-        this.token=token
-        this.selector="\'" + selector + "\'"
-        this.labels= parseLabels(labels)
-        this.start = start.toString().removeSuffix("\n").removePrefix(" ")
-        this.end=end
+    // Constructor using String as main loader
+    constructor(token: String, selector: String, labels : Map<String, String> = HashMap(), start: Any = "_NOW", end: Any = -1) : super("FETCH") {
+        this.createFetch(token,selector,this.parseLabels(labels),this.getTimeString(start), this.getTimeString(end))
     }
+
+    private fun getTimeString(time: Any): String {
+        var returnString = ""
+        if (time == "_NOW"){
+            returnString = "NOW"
+        } else if (time is Number) {
+            returnString = time.toString()
+        } else if (time is String) {
+            returnString = "\'$time\'"
+        } else {
+            throw Exception ("Error in FETCH function, expects start and end to be number or string")
+        }
+        return returnString
+    }
+
 
     // Convert labels to string
     private fun parseLabels(labels: Map<String, String>) : String {

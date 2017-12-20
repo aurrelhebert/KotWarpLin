@@ -23,16 +23,11 @@ fun main(args: Array<String>) {
         store("now")
         fetch(token= "token", selector="name")
         fetch("token2", "name", hashMapOf("key" to "value", "k2" to "3" ))
-        fetch("token", "name", start = now(), end = "-100")
+        //fetch("token", "name", start = now(), end = "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
-        fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
+        //fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
-        bucketize(drop(), bucketizer =  Bucketizer().max(), bucketcount = 1L)
-
-        bucketize(
-                    bucketize(fetch("token", "test"), bucketizer = Bucketizer().max(), bucketcount = 1L)
-                , Bucketizer().max(), bucketcount = 1L)
 
         bucketize(
                 {
@@ -86,11 +81,10 @@ fun main(args: Array<String>) {
                     fetch("token", "test-2")
                 })
 
-        fetch("token", "name", hashMapOf("key" to "value"), load("now"), "-100")
+        fetch("token", "name", hashMapOf("key" to "value"),end= "-100")
         timeShift(100)
 
         push("\'test\' STORE")
-        timeShift("test",100)
 
         timeShift(100, {
                 fetch("inside", "inside")
@@ -175,6 +169,16 @@ fun main(args: Array<String>) {
                         swap()
                     }, Bucketizer().min(), bucketcount = 1L)
         }, ArrayList<String>(), Apply().and())
+
+        timeShift(100)
+        timeShift({load("test")})
+        timeShift({
+            timeShift( {
+                now()
+                load("test")
+            })
+            load("test")
+        }, { now() })
     }
 
     print(tmp)

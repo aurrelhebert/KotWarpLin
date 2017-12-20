@@ -6,7 +6,9 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
-import java.util.*
+import kotlin.collections.HashMap
+import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.PlatformDependentDeclarationFilter
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 //
 // Kotlin WarpScript Lib
@@ -20,7 +22,7 @@ class WarpScript(name: String) : Tag(name) {
     // Fetch framework
     //
 
-    fun fetch(token: String = "READ", selector: String, labels: Map<String, String> = HashMap(), start: String = "NOW", end: String = "-1", loadToken: Boolean = false, init: Fetch.() -> Unit = {}): Fetch {
+    fun fetch(token: String = "READ", selector: String, labels: Map<String, String> = HashMap(), start: Any = "_NOW", end: Any = -1, loadToken: Boolean = false, init: Fetch.() -> Unit = {}): Fetch {
         var fetchToken = "\'" + token + "\'"
 
         if (loadToken) {
@@ -31,25 +33,7 @@ class WarpScript(name: String) : Tag(name) {
             }
         }
 
-        val fetch = initTag(Fetch(), init)
-        fetch.setAttr(fetchToken, selector, labels, start, end)
-        return fetch
-    }
-
-    fun fetch(token: String = "READ", selector: String, labels: Map<String, String> = HashMap(), start: FunctionElement, end: String = "-1", loadToken: Boolean = false, init: Fetch.() -> Unit = {}): Fetch {
-        var fetchToken = "\'" + token + "\'"
-
-        if (loadToken) {
-            if (storedVariable.contains(token)) {
-                fetchToken = "$" + token
-            } else {
-                throw WarpScriptDSLException("FETCH",fetchToken)
-            }
-        }
-
-        val fetch = initTag(Fetch(), init)
-        this.children.remove(start)
-        fetch.setAttr(fetchToken, selector, labels, start, end)
+        val fetch = initTag(Fetch(fetchToken, selector, labels, start, end), init)
         return fetch
     }
 
@@ -57,21 +41,14 @@ class WarpScript(name: String) : Tag(name) {
     // Bucketize framework
     //
 
-    fun bucketize(entry: Element.() -> Unit, bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: ListTag.() -> Unit = {}): Bucketize {
+    fun bucketize(entry: Element.() -> Unit, bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: Bucketize.() -> Unit = {}): Bucketize {
 
         val bucketize = initTag(Bucketize(bucketizer, lastBucket, bucketspan, bucketcount), init)
-        bucketize.applyLoader(this, entry)
+        bucketize.updateInputSeries(this, entry)
         return bucketize
     }
 
-    fun bucketize(load: Element, bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: ListTag.() -> Unit = {}): ListTag {
-
-        val bucketize = initTag(Bucketize(load, bucketizer, lastBucket, bucketspan, bucketcount), init)
-        this.children.remove(load)
-        return bucketize
-    }
-
-    fun bucketize(load: String = "SWAP", bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: ListTag.() -> Unit = {}): ListTag {
+    fun bucketize(load: String = "SWAP", bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: Bucketize.() -> Unit = {}): Bucketize {
         var internLoad = "SWAP"
         if (load != "SWAP") {
             if (storedVariable.contains(load)) {
@@ -556,18 +533,23 @@ class WarpScript(name: String) : Tag(name) {
     //
     // Add WarpScript parameters function
     //
-
-    fun timeShift(delta: Long, init: ParametersFunctions.() -> Unit = {}): ParametersFunctions {
-        return initTag(ParametersFunctions("TIMESHIFT", hashMapOf(0 to delta.toString())), init)
+    fun timeShift(init: ParametersFunctions.() -> Unit = {}): ParametersFunctions {
+        return initTag(ParametersFunctions("TIMESHIFT"), init)
     }
 
-    fun timeShift(input: String, delta: Long, init: ParametersFunctions.() -> Unit = {}): ParametersFunctions {
-        val load = "$" + input
-        if (storedVariable.contains(input)) {
-            return initTag(ParametersFunctions("TIMESHIFT", hashMapOf(0 to load.toString(), 1 to delta.toString())), init)
-        } else {
-            throw WarpScriptDSLException("TIMESHIFT", input)
-        }
+    fun timeShift (delta: Long, init: ParametersFunctions.() -> Unit = {}): ParametersFunctions {
+        val timeShift = initTag(ParametersFunctions("TIMESHIFT"), init)
+        timeShift.setelements(hashMapOf<Number,Any>(0 to delta))
+        return timeShift
+    }
+
+    fun timeShift(delta: Element.() -> Unit, init: ParametersFunctions.() -> Unit = {}): ParametersFunctions {
+        var deltaElements = ArrayList<Element>()
+        var timeShift = initTag(ParametersFunctions("TIMESHIFT"), init)
+
+        deltaElements.addAll(timeShift.getChilds(this,delta))
+        timeShift.setAttributesElements(1,deltaElements)
+        return timeShift
     }
 }
 

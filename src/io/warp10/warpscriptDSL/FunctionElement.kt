@@ -14,15 +14,39 @@ abstract class FunctionElement(val name: String) : Element {
 
     // Current function parameters
     val attributes = hashMapOf<Number, String>()
+    val attributesElements = hashMapOf<Number, ArrayList<Element>>()
+    var pre: String = ""
+    var post: String = ""
 
     // Build render for a WS function:
     override fun render(builder: StringBuilder, indent: String) {
 
-        for ((_,value) in attributes) {
-            builder.append(indent + " $value")
+        if (!attributes.isEmpty()) {
+            for ((_, value) in attributes) {
+                builder.append(indent + " $value")
+            }
         }
 
-        builder.append(indent + " $name \n")
+        if (pre != "") {
+            builder.append(indent + pre + "\n")
+        }
+
+        if (!attributesElements.isEmpty()) {
+            for ((_,value) in attributesElements) {
+                if (!value.isEmpty()) {
+                    for (items in value) {
+                        items.render(builder,   indent + "  ")
+                    }
+                }
+            }
+        }
+
+        if (post != "") {
+            builder.append(indent + post + "\n")
+        }
+
+        builder.append(indent + "$name")
+        builder.append("\n")
     }
 
     // Current function output
@@ -33,7 +57,7 @@ abstract class FunctionElement(val name: String) : Element {
     }
 
     // Get current element child for a given entry
-    protected fun getChilds(ws: WarpScript, entry: Element.() -> Unit): ArrayList<Element> {
+    fun getChilds(ws: WarpScript, entry: Element.() -> Unit): ArrayList<Element> {
 
         //
         // Initalize two empty list
@@ -69,6 +93,39 @@ abstract class FunctionElement(val name: String) : Element {
         ws.children.removeAll(currentWs)
 
         return currentWs
+    }
+
+    // Add Kotlin native elements into attributes elements
+    fun <T> setelements(mapElements: Map<Number, T>) {
+
+        for ((key,mapValue) in mapElements) {
+            val elements = ArrayList<Element>()
+            var value:String
+
+            // For each native case
+            if (mapValue is Number) {
+                value = mapValue.toString()
+            } else if (mapValue is String) {
+                value = "\'$mapValue\'"
+            } else if (mapValue is Boolean) {
+                value = mapValue.toString()
+            } else if (mapValue is StringElement) {
+                value = mapValue.toString().removeSuffix("\n")
+            } else if (mapValue is Element) {
+                value = mapValue.toString().removePrefix(" ").removeSuffix("\n")
+            } else {
+                throw Exception("Expect native type for a parameter: String, Number or Boolean")
+            }
+
+            //Add current parameter to attributes map
+            elements.add(StringElement(value))
+            this.attributesElements.put(key,elements)
+        }
+    }
+
+    // Set a specific attribute for a function
+    fun setAttributesElements(index: Int, value: ArrayList<Element>) {
+        this.attributesElements.put(index, value)
     }
 
     // Generate valid WarpScript for a Java Map
@@ -127,5 +184,15 @@ abstract class FunctionElement(val name: String) : Element {
         // Close List and return value
         sb.append("]")
         return sb.toString()
+    }
+
+    //
+    // Function used to fill loader of all the child element of the current List tag function
+    //
+
+    fun applyLoader(ws: WarpScript, entry: Element.() -> Unit, key: Int) {
+        val elements = ArrayList<Element>()
+        elements.addAll(this.getChilds(ws, entry))
+        this.setAttributesElements(key, elements)
     }
 }

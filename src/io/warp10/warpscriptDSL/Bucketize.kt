@@ -10,7 +10,7 @@ package io.warp10.warpscriptDSL
 // Class to build a Bucketize function
 //
 
-class Bucketize: ListTag {
+class Bucketize: FunctionElement {
 
     //
     // Initialize bucketize with it's main parameters:
@@ -21,51 +21,47 @@ class Bucketize: ListTag {
     //
 
     private fun createBucketize(bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) {
+
         if (bucketspan == 0L && bucketcount == 0L ) {
             throw Exception("Inside BUCKETIZE framework, one of bucketspan or bucketcount must be different from zero")
         }
 
-        this.attributes.put(1, bucketizer.toString().removeSuffix("\n").removePrefix(" "))
-        this.attributes.put(2, lastBucket.toString())
-        this.attributes.put(3, bucketspan.toString())
-        this.attributes.put(4, bucketcount.toString())
-    }
+        this.pre = "["
+        this.post = "]"
 
-    // Bucketize rendering output
-    override fun render(builder: StringBuilder, indent: String) {
-
-        builder.append("$indent [ \n")
-
-        if (!loader.isEmpty()) {
-            for (items in loader) {
-                items.render(builder,indent + "  ")
-            }
-        }
-
-        for ((_,value) in attributes) {
-            builder.append(indent + "   $value \n")
-        }
-
-        builder.append(indent + " ] $name\n")
+        this.setelements(hashMapOf<Number, Any>(  2 to bucketizer, 3 to lastBucket,
+                4 to bucketspan, 5 to bucketcount))
     }
 
     // Constructor using String as main loader
     constructor(load: String = "SWAP", bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
 
-        this.attributes.put(0, load)
-        this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
-    }
-
-    // Constructor using an Element as Loader
-    constructor(load: Element, bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
+        this.setelements(hashMapOf<Number, Any>(1 to StringElement(load)))
         this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
     }
 
     // Bucketize main element init
     constructor(bucketizer: Element, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L) : super("BUCKETIZE") {
         this.createBucketize(bucketizer,lastBucket,bucketspan,bucketcount)
+    }
+
+    fun updateInputSeries(ws: WarpScript, entry: Element.() -> Unit) {
+        this.applyLoader(ws, entry, 1)
+    }
+
+    fun updateBucketizer(ws: WarpScript, entry: Element.() -> Unit) {
+        this.applyLoader(ws, entry, 2)
+    }
+
+    fun updateLastBucket(ws: WarpScript, entry: Element.() -> Unit) {
+        this.applyLoader(ws, entry, 3)
+    }
+
+    fun updateBucketSpan(ws: WarpScript, entry: Element.() -> Unit) {
+        this.applyLoader(ws, entry, 4)
+    }
+
+    fun updateBucketCount(ws: WarpScript, entry: Element.() -> Unit) {
+        this.applyLoader(ws, entry, 5)
     }
 }
