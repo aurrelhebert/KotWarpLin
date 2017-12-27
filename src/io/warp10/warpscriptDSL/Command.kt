@@ -13,7 +13,6 @@ package io.warp10.warpscriptDSL
 fun main(args: Array<String>) {
     //println(true.toString())
 
-
     var tmp = warpScript {
         allowVariableName(listOf("test", "token"))
         push("NOW")

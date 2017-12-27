@@ -13,7 +13,6 @@ package io.warp10.warpscriptDSL
 fun main(args: Array<String>) {
     //println(true.toString())
 
-
     var tmp = warp {
 
         allowVariableName(listOf("test"))

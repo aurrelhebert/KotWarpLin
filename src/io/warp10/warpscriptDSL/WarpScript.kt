@@ -524,40 +524,6 @@ class WarpScript(name: String) : Tag(name) {
         return macro
     }
 
-
-
-    //
-    // Implement some single functions of the WarpScript language
-    // Be aware
-    // Warp 10 NULL = nullWarp
-    // Warp 10 LOAD = loadWarp
-    //
-
-    fun now() = initTag(StandaloneFunction("NOW"), {})
-    fun drop() = initTag(StandaloneFunction("DROP"), {})
-    fun swap() = initTag(StandaloneFunction("SWAP"), {})
-    fun stop() = initTag(StandaloneFunction("STOP"), {})
-    fun clear() = initTag(StandaloneFunction("CLEAR"), {})
-    fun sort() = initTag(StandaloneFunction("SORT"), {})
-    fun nullWarp() = initTag(StandaloneFunction("NULL"), {})
-    fun eval() = initTag(StandaloneFunction("EVAL"), {})
-    fun evalSecure() = initTag(StandaloneFunction("EVALSecure"), {})
-    fun snapshot() = initTag(StandaloneFunction("SNAPSHOT"), {})
-    fun snapshotAll() = initTag(StandaloneFunction("SNAPSHOTALL"), {})
-    fun loadWarp() = initTag(StandaloneFunction("LOAD"), {})
-    fun run() = initTag(StandaloneFunction("RUN"), {})
-    fun bootstrap() = initTag(StandaloneFunction("BOOTSTRAP"), {})
-    fun mapStart() = initTag(StandaloneFunction("{"), {})
-    fun mapeEnd() = initTag(StandaloneFunction("}"), {})
-    fun listStart() = initTag(StandaloneFunction("["), {})
-    fun listEnd() = initTag(StandaloneFunction("]"), {})
-    fun toVector() = initTag(StandaloneFunction("->V"), {})
-    fun toSet() = initTag(StandaloneFunction("->SET"), {})
-    fun newgts() = initTag(StandaloneFunction("NEWGTS"), {})
-    fun relabel() = initTag(StandaloneFunction("RELABEL"), {})
-    fun rename() = initTag(StandaloneFunction("RENAME"), {})
-    fun parseSelector() = initTag(StandaloneFunction("PARSESELECTOR"), {})
-
     //
     // Single Store function
     //

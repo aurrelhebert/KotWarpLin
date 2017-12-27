@@ -53,12 +53,14 @@ class Bucketize {
             return elements
         }
 
+        // Verify Bucketize validity
         fun verifyBucketize(bucketizer: Element?, bucketizerElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
             if (bucketizer==null && bucketizerElements == emptyLambda) {
                 throw Exception("WarpScrip Syntax error for Bucketize function: expect a valid bucketizer")
             }
         }
 
+        // Verify if at least bucketspan of bucketcount was set
         fun verifyBucketizeNative(bucketspan: Long, bucketcount: Long) {
             if (bucketspan == 0L && bucketcount == 0L ) {
                 throw Exception("Inside BUCKETIZE framework, one of bucketspan or bucketcount must be different from zero")

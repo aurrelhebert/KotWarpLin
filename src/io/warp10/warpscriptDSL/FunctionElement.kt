@@ -84,7 +84,7 @@ abstract class FunctionElement(val name: String) : Element {
 
         if (!attributes.isEmpty()) {
             for ((_, value) in attributes) {
-                builder.append(indent + " $value ")
+                builder.append(indent + "$value ")
             }
         }
 
@@ -173,7 +173,7 @@ abstract class FunctionElement(val name: String) : Element {
             } else if (mapValue is StringElement) {
                 value = mapValue.toString().removeSuffix("\n")
             } else if (mapValue is Element) {
-                value = mapValue.toString().removePrefix(" ").removeSuffix("\n")
+                value = mapValue.toString().removeSuffix("\n")
             } else {
                 throw Exception("Expect native type for a parameter: String, Number or Boolean")
             }
