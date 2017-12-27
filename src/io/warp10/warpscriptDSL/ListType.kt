@@ -1,5 +1,12 @@
 package io.warp10.warpscriptDSL
 
+//
+// WarpScript KOTLINDSL
+// @author aurrelhebert
+// @license apache 2.0
+//
+
+// Class used to instantiate WarpScript function loading a list as first parameter
 class ListType : FunctionElement {
 
 

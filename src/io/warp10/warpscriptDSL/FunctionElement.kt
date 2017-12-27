@@ -198,6 +198,10 @@ abstract class FunctionElement(val name: String) : Element {
         }
     }
 
+    //
+    // Constructor used to load elements parameters of a WarpScript function
+    //
+
     constructor(name: String, native: HashMap<Number, Any>,
                 nativeElements: HashMap<Number, Element.() -> Unit>,
                 ws: WarpScript,
