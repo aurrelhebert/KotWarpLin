@@ -64,11 +64,54 @@ class WarpScript(name: String) : Tag(name) {
         return fetch
     }
 
-
     //
     // Bucketize framework
     //
 
+    fun bucketize(load: String = "SWAP", bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: ListType.() -> Unit = {}): ListType {
+        val bucketize = initTag(ListType(
+                    "BUCKETIZE",
+                    Bucketize.getNativeBucketizeParameters(load,bucketizer,lastBucket,bucketspan,bucketcount),
+                    HashMap(),
+                    this,
+                    emptyLambda
+            ), init)
+        return bucketize
+    }
+
+    fun bucketize(load: String = "SWAP", loadElements: Element.() -> Unit = emptyLambda,
+                  bucketizer: BucketizerFunction? = null, bucketizerElements: Element.() -> Unit = emptyLambda,
+                  lastBucket: Long = 0L, lastBucketElements: Element.() -> Unit = emptyLambda,
+                  bucketspan: Long = 0L, bucketspanElements: Element.() -> Unit = emptyLambda,
+                  bucketcount: Long = 0L, bucketcountElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        Bucketize.verifyBucketize(bucketizer, bucketizerElements, emptyLambda)
+        val bucketize = initTag(ListType(
+                    "BUCKETIZE",
+                    Bucketize.getNativeBucketizeParameters(load,bucketizer,lastBucket,bucketspan,bucketcount),
+                    Bucketize.getElementBucketizeParameters(loadElements,bucketizerElements,lastBucketElements,bucketspanElements,bucketcountElements),
+                    this,
+                    emptyLambda
+            ), init)
+        return bucketize
+    }
+
+    fun bucketize(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var bucketize = initTag(ListType("BUCKETIZE"), init)
+        if (parameters != emptyLambda) {
+            bucketize = initTag(ListType("BUCKETIZE",
+                    HashMap<Number,Any>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
+        }
+
+        return bucketize
+    }
+
+    /*
     fun bucketize(parameters: Element.() -> Unit = emptyLambda, init: Bucketize.() -> Unit = {}): Bucketize {
 
         val bucketize = initTag(Bucketize(), init)
@@ -136,6 +179,7 @@ class WarpScript(name: String) : Tag(name) {
         }
         return bucketize
     }
+    */
 
     //
     // Map framework
