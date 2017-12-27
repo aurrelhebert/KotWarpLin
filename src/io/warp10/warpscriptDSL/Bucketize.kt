@@ -46,10 +46,10 @@ class Bucketize {
                                           bucketizerElements: Element.() -> Unit,
                                           lastBucketElements: Element.() -> Unit,
                                           bucketspanElements: Element.() -> Unit,
-                                          bucketcount: Element.() -> Unit
+                                          bucketcountElements: Element.() -> Unit
                                          ): HashMap<Number, Element.() -> Unit> {
             val elements = hashMapOf<Number, Element.() -> Unit>(1 to inputElements, 2 to bucketizerElements,
-                    3 to lastBucketElements, 4 to bucketspanElements, 5 to bucketcount)
+                    3 to lastBucketElements, 4 to bucketspanElements, 5 to bucketcountElements)
             return elements
         }
 
@@ -59,5 +59,10 @@ class Bucketize {
             }
         }
 
+        fun verifyBucketizeNative(bucketspan: Long, bucketcount: Long) {
+            if (bucketspan == 0L && bucketcount == 0L ) {
+                throw Exception("Inside BUCKETIZE framework, one of bucketspan or bucketcount must be different from zero")
+            }
+        }
     }
 }

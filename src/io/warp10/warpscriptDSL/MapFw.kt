@@ -10,59 +10,55 @@ package io.warp10.warpscriptDSL
 // Mapper framework builder
 //
 
-class MapFw : ListTag {
+class MapFw {
+
+    companion object {
+
+        // Generate hashMap of native elements for a Map function
+        //
+        // Initialize Map with it's main parameters:
+        // input Series
+        // a map function
+        // the pre parameter
+        // the post parameter
+        // an occurrences parameter
+        //
+        //
+
+        fun getNativeMapParameters(input: String,
+                                         mapper: Element?,
+                                         pre: Long = 0L,
+                                         post: Long = 0L,
+                                         occurrences: Long = 0L
+        ): HashMap<Number, Any> {
 
 
-    //
-    // Initialize Map with it's main parameters:
-    // a map function
-    // the pre parameter
-    // the post parameter
-    // an occurrences parameter
-    //
+            val elements = hashMapOf<Number, Any>(1 to StringElement(input),
+                    3 to pre, 4 to post,
+                    5 to occurrences)
+            if (mapper != null) {
+                elements.put(2, mapper)
+            }
+            return elements
+        }
 
-    private fun createMapper(mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) {
-        this.attributes.put(1, mapper.toString().removeSuffix("\n").removePrefix(" "))
-        this.attributes.put(2, pre.toString())
-        this.attributes.put(3, post.toString())
-        this.attributes.put(4, occurrences.toString())
-    }
+        // Generate hashMap of elements for a Fetch function
+        fun getElementMapParameters(inputElements: Element.() -> Unit,
+                                    mapperElements: Element.() -> Unit,
+                                    preElements: Element.() -> Unit,
+                                    postElements: Element.() -> Unit,
+                                    occurrencesElements: Element.() -> Unit
+        ): HashMap<Number, Element.() -> Unit> {
+            val elements = hashMapOf<Number, Element.() -> Unit>(1 to inputElements, 2 to mapperElements,
+                    3 to preElements, 4 to postElements, 5 to occurrencesElements)
+            return elements
+        }
 
-    // Map output rendering
-    override fun render(builder: StringBuilder, indent: String) {
-
-        builder.append("$indent [ \n")
-
-        if (!loader.isEmpty()) {
-            for (items in loader) {
-                items.render(builder,indent + "  ")
+        fun verifyMapper(mapper: Element?, mapperElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
+            if (mapper==null && mapperElements == emptyLambda) {
+                throw Exception("WarpScrip Syntax error for Bucketize function: expect a valid bucketizer")
             }
         }
 
-        for ((_,value) in attributes) {
-            builder.append(indent + "   $value \n")
-        }
-
-        builder.append(indent + " ] $name\n")
-    }
-
-    // Constructor to build a mapper using a variable loader
-    constructor(load: String = "SWAP", mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) : super("MAP") {
-
-        this.attributes.put(0, load)
-        this.createMapper(mapper,pre,post,occurrences)
-    }
-
-    // Constructor to build a mapper using an element loader
-    constructor(load: Element, mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) : super("MAP") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
-        this.createMapper(mapper,pre,post,occurrences)
-    }
-
-    // Basic constructor
-    constructor(mapper: Element, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L) : super("MAP") {
-        this.createMapper(mapper,pre,post,occurrences)
     }
 }

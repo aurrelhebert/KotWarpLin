@@ -69,6 +69,7 @@ class WarpScript(name: String) : Tag(name) {
     //
 
     fun bucketize(load: String = "SWAP", bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: ListType.() -> Unit = {}): ListType {
+        Bucketize.verifyBucketizeNative(bucketspan, bucketcount)
         val bucketize = initTag(ListType(
                     "BUCKETIZE",
                     Bucketize.getNativeBucketizeParameters(load,bucketizer,lastBucket,bucketspan,bucketcount),
@@ -111,106 +112,51 @@ class WarpScript(name: String) : Tag(name) {
         return bucketize
     }
 
-    /*
-    fun bucketize(parameters: Element.() -> Unit = emptyLambda, init: Bucketize.() -> Unit = {}): Bucketize {
-
-        val bucketize = initTag(Bucketize(), init)
-        if (parameters != emptyLambda) {
-            bucketize.pre = "["
-            bucketize.post = "]"
-            bucketize.updateInputSeries(this, parameters)
-        }
-        return bucketize
-    }
-
-    fun bucketize(load: String = "SWAP", bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: Bucketize.() -> Unit = {}): Bucketize {
-        var internLoad = "SWAP"
-        if (load != "SWAP") {
-            if (storedVariable.contains(load)) {
-                internLoad = "$" + load
-            } else {
-                throw WarpScriptDSLException("BUCKETIZE", load)
-            }
-        }
-
-        val bucketize = initTag(Bucketize(internLoad, bucketizer, lastBucket, bucketspan, bucketcount), init)
-        return bucketize
-    }
-
-    fun bucketize(load: String = "SWAP", loadElements: Element.() -> Unit = emptyLambda,
-                  bucketizer: BucketizerFunction? = null, bucketizerElements: Element.() -> Unit = emptyLambda,
-                  lastBucket: Long = 0L, lastBucketElements: Element.() -> Unit = emptyLambda,
-                  bucketspan: Long = 0L, bucketspanElements: Element.() -> Unit = emptyLambda,
-                  bucketcount: Long = 0L, bucketcountElements: Element.() -> Unit = emptyLambda, init: Bucketize.() -> Unit = {}): Bucketize {
-        var internLoad = "SWAP"
-
-        if (load != "SWAP") {
-            if (storedVariable.contains(load)) {
-                internLoad = "$" + load
-            } else {
-                if (loadElements == emptyLambda) {
-                    throw WarpScriptDSLException("BUCKETIZE", load)
-                }
-            }
-        }
-
-        val bucketize = initTag(Bucketize(internLoad, bucketizer, lastBucket, bucketspan, bucketcount), init)
-
-        if (loadElements != emptyLambda) {
-            bucketize.updateInputSeries(this, loadElements)
-        }
-
-        if (bucketizerElements != emptyLambda) {
-            bucketize.updateBucketizer(this, bucketizerElements)
-        } else if (bucketizer == null) {
-            throw Exception("WarpScrip Syntax error for Bucketize function: expect a bucketizer operator")
-        }
-
-        if (lastBucketElements != emptyLambda) {
-            bucketize.updateLastBucket(this, lastBucketElements)
-        }
-
-        if (bucketspanElements != emptyLambda) {
-            bucketize.updateBucketSpan(this, bucketspanElements)
-        }
-
-        if (bucketcountElements != emptyLambda) {
-            bucketize.updateBucketCount(this, bucketcountElements)
-        }
-        return bucketize
-    }
-    */
-
     //
     // Map framework
     //
 
-    fun map(entry: Element.() -> Unit, mapper: MapperFunction, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L, init: ListTag.() -> Unit = {}): MapFw {
-
-        val map = initTag(MapFw(mapper, pre, post, occurrences), init)
-        map.applyLoader(this, entry)
-        return map
+    fun map(load: String = "SWAP", mapper: MapperFunction, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L, init: ListType.() -> Unit = {}): ListType {
+        val mapper = initTag(ListType(
+                "MAP",
+                MapFw.getNativeMapParameters(load,mapper,pre,post,occurrences),
+                HashMap(),
+                this,
+                emptyLambda
+        ), init)
+        return mapper
     }
 
-    fun map(load: String = "SWAP", mapper: MapperFunction, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L, init: ListTag.() -> Unit = {}): MapFw {
-        var internLoad = "SWAP"
-        if (load != "SWAP") {
-            if (storedVariable.contains(load)) {
-                internLoad = "$" + load
-            } else {
-                throw WarpScriptDSLException("BUCKETIZE", load)
-            }
+    fun map(load: String = "SWAP", loadElements: Element.() -> Unit = emptyLambda,
+                  mapper: MapperFunction? = null, mapperElements: Element.() -> Unit = emptyLambda,
+                  pre: Long = 0L, preElements: Element.() -> Unit = emptyLambda,
+                  post: Long = 0L, postElements: Element.() -> Unit = emptyLambda,
+                  occurrences: Long = 0L, occurrencesElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        MapFw.verifyMapper(mapper, mapperElements, emptyLambda)
+        val mapper = initTag(ListType(
+                "MAP",
+                MapFw.getNativeMapParameters(load,mapper,pre,post,occurrences),
+                MapFw.getElementMapParameters(loadElements,mapperElements,preElements,postElements,occurrencesElements),
+                this,
+                emptyLambda
+        ), init)
+        return mapper
+    }
+
+    fun map(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var mapper = initTag(ListType("MAP"), init)
+        if (parameters != emptyLambda) {
+            mapper = initTag(ListType("MAP",
+                    HashMap<Number,Any>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
         }
 
-        val map = initTag(MapFw(internLoad, mapper, pre, post, occurrences), init)
-        return map
-    }
-
-    fun map(load: Element, mapper: MapperFunction, pre: Long = 0L, post: Long = 0L, occurrences: Long = 0L, init: ListTag.() -> Unit = {}): MapFw {
-
-        val map = initTag(MapFw(load, mapper, pre, post, occurrences), init)
-        this.children.remove(load)
-        return map
+        return mapper
     }
 
     //

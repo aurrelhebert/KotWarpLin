@@ -128,11 +128,11 @@ fun main(args: Array<String>) {
 
         evalMacro("titi")
         load("titi")
-        map(swap(), Mapper().add(2), 0, 0,1)
+        map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 1)
 
-        map("titi", Mapper().abs(), 0, 0,1)
+        map("\$titi", Mapper().abs(), 0, 0,1)
 
-        map({
+        map(loadElements= {
             fetch("token", "test")
             bucketize(loadElements =
                     {
@@ -140,7 +140,7 @@ fun main(args: Array<String>) {
                         drop()
                         swap()
                     }, bucketizer = Bucketizer().min(), bucketcount = 1L)
-        }, Mapper().abs(), 0, 0,1)
+        },mapper =  Mapper().abs(),pre= 0,post =  0, occurrences = 1)
 
         filter(swap(), ArrayList<String>(), Filter().byclass("myClass"))
         filter("test", ArrayList<String>(), Filter().byclass("myClass"))
