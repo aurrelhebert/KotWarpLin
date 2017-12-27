@@ -1,0 +1,27 @@
+{
+  "data":
+  [
+    {
+      "function": "add",
+      "warpScriptName": "+",
+      "attributes": {
+        "0": {
+          "p1": "Any"
+        }
+      }
+    },
+    {
+      "function": "now",
+      "warpScriptName": "NOW"
+    },
+    {
+      "function": "drop",
+      "warpScriptName": "DROP"
+    },
+    {
+      "function": "swap",
+      "warpScriptName": "SWAP"
+    }
+  ]
+
+}

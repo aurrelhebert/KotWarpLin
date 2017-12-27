@@ -14,9 +14,7 @@ import java.io.File
 //
 val basicFunctions: HashMap<String, ParameterFunction> = hashMapOf(
         "add" to ParameterFunction("+",
-                hashMapOf(0 to "p1", 1 to "p2"),
-                hashMapOf("p1" to "Any",
-                                "p2" to "Any")),
+                hashMapOf(0 to Param("p1", "Any"), 1 to Param("p2", "Any"))),
         "now" to ParameterFunction("NOW"),
         "swap" to ParameterFunction("SWAP"),
         "drop" to ParameterFunction("DROP")
@@ -40,7 +38,7 @@ fun main(args: Array<String>) {
         standaloneData.append(writeBasicFunction(k,v))
     }
 
-    val file = File("src/io/warp10/warpscriptDSL/BasicFunction.kt")
+    val file = File("src/main/kotlin/io/warp10/warpscriptDSL/BasicFunction.kt")
     file.writeText(standaloneData.toString())
 
 }
@@ -102,8 +100,8 @@ fun getInlineMethod(render: StringBuilder, warpScript: ParameterFunction,indent:
 
     render.append("$indent val data = hashMapOf<Number, Any>(")
     val coreBuilder = StringBuilder()
-    for ((k,v) in warpScript.attributes) {
-        coreBuilder.append("$k to $v, ")
+    for ((k,v: Param) in warpScript.attributes) {
+        coreBuilder.append("$k to ${v.name}, ")
     }
     render.append(coreBuilder.toString().removeSuffix(", "))
     render.append(")\n")
@@ -114,10 +112,7 @@ fun getInlineMethod(render: StringBuilder, warpScript: ParameterFunction,indent:
 //
 fun getParameter(render: StringBuilder, warpScript: ParameterFunction) {
     for ((_,param) in warpScript.attributes) {
-        if (!warpScript.attributesType.containsKey(param)){
-            throw Exception("generation fail cannot retrieve param key: " + param + " in basic function generator")
-        }
-        render.append(param + ": " +  warpScript.attributesType.get(param) + ", ")
+        render.append(param.name + ": " +  param.type + ", ")
     }
 }
 
@@ -126,11 +121,8 @@ fun getParameter(render: StringBuilder, warpScript: ParameterFunction) {
 //
 fun getParameterElements(render: StringBuilder, warpScript: ParameterFunction) {
     for ((_,param) in warpScript.attributes) {
-        if (!warpScript.attributesType.containsKey(param)){
-            throw Exception("generation fail cannot retrieve param key: " + param + " in basic function generator")
-        }
-        render.append(param + ": " +  warpScript.attributesType.get(param) + ", "
-                + param + "Elements: " +  "Element.() -> Unit = emptyLambda, \n            ")
+        render.append(param.name + ": " +  param.type + ", "
+                + param.name + "Elements: " +  "Element.() -> Unit = emptyLambda, \n            ")
     }
 }
 
@@ -143,7 +135,7 @@ fun getInlineMethodElements(render: StringBuilder, warpScript: ParameterFunction
     render.append("$indent val data = hashMapOf<Number, Any>(")
     val coreBuilder = StringBuilder()
     for ((k,v) in warpScript.attributes) {
-        coreBuilder.append("$k to $v, ")
+        coreBuilder.append("$k to ${v.name}, ")
     }
     render.append(coreBuilder.toString().removeSuffix(", "))
     render.append(")\n")
@@ -151,7 +143,7 @@ fun getInlineMethodElements(render: StringBuilder, warpScript: ParameterFunction
     render.append("$indent val elements = hashMapOf<Number, Element.() -> Unit>(")
     val elementsBuilder = StringBuilder()
     for ((k,v) in warpScript.attributes) {
-        elementsBuilder.append("$k to $v" + "Elements, ")
+        elementsBuilder.append("$k to ${v.name}" + "Elements, ")
     }
     render.append(elementsBuilder.toString().removeSuffix(", "))
     render.append(")\n")
