@@ -9,6 +9,7 @@ package io.warp10.warpscriptDSL
 import kotlin.collections.HashMap
 import kotlin.reflect.jvm.internal.impl.descriptors.deserialization.PlatformDependentDeclarationFilter
 import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
+import kotlin.reflect.jvm.reflect
 
 //
 // Kotlin WarpScript Lib
@@ -18,33 +19,64 @@ class WarpScript(name: String) : Tag(name) {
 
     var storedVariable = ArrayList<String>()
 
+    val emptyLambda: Element.() -> Unit = {}
+
     //
     // Fetch framework
     //
 
-    fun fetch(token: String = "READ", selector: String, labels: Map<String, String> = HashMap(), start: Any = "_NOW", end: Any = -1, loadToken: Boolean = false, init: Fetch.() -> Unit = {}): Fetch {
-        var fetchToken = "\'" + token + "\'"
-
-        if (loadToken) {
-            if (storedVariable.contains(token)) {
-                fetchToken = "$" + token
-            } else {
-                throw WarpScriptDSLException("FETCH",fetchToken)
-            }
-        }
-
-        val fetch = initTag(Fetch(fetchToken, selector, labels, start, end), init)
+    fun fetch(token: String = "READ", selector: String, labels: Map<String, String> = HashMap(), start: Any = "_NOW", end: Any = -1, init: ListType.() -> Unit = {}): ListType {
+        val fetch = initTag(ListType(
+                "FETCH",
+                Fetch.getNativeFetchParameters(token,selector,labels,start,end),
+                HashMap(),
+                this,
+                emptyLambda
+        ), init)
         return fetch
     }
+
+    fun fetch(token: String = "READ", tokenElements: Element.() -> Unit = emptyLambda,
+              selector: String = "_NONE", selectorElements: Element.() -> Unit = emptyLambda,
+              labels: HashMap<String, String> = HashMap(), labelsElements: Element.() -> Unit = emptyLambda,
+              start: Any = "_NOW", startElements: Element.() -> Unit = emptyLambda,
+              end: Any = -1, endElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        Fetch.verifyFetch(selector, selectorElements, emptyLambda)
+        val fetch = initTag(ListType("FETCH",
+                Fetch.getNativeFetchParameters(token,selector,labels,start,end),
+                Fetch.getElementsFetchParameters(tokenElements,selectorElements,labelsElements,startElements,endElements), this, emptyLambda), init)
+        return fetch
+    }
+
+    fun fetch(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var fetch = initTag(ListType("FETCH"), init)
+        if (parameters != emptyLambda) {
+            fetch = initTag(ListType("FETCH",
+                    HashMap<Number,Any>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
+        }
+
+        return fetch
+    }
+
 
     //
     // Bucketize framework
     //
 
-    fun bucketize(entry: Element.() -> Unit, bucketizer: BucketizerFunction, lastBucket: Long = 0L, bucketspan: Long = 0L, bucketcount: Long = 0L, init: Bucketize.() -> Unit = {}): Bucketize {
+    fun bucketize(parameters: Element.() -> Unit = emptyLambda, init: Bucketize.() -> Unit = {}): Bucketize {
 
-        val bucketize = initTag(Bucketize(bucketizer, lastBucket, bucketspan, bucketcount), init)
-        bucketize.updateInputSeries(this, entry)
+        val bucketize = initTag(Bucketize(), init)
+        if (parameters != emptyLambda) {
+            bucketize.pre = "["
+            bucketize.post = "]"
+            bucketize.updateInputSeries(this, parameters)
+        }
         return bucketize
     }
 
@@ -59,6 +91,49 @@ class WarpScript(name: String) : Tag(name) {
         }
 
         val bucketize = initTag(Bucketize(internLoad, bucketizer, lastBucket, bucketspan, bucketcount), init)
+        return bucketize
+    }
+
+    fun bucketize(load: String = "SWAP", loadElements: Element.() -> Unit = emptyLambda,
+                  bucketizer: BucketizerFunction? = null, bucketizerElements: Element.() -> Unit = emptyLambda,
+                  lastBucket: Long = 0L, lastBucketElements: Element.() -> Unit = emptyLambda,
+                  bucketspan: Long = 0L, bucketspanElements: Element.() -> Unit = emptyLambda,
+                  bucketcount: Long = 0L, bucketcountElements: Element.() -> Unit = emptyLambda, init: Bucketize.() -> Unit = {}): Bucketize {
+        var internLoad = "SWAP"
+
+        if (load != "SWAP") {
+            if (storedVariable.contains(load)) {
+                internLoad = "$" + load
+            } else {
+                if (loadElements == emptyLambda) {
+                    throw WarpScriptDSLException("BUCKETIZE", load)
+                }
+            }
+        }
+
+        val bucketize = initTag(Bucketize(internLoad, bucketizer, lastBucket, bucketspan, bucketcount), init)
+
+        if (loadElements != emptyLambda) {
+            bucketize.updateInputSeries(this, loadElements)
+        }
+
+        if (bucketizerElements != emptyLambda) {
+            bucketize.updateBucketizer(this, bucketizerElements)
+        } else if (bucketizer == null) {
+            throw Exception("WarpScrip Syntax error for Bucketize function: expect a bucketizer operator")
+        }
+
+        if (lastBucketElements != emptyLambda) {
+            bucketize.updateLastBucket(this, lastBucketElements)
+        }
+
+        if (bucketspanElements != emptyLambda) {
+            bucketize.updateBucketSpan(this, bucketspanElements)
+        }
+
+        if (bucketcountElements != emptyLambda) {
+            bucketize.updateBucketCount(this, bucketcountElements)
+        }
         return bucketize
     }
 

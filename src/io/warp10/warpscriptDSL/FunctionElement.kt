@@ -124,7 +124,7 @@ abstract class FunctionElement(val name: String) : Element {
     }
 
     // Set a specific attribute for a function
-    fun setAttributesElements(index: Int, value: ArrayList<Element>) {
+    fun setAttributesElements(index: Number, value: ArrayList<Element>) {
         this.attributesElements.put(index, value)
     }
 
@@ -190,9 +190,28 @@ abstract class FunctionElement(val name: String) : Element {
     // Function used to fill loader of all the child element of the current List tag function
     //
 
-    fun applyLoader(ws: WarpScript, entry: Element.() -> Unit, key: Int) {
-        val elements = ArrayList<Element>()
-        elements.addAll(this.getChilds(ws, entry))
-        this.setAttributesElements(key, elements)
+    fun applyLoader(ws: WarpScript, entry: (Element.() -> Unit)?, key: Number) {
+        if(null != entry) {
+            val elements = ArrayList<Element>()
+            elements.addAll(this.getChilds(ws, entry))
+            this.setAttributesElements(key, elements)
+        }
+    }
+
+    constructor(name: String, native: HashMap<Number, Any>,
+                nativeElements: HashMap<Number, Element.() -> Unit>,
+                ws: WarpScript,
+                emptyLambda: Element.() -> Unit) : this(name){
+
+        this.setelements(native)
+        for ( element in nativeElements.keys ){
+            val apply = nativeElements.get(element)
+
+            if (null != nativeElements.get(element)) {
+                if (apply != emptyLambda) {
+                    this.applyLoader(ws, apply, element)
+                }
+            }
+        }
     }
 }

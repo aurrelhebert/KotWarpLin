@@ -16,19 +16,27 @@ fun main(args: Array<String>) {
 
     var tmp = warp {
 
+        allowVariableName(listOf("test"))
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
 
-        bucketize(
+        bucketize(loadElements =
                 {
                     fetch("token", "test")
-                    bucketize(
+                    bucketize(loadElements =
                             {
                                 swap()
                                 drop()
                                 swap()
-                            }, Bucketizer().min(), bucketcount = 1L)
+                            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
                 }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
+        fetch( selectorElements = {
+            load("test")
+        })
+
+        //fetch(parameters = {
+        //  now()
+        //})
     }
 
     print(tmp)

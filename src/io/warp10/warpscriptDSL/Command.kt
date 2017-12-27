@@ -29,15 +29,15 @@ fun main(args: Array<String>) {
         //fetch("token", "loadToken", hashMapOf("key" to "value"), now(), "-100", true)
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
 
-        bucketize(
+        bucketize(loadElements =
                 {
                     fetch("token", "test")
-                    bucketize(
+                    bucketize( loadElements =
                             {
                                 swap()
                                 drop()
                                 swap()
-                            }, Bucketizer().min(), bucketcount = 1L)
+                            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
                 }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
         load("test")
@@ -134,12 +134,12 @@ fun main(args: Array<String>) {
 
         map({
             fetch("token", "test")
-            bucketize(
+            bucketize(loadElements =
                     {
                         swap()
                         drop()
                         swap()
-                    }, Bucketizer().min(), bucketcount = 1L)
+                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, Mapper().abs(), 0, 0,1)
 
         filter(swap(), ArrayList<String>(), Filter().byclass("myClass"))
@@ -152,22 +152,22 @@ fun main(args: Array<String>) {
         push(test)
         filter({
             fetch("token", "test")
-            bucketize(
+            bucketize(loadElements =
                     {
                         swap()
                         drop()
                         swap()
-                    }, Bucketizer().min(), bucketcount = 1L)
+                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, ArrayList<String>(), Filter().byclass("myClass"))
 
         apply({
             fetch("token", "test")
-            bucketize(
+            bucketize(loadElements =
                     {
                         swap()
                         drop()
                         swap()
-                    }, Bucketizer().min(), bucketcount = 1L)
+                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, ArrayList<String>(), Apply().and())
 
         timeShift(100)
