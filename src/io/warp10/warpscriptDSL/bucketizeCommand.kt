@@ -44,6 +44,7 @@ fun main(args: Array<String>) {
         //fetch(parameters = {
         //  now()
         //})
+        add( 2, 3)
     }
 
     print(tmp)
