@@ -19,6 +19,12 @@ fun main(args: Array<String>) {
         allowVariableName(listOf("test"))
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
 
+
+        bucketize(bucketizer = Bucketizer().max(), bucketcountElements = {
+            swap()
+            fetch(selector = "rien")
+        }, bucketcount = 1L)
+
         bucketize(loadElements =
                 {
                     fetch("token", "test")
@@ -33,6 +39,8 @@ fun main(args: Array<String>) {
         fetch( selectorElements = {
             load("test")
         })
+
+        map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 1)
 
         //fetch(parameters = {
         //  now()

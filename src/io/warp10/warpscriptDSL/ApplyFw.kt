@@ -19,7 +19,7 @@ class ApplyFw<T> : ListTag {
     //
 
     private fun createFilter(labels: List<T>, op: Element) {
-        this.attributes.put(1, this.getListString(labels))
+        this.attributes.put(1, FunctionElement.getListString(labels))
         this.attributes.put(2, op.toString().removeSuffix("\n").removePrefix(" "))
     }
 

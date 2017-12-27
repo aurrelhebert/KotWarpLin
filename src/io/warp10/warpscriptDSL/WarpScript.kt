@@ -163,31 +163,44 @@ class WarpScript(name: String) : Tag(name) {
     // Filter framework
     //
 
-    fun <T> filter(entry: Element.() -> Unit,labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
-
-        val filter = initTag(FilterFw(labels, filter), init)
-        filter.applyLoader(this, entry)
+    fun filter(load: String = "SWAP", labels: List<Any>, filterFun: FilterFunction, init: ListType.() -> Unit = {}): ListType {
+        val filter = initTag(ListType(
+                "FILTER",
+                FilterFw.getNativeFilterParameters(load,labels,filterFun),
+                HashMap(),
+                this,
+                emptyLambda
+        ), init)
         return filter
     }
 
-    fun <T> filter(load: String = "SWAP", labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
-        var internLoad = "SWAP"
-        if (load != "SWAP") {
-            if (storedVariable.contains(load)) {
-                internLoad = "$" + load
-            } else {
-                throw WarpScriptDSLException("BUCKETIZE", load)
-            }
+    fun filter(load: String = "SWAP", loadElements: Element.() -> Unit = emptyLambda,
+               labels: List<Any> = ArrayList<Any>(), labelsElements: Element.() -> Unit = emptyLambda,
+               filterFun: FilterFunction? = null, filterFunElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        FilterFw.verifyFilter(filterFun, filterFunElements, emptyLambda)
+        val filter = initTag(ListType(
+                "FILTER",
+                FilterFw.getNativeFilterParameters(load,labels,filterFun),
+                FilterFw.getElementFilterParameters(loadElements,labelsElements,filterFunElements),
+                this,
+                emptyLambda
+        ), init)
+        return filter
+    }
+
+    fun filter(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var filter = initTag(ListType("FILTER"), init)
+        if (parameters != emptyLambda) {
+            filter = initTag(ListType("FILTER",
+                    HashMap<Number,Any>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
         }
 
-        val filter = initTag(FilterFw(internLoad, labels, filter), init)
-        return filter
-    }
-
-    fun <T> filter(load: Element, labels: List<T>, filter: FilterFunction, init: ListTag.() -> Unit = {}): FilterFw<T> {
-
-        val filter = initTag(FilterFw(load, labels, filter), init)
-        this.children.remove(load)
         return filter
     }
 

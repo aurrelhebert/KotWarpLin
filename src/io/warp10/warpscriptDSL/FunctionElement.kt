@@ -12,6 +12,67 @@ package io.warp10.warpscriptDSL
 
 abstract class FunctionElement(val name: String) : Element {
 
+    companion object {
+
+        // Generate valid WarpScript for a Java List
+        fun <T> getListString(list: List<T>): String {
+
+            // Case empty List
+            if (list.isEmpty()) {
+                return  "[]"
+            }
+
+            // Open stringBuilder and list
+            val sb = StringBuilder()
+            sb.append("[ ")
+
+            // Append each list items
+            list.forEach {
+                t ->
+                var value = t.toString()
+                if ( t is String) {
+                    value = "\'$t\'"
+                }
+                sb.append(value + " ")
+            }
+
+            // Close List and return value
+            sb.append("]")
+            return sb.toString()
+        }
+
+        // Generate valid WarpScript for a Java Map
+        fun <T, U> getMapString(map: Map<T, U>): String {
+
+            // Case empty Map
+            if (map.isEmpty()) {
+                return  "{}"
+            }
+
+            // Open stringBuilder and map
+            val sb = StringBuilder()
+            sb.append("{ ")
+
+            // Append each map keys and value
+            map.forEach {
+                t, u ->
+                var key = t.toString()
+                if ( t is String) {
+                    key = "\'$t\'"
+                }
+                var value = u.toString()
+                if ( u is String) {
+                    key = "\'$t\'"
+                }
+                sb.append(key + " " + value + " ")
+            }
+
+            // Close Map and return value
+            sb.append("}")
+            return sb.toString()
+        }
+    }
+
     // Current function parameters
     val attributes = hashMapOf<Number, String>()
     val attributesElements = hashMapOf<Number, ArrayList<Element>>()
@@ -23,7 +84,7 @@ abstract class FunctionElement(val name: String) : Element {
 
         if (!attributes.isEmpty()) {
             for ((_, value) in attributes) {
-                builder.append(indent + " $value")
+                builder.append(indent + " $value ")
             }
         }
 
@@ -126,64 +187,6 @@ abstract class FunctionElement(val name: String) : Element {
     // Set a specific attribute for a function
     fun setAttributesElements(index: Number, value: ArrayList<Element>) {
         this.attributesElements.put(index, value)
-    }
-
-    // Generate valid WarpScript for a Java Map
-    protected fun <T, U> getMapString(map: Map<T, U>): String {
-
-        // Case empty Map
-        if (map.isEmpty()) {
-            return  "{}"
-        }
-
-        // Open stringBuilder and map
-        val sb = StringBuilder()
-        sb.append("{ ")
-
-        // Append each map keys and value
-        map.forEach {
-            t, u ->
-            var key = t.toString()
-            if ( t is String) {
-                key = "\'$t\'"
-            }
-            var value = u.toString()
-            if ( u is String) {
-                key = "\'$t\'"
-            }
-            sb.append(key + " " + value + " ")
-        }
-
-        // Close Map and return value
-        sb.append("}")
-        return sb.toString()
-    }
-
-    // Generate valid WarpScript for a Java List
-    protected fun <T> getListString(list: List<T>): String {
-
-        // Case empty List
-        if (list.isEmpty()) {
-            return  "[]"
-        }
-
-        // Open stringBuilder and list
-        val sb = StringBuilder()
-        sb.append("[ ")
-
-        // Append each list items
-        list.forEach {
-            t ->
-            var value = t.toString()
-            if ( t is String) {
-                value = "\'$t\'"
-            }
-            sb.append(value + " ")
-        }
-
-        // Close List and return value
-        sb.append("]")
-        return sb.toString()
     }
 
     //

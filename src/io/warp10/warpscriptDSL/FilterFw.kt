@@ -10,54 +10,46 @@ package io.warp10.warpscriptDSL
 // Filter framework builder
 //
 
-class FilterFw<T> : ListTag {
+class FilterFw {
 
-    //
-    // Create a filter framework
-    // labels to create an equivalence class
-    // Filter operator
-    //
+    companion object {
 
-    private fun createFilter(labels: List<T>, filter: Element) {
-        this.attributes.put(1, this.getListString(labels))
-        this.attributes.put(2, filter.toString().removeSuffix("\n").removePrefix(" "))
-    }
+        // Generate hashMap of native elements for a Filter function
+        //
+        // Initialize filter with it's main parameters:
+        // Series input
+        // Labels for equivalence class
+        // Filter operator
+        //
 
-    // Filter rendering output
-    override fun render(builder: StringBuilder, indent: String) {
+        fun getNativeFilterParameters(input: String,
+                                         labels: List<Any>,
+                                         filter: Element?
+                                        ): HashMap<Number, Any> {
 
-        builder.append("$indent [ \n")
 
-        if (!loader.isEmpty()) {
-            for (items in loader) {
-                items.render(builder,indent + "  ")
+            val elements = hashMapOf<Number, Any>(1 to StringElement(input),
+                    2 to StringElement(FunctionElement.getListString(labels)))
+            if (filter != null) {
+                elements.put(3, filter)
+            }
+            return elements
+        }
+
+        // Generate hashMap of elements for a Fetch function
+        fun getElementFilterParameters(inputElements: Element.() -> Unit,
+                                       labelsElements: Element.() -> Unit,
+                                       filterElements: Element.() -> Unit
+        ): HashMap<Number, Element.() -> Unit> {
+            val elements = hashMapOf<Number, Element.() -> Unit>(1 to inputElements, 2 to labelsElements,
+                    3 to filterElements)
+            return elements
+        }
+
+        fun verifyFilter(filter: Element?, filterElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
+            if (filter==null && filterElements == emptyLambda) {
+                throw Exception("WarpScrip Syntax error for Bucketize function: expect a valid bucketizer")
             }
         }
-
-        for ((_,value) in attributes) {
-            builder.append(indent + "   $value \n")
-        }
-
-        builder.append(indent + " ] $name\n")
-    }
-
-    // Constructor when loader is a String (variable)
-    constructor(load: String = "SWAP",labels: List<T>, filter: Element) : super("FILTER") {
-
-        this.attributes.put(0, load)
-        this.createFilter(labels, filter)
-    }
-
-    // Constructor when loader is an Element (function)
-    constructor(load: Element,labels: List<T>, filter: Element) : super("FILTER") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
-        this.createFilter(labels, filter)
-    }
-
-    // Basic constructor
-    constructor(labels: List<T>, filter: Element) : super("FILTER") {
-        this.createFilter(labels, filter)
     }
 }
