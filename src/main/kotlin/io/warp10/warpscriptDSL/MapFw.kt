@@ -30,10 +30,10 @@ class MapFw {
                                          pre: Long = 0L,
                                          post: Long = 0L,
                                          occurrences: Long = 0L
-        ): HashMap<Number, Any> {
+        ): HashMap<Number, Any?> {
 
 
-            val elements = hashMapOf<Number, Any>(1 to StringElement(input),
+            val elements = hashMapOf<Number, Any?>(1 to StringElement(input),
                     3 to pre, 4 to post,
                     5 to occurrences)
             if (mapper != null) {

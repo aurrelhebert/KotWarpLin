@@ -88,7 +88,7 @@ private fun writeBasicFunction(javaName: String, warpScript: ParameterFunction )
 //
 fun getInlineMethod(render: StringBuilder, warpScript: ParameterFunction,indent: String) {
 
-    render.append("$indent val data = hashMapOf<Number, Any>(")
+    render.append("$indent val data = hashMapOf<Number, Any?>(")
     val coreBuilder = StringBuilder()
     for ((k,v: Param) in warpScript.attributes) {
         coreBuilder.append("$k to ${v.name}, ")
@@ -111,7 +111,7 @@ fun getParameter(render: StringBuilder, warpScript: ParameterFunction) {
 //
 fun getParameterElements(render: StringBuilder, warpScript: ParameterFunction) {
     for ((_,param) in warpScript.attributes) {
-        render.append(param.name + ": " +  param.type + ", "
+        render.append(param.name + ": " +  param.type + "? = null, "
                 + param.name + "Elements: " +  "Element.() -> Unit = emptyLambda, \n            ")
     }
 }
@@ -122,7 +122,7 @@ fun getParameterElements(render: StringBuilder, warpScript: ParameterFunction) {
 //
 fun getInlineMethodElements(render: StringBuilder, warpScript: ParameterFunction,indent: String) {
 
-    render.append("$indent val data = hashMapOf<Number, Any>(")
+    render.append("$indent val data = hashMapOf<Number, Any?>(")
     val coreBuilder = StringBuilder()
     for ((k,v) in warpScript.attributes) {
         coreBuilder.append("$k to ${v.name}, ")

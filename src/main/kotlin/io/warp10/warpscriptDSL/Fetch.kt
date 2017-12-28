@@ -22,8 +22,8 @@ class Fetch {
                                      labels: Map<String, String>,
                                      start: Any,
                                      end: Any
-                                    ): HashMap<Number, Any> {
-            val elements = hashMapOf<Number, Any>(1 to token, 2 to selector,
+                                    ): HashMap<Number, Any?> {
+            val elements = hashMapOf<Number, Any?>(1 to token, 2 to selector,
                     3 to StringElement(Fetch.parseLabels(labels)), 4 to StringElement(this.getTimeString(start)),
                     5 to StringElement(this.getTimeString(end)))
             return elements

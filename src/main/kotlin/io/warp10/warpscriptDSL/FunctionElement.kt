@@ -157,11 +157,15 @@ abstract class FunctionElement(val name: String) : Element {
     }
 
     // Add Kotlin native elements into attributes elements
-    fun <T> setelements(mapElements: Map<Number, T>) {
+    fun setelements(mapElements: Map<Number, Any?>) {
 
         for ((key,mapValue) in mapElements) {
             val elements = ArrayList<Element>()
             var value: String
+
+            if (mapValue == null) {
+                continue
+            }
 
             // For each native case
             if (mapValue is Number) {
@@ -209,7 +213,7 @@ abstract class FunctionElement(val name: String) : Element {
     // Constructor used to load elements parameters of a WarpScript function
     //
 
-    constructor(name: String, native: HashMap<Number, Any>,
+    constructor(name: String, native: HashMap<Number, Any?>,
                 nativeElements: HashMap<Number, Element.() -> Unit>,
                 ws: WarpScript,
                 emptyLambda: Element.() -> Unit) : this(name){

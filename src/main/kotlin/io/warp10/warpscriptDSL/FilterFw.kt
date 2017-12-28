@@ -25,10 +25,10 @@ class FilterFw {
         fun getNativeFilterParameters(input: String,
                                          labels: List<Any>,
                                          filter: Element?
-                                        ): HashMap<Number, Any> {
+                                        ): HashMap<Number, Any?> {
 
 
-            val elements = hashMapOf<Number, Any>(1 to StringElement(input),
+            val elements = hashMapOf<Number, Any?>(1 to StringElement(input),
                     2 to StringElement(FunctionElement.getListString(labels)))
             if (filter != null) {
                 elements.put(3, filter)

@@ -51,7 +51,7 @@ class WarpScript(name: String) : Tag(name) {
         var fetch = initTag(ListType("FETCH"), init)
         if (parameters != emptyLambda) {
             fetch = initTag(ListType("FETCH",
-                    HashMap<Number,Any>(),
+                    HashMap<Number,Any?>(),
                     hashMapOf(0 to parameters),
                     this,
                     emptyLambda
@@ -99,7 +99,7 @@ class WarpScript(name: String) : Tag(name) {
         var bucketize = initTag(ListType("BUCKETIZE"), init)
         if (parameters != emptyLambda) {
             bucketize = initTag(ListType("BUCKETIZE",
-                    HashMap<Number,Any>(),
+                    HashMap<Number,Any?>(),
                     hashMapOf(0 to parameters),
                     this,
                     emptyLambda
@@ -146,7 +146,7 @@ class WarpScript(name: String) : Tag(name) {
         var mapper = initTag(ListType("MAP"), init)
         if (parameters != emptyLambda) {
             mapper = initTag(ListType("MAP",
-                    HashMap<Number,Any>(),
+                    HashMap<Number,Any?>(),
                     hashMapOf(0 to parameters),
                     this,
                     emptyLambda
@@ -191,7 +191,7 @@ class WarpScript(name: String) : Tag(name) {
         var filter = initTag(ListType("FILTER"), init)
         if (parameters != emptyLambda) {
             filter = initTag(ListType("FILTER",
-                    HashMap<Number,Any>(),
+                    HashMap<Number,Any?>(),
                     hashMapOf(0 to parameters),
                     this,
                     emptyLambda

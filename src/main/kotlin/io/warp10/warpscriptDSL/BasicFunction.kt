@@ -13,13 +13,13 @@ fun WarpScript.JSONto(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.JSONto(jsonString: String, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to jsonString)
+    val data = hashMapOf<Number, Any?>(1 to jsonString)
     return initTag(Functions("JSON->", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.JSONto(jsonString: String, jsonStringElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.JSONto(jsonString: String? = null, jsonStringElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to jsonString)
+    val data = hashMapOf<Number, Any?>(1 to jsonString)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to jsonStringElements)
     return initTag(Functions("JSON->", data, elements, this, emptyLambda), init) 
 } 
@@ -29,13 +29,13 @@ fun WarpScript.abs(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.abs(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ABS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.abs(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.abs(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ABS", data, elements, this, emptyLambda), init) 
 } 
@@ -45,13 +45,13 @@ fun WarpScript.acos(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.acos(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ACOS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.acos(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.acos(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ACOS", data, elements, this, emptyLambda), init) 
 } 
@@ -61,16 +61,86 @@ fun WarpScript.add(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.add(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("+", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.add(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.add(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("+", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addDays(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDDAYS"), init) 
+} 
+
+fun WarpScript.addDays(timestamp: Long, NumberOfDaysToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfDaysToAdd)
+    return initTag(Functions("ADDDAYS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addDays(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            NumberOfDaysToAdd: Long? = null, NumberOfDaysToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfDaysToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to NumberOfDaysToAddElements)
+    return initTag(Functions("ADDDAYS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addDaysWithTimeZone(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDDAYS"), init) 
+} 
+
+fun WarpScript.addDaysWithTimeZone(timestamp: Long, timeZone: String, NumberOfDaysToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfDaysToAdd)
+    return initTag(Functions("ADDDAYS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addDaysWithTimeZone(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            timeZone: String? = null, timeZoneElements: Element.() -> Unit = emptyLambda, 
+            NumberOfDaysToAdd: Long? = null, NumberOfDaysToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfDaysToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to timeZoneElements, 3 to NumberOfDaysToAddElements)
+    return initTag(Functions("ADDDAYS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addMonths(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDMONTHS"), init) 
+} 
+
+fun WarpScript.addMonths(timestamp: Long, NumberOfMonthsToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfMonthsToAdd)
+    return initTag(Functions("ADDMONTHS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addMonths(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            NumberOfMonthsToAdd: Long? = null, NumberOfMonthsToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfMonthsToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to NumberOfMonthsToAddElements)
+    return initTag(Functions("ADDMONTHS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addMonthsWithTimeZone(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDMONTHS"), init) 
+} 
+
+fun WarpScript.addMonthsWithTimeZone(timestamp: Long, timeZone: String, NumberOfMonthsToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfMonthsToAdd)
+    return initTag(Functions("ADDMONTHS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addMonthsWithTimeZone(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            timeZone: String? = null, timeZoneElements: Element.() -> Unit = emptyLambda, 
+            NumberOfMonthsToAdd: Long? = null, NumberOfMonthsToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfMonthsToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to timeZoneElements, 3 to NumberOfMonthsToAddElements)
+    return initTag(Functions("ADDMONTHS", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.addToCloneList(init: Element.() -> Unit = {}) : Functions {
@@ -78,14 +148,14 @@ fun WarpScript.addToCloneList(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.addToCloneList(p1: List<Any>, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("+", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.addToCloneList(p1: List<Any>, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.addToCloneList(p1: List<Any>? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("+", data, elements, this, emptyLambda), init) 
 } 
@@ -95,14 +165,14 @@ fun WarpScript.addToExistingList(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.addToExistingList(p1: List<Any>, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("+!", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.addToExistingList(p1: List<Any>, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.addToExistingList(p1: List<Any>? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("+!", data, elements, this, emptyLambda), init) 
 } 
@@ -112,13 +182,13 @@ fun WarpScript.addToExistingListFromStack(init: Element.() -> Unit = {}) : Funct
 } 
 
 fun WarpScript.addToExistingListFromStack(element: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(2 to element)
+    val data = hashMapOf<Number, Any?>(2 to element)
     return initTag(Functions("+!", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.addToExistingListFromStack(element: Any, elementElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.addToExistingListFromStack(element: Any? = null, elementElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(2 to element)
+    val data = hashMapOf<Number, Any?>(2 to element)
     val elements = hashMapOf<Number, Element.() -> Unit>(2 to elementElements)
     return initTag(Functions("+!", data, elements, this, emptyLambda), init) 
 } 
@@ -128,15 +198,66 @@ fun WarpScript.addToStackElement(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.addToStackElement(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(2 to value)
+    val data = hashMapOf<Number, Any?>(2 to value)
     return initTag(Functions("+", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.addToStackElement(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.addToStackElement(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(2 to value)
+    val data = hashMapOf<Number, Any?>(2 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(2 to valueElements)
     return initTag(Functions("+", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addYears(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDYEARS"), init) 
+} 
+
+fun WarpScript.addYears(timestamp: Long, NumberOfYearsToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfYearsToAdd)
+    return initTag(Functions("ADDYEARS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addYears(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            NumberOfYearsToAdd: Long? = null, NumberOfYearsToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to NumberOfYearsToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to NumberOfYearsToAddElements)
+    return initTag(Functions("ADDYEARS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.addYearsWithTimeZone(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ADDYEARS"), init) 
+} 
+
+fun WarpScript.addYearsWithTimeZone(timestamp: Long, timeZone: String, NumberOfYearsToAdd: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfYearsToAdd)
+    return initTag(Functions("ADDYEARS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.addYearsWithTimeZone(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            timeZone: String? = null, timeZoneElements: Element.() -> Unit = emptyLambda, 
+            NumberOfYearsToAdd: Long? = null, NumberOfYearsToAddElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone, 3 to NumberOfYearsToAdd)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to timeZoneElements, 3 to NumberOfYearsToAddElements)
+    return initTag(Functions("ADDYEARS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.ago(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("AGO"), init) 
+} 
+
+fun WarpScript.ago(duration: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to duration)
+    return initTag(Functions("AGO", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.ago(duration: Long? = null, durationElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to duration)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to durationElements)
+    return initTag(Functions("AGO", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.and(init: Element.() -> Unit = {}) : Functions {
@@ -144,14 +265,14 @@ fun WarpScript.and(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.and(p1: Boolean, p2: Boolean, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("&&", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.and(p1: Boolean, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Boolean, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.and(p1: Boolean? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Boolean? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("&&", data, elements, this, emptyLambda), init) 
 } 
@@ -161,14 +282,14 @@ fun WarpScript.andBitWise(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.andBitWise(p1: Long, p2: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("&", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.andBitWise(p1: Long, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Long, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.andBitWise(p1: Long? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Long? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("&", data, elements, this, emptyLambda), init) 
 } 
@@ -178,13 +299,13 @@ fun WarpScript.asin(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.asin(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ASIN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.asin(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.asin(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ASIN", data, elements, this, emptyLambda), init) 
 } 
@@ -194,13 +315,13 @@ fun WarpScript.atan(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.atan(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ATAN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.atan(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.atan(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ATAN", data, elements, this, emptyLambda), init) 
 } 
@@ -214,13 +335,13 @@ fun WarpScript.bitGet(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.bitGet(index: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to index)
+    val data = hashMapOf<Number, Any?>(1 to index)
     return initTag(Functions("BITGET", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.bitGet(index: Long, indexElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.bitGet(index: Long? = null, indexElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to index)
+    val data = hashMapOf<Number, Any?>(1 to index)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to indexElements)
     return initTag(Functions("BITGET", data, elements, this, emptyLambda), init) 
 } 
@@ -238,13 +359,13 @@ fun WarpScript.ceil(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.ceil(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("CEIL", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.ceil(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.ceil(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("CEIL", data, elements, this, emptyLambda), init) 
 } 
@@ -254,14 +375,14 @@ fun WarpScript.copySign(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.copySign(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("COPYSIGN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.copySign(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.copySign(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("COPYSIGN", data, elements, this, emptyLambda), init) 
 } 
@@ -271,13 +392,13 @@ fun WarpScript.cos(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.cos(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("COS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.cos(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.cos(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("COS", data, elements, this, emptyLambda), init) 
 } 
@@ -287,13 +408,13 @@ fun WarpScript.cosh(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.cosh(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("COSH", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.cosh(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.cosh(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("COSH", data, elements, this, emptyLambda), init) 
 } 
@@ -307,13 +428,13 @@ fun WarpScript.counterDelta(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.counterDelta(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("COUNTERDELTA", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.counterDelta(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.counterDelta(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("COUNTERDELTA", data, elements, this, emptyLambda), init) 
 } 
@@ -327,13 +448,13 @@ fun WarpScript.cubicRoot(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.cubicRoot(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("CBRT", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.cubicRoot(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.cubicRoot(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("CBRT", data, elements, this, emptyLambda), init) 
 } 
@@ -343,13 +464,13 @@ fun WarpScript.d(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.d(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("d", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.d(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.d(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("d", data, elements, this, emptyLambda), init) 
 } 
@@ -359,14 +480,14 @@ fun WarpScript.div(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.div(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("/", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.div(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.div(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("/", data, elements, this, emptyLambda), init) 
 } 
@@ -376,13 +497,13 @@ fun WarpScript.doubleToBits(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.doubleToBits(value: Double, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("->DOUBLEBITS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.doubleToBits(value: Double, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.doubleToBits(value: Double? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("->DOUBLEBITS", data, elements, this, emptyLambda), init) 
 } 
@@ -392,13 +513,13 @@ fun WarpScript.doubleToFloatToBits(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.doubleToFloatToBits(value: Double, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("->FLOATBITS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.doubleToFloatToBits(value: Double, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.doubleToFloatToBits(value: Double? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("->FLOATBITS", data, elements, this, emptyLambda), init) 
 } 
@@ -407,19 +528,35 @@ fun WarpScript.drop(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("DROP"), init) 
 } 
 
+fun WarpScript.duration(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("DURATION"), init) 
+} 
+
+fun WarpScript.duration(ISO8601Duration: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to ISO8601Duration)
+    return initTag(Functions("DURATION", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.duration(ISO8601Duration: String? = null, ISO8601DurationElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to ISO8601Duration)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to ISO8601DurationElements)
+    return initTag(Functions("DURATION", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.equal(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("=="), init) 
 } 
 
 fun WarpScript.equal(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("==", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.equal(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.equal(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("==", data, elements, this, emptyLambda), init) 
 } 
@@ -429,15 +566,15 @@ fun WarpScript.equalWithToleranceFactor(init: Element.() -> Unit = {}) : Functio
 } 
 
 fun WarpScript.equalWithToleranceFactor(p1: Number, p2: Number, lambda: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2, 3 to lambda)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2, 3 to lambda)
     return initTag(Functions("~=", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.equalWithToleranceFactor(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
-            lambda: Number, lambdaElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.equalWithToleranceFactor(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
+            lambda: Number? = null, lambdaElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2, 3 to lambda)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2, 3 to lambda)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements, 3 to lambdaElements)
     return initTag(Functions("~=", data, elements, this, emptyLambda), init) 
 } 
@@ -451,13 +588,13 @@ fun WarpScript.eulerNumber(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.eulerNumber(power: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to power)
+    val data = hashMapOf<Number, Any?>(1 to power)
     return initTag(Functions("EXP", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.eulerNumber(power: Long, powerElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.eulerNumber(power: Long? = null, powerElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to power)
+    val data = hashMapOf<Number, Any?>(1 to power)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to powerElements)
     return initTag(Functions("EXP", data, elements, this, emptyLambda), init) 
 } 
@@ -467,14 +604,14 @@ fun WarpScript.exp(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.exp(base: Number, power: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to base, 2 to power)
+    val data = hashMapOf<Number, Any?>(1 to base, 2 to power)
     return initTag(Functions("**", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.exp(base: Number, baseElements: Element.() -> Unit = emptyLambda, 
-            power: Number, powerElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.exp(base: Number? = null, baseElements: Element.() -> Unit = emptyLambda, 
+            power: Number? = null, powerElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to base, 2 to power)
+    val data = hashMapOf<Number, Any?>(1 to base, 2 to power)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to baseElements, 2 to powerElements)
     return initTag(Functions("**", data, elements, this, emptyLambda), init) 
 } 
@@ -484,13 +621,13 @@ fun WarpScript.floor(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.floor(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("FLOOR", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.floor(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.floor(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("FLOOR", data, elements, this, emptyLambda), init) 
 } 
@@ -500,14 +637,14 @@ fun WarpScript.greaterOrEqual(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.greaterOrEqual(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions(">=", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.greaterOrEqual(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.greaterOrEqual(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions(">=", data, elements, this, emptyLambda), init) 
 } 
@@ -517,14 +654,14 @@ fun WarpScript.greaterThan(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.greaterThan(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions(">", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.greaterThan(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.greaterThan(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions(">", data, elements, this, emptyLambda), init) 
 } 
@@ -534,15 +671,31 @@ fun WarpScript.h(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.h(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("h", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.h(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.h(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("h", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.humanDuration(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("HUMANDURATION"), init) 
+} 
+
+fun WarpScript.humanDuration(timeUnit: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timeUnit)
+    return initTag(Functions("HUMANDURATION", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.humanDuration(timeUnit: Long? = null, timeUnitElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timeUnit)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timeUnitElements)
+    return initTag(Functions("HUMANDURATION", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.ieeeRemainder(init: Element.() -> Unit = {}) : Functions {
@@ -550,14 +703,14 @@ fun WarpScript.ieeeRemainder(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.ieeeRemainder(f1: Number, f2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to f1, 2 to f2)
+    val data = hashMapOf<Number, Any?>(1 to f1, 2 to f2)
     return initTag(Functions("IEEEREMAINDER", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.ieeeRemainder(f1: Number, f1Elements: Element.() -> Unit = emptyLambda, 
-            f2: Number, f2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.ieeeRemainder(f1: Number? = null, f1Elements: Element.() -> Unit = emptyLambda, 
+            f2: Number? = null, f2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to f1, 2 to f2)
+    val data = hashMapOf<Number, Any?>(1 to f1, 2 to f2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to f1Elements, 2 to f2Elements)
     return initTag(Functions("IEEEREMAINDER", data, elements, this, emptyLambda), init) 
 } 
@@ -567,13 +720,13 @@ fun WarpScript.isNotANumber(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.isNotANumber(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ISNaN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.isNotANumber(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.isNotANumber(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ISNaN", data, elements, this, emptyLambda), init) 
 } 
@@ -583,15 +736,31 @@ fun WarpScript.isNullWarp10(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.isNullWarp10(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ISNULL", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.isNullWarp10(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.isNullWarp10(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ISNULL", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.iso8601(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ISO8601"), init) 
+} 
+
+fun WarpScript.iso8601(timestamp: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    return initTag(Functions("ISO8601", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.iso8601(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements)
+    return initTag(Functions("ISO8601", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.lBounds(init: Element.() -> Unit = {}) : Functions {
@@ -599,15 +768,15 @@ fun WarpScript.lBounds(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.lBounds(a: Number, b: Number, M: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to a, 2 to b, 3 to M)
+    val data = hashMapOf<Number, Any?>(1 to a, 2 to b, 3 to M)
     return initTag(Functions("LBOUNDS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.lBounds(a: Number, aElements: Element.() -> Unit = emptyLambda, 
-            b: Number, bElements: Element.() -> Unit = emptyLambda, 
-            M: Long, MElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.lBounds(a: Number? = null, aElements: Element.() -> Unit = emptyLambda, 
+            b: Number? = null, bElements: Element.() -> Unit = emptyLambda, 
+            M: Long? = null, MElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to a, 2 to b, 3 to M)
+    val data = hashMapOf<Number, Any?>(1 to a, 2 to b, 3 to M)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to aElements, 2 to bElements, 3 to MElements)
     return initTag(Functions("LBOUNDS", data, elements, this, emptyLambda), init) 
 } 
@@ -617,14 +786,14 @@ fun WarpScript.leftShiftBitsOfALong(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.leftShiftBitsOfALong(number: Long, shiftedBits: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     return initTag(Functions("<<", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.leftShiftBitsOfALong(number: Long, numberElements: Element.() -> Unit = emptyLambda, 
-            shiftedBits: Long, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.leftShiftBitsOfALong(number: Long? = null, numberElements: Element.() -> Unit = emptyLambda, 
+            shiftedBits: Long? = null, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to numberElements, 2 to shiftedBitsElements)
     return initTag(Functions("<<", data, elements, this, emptyLambda), init) 
 } 
@@ -634,13 +803,13 @@ fun WarpScript.log(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.log(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("LOG", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.log(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.log(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("LOG", data, elements, this, emptyLambda), init) 
 } 
@@ -650,13 +819,13 @@ fun WarpScript.log10(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.log10(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("LOG10", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.log10(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.log10(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("LOG10", data, elements, this, emptyLambda), init) 
 } 
@@ -666,13 +835,13 @@ fun WarpScript.longBitsToDouble(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.longBitsToDouble(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("DOUBLEBITS->", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.longBitsToDouble(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.longBitsToDouble(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("DOUBLEBITS->", data, elements, this, emptyLambda), init) 
 } 
@@ -682,13 +851,13 @@ fun WarpScript.longBitsToFloatToDouble(init: Element.() -> Unit = {}) : Function
 } 
 
 fun WarpScript.longBitsToFloatToDouble(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("FLOATBITS->", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.longBitsToFloatToDouble(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.longBitsToFloatToDouble(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("FLOATBITS->", data, elements, this, emptyLambda), init) 
 } 
@@ -698,14 +867,14 @@ fun WarpScript.lowerOrEqual(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.lowerOrEqual(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("<=", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.lowerOrEqual(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.lowerOrEqual(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("<=", data, elements, this, emptyLambda), init) 
 } 
@@ -715,14 +884,14 @@ fun WarpScript.lowerThan(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.lowerThan(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("<", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.lowerThan(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.lowerThan(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("<", data, elements, this, emptyLambda), init) 
 } 
@@ -732,13 +901,13 @@ fun WarpScript.m(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.m(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("m", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.m(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.m(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("m", data, elements, this, emptyLambda), init) 
 } 
@@ -748,14 +917,14 @@ fun WarpScript.max(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.max(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("MAX", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.max(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.max(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("MAX", data, elements, this, emptyLambda), init) 
 } 
@@ -769,14 +938,14 @@ fun WarpScript.min(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.min(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("MIN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.min(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.min(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("MIN", data, elements, this, emptyLambda), init) 
 } 
@@ -790,14 +959,14 @@ fun WarpScript.mod(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.mod(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("%", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.mod(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.mod(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("%", data, elements, this, emptyLambda), init) 
 } 
@@ -807,15 +976,19 @@ fun WarpScript.ms(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.ms(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ms", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.ms(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.ms(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ms", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.msTU(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("MSTU"), init) 
 } 
 
 fun WarpScript.mul(init: Element.() -> Unit = {}) : Functions {
@@ -823,14 +996,14 @@ fun WarpScript.mul(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.mul(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("*", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.mul(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.mul(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("*", data, elements, this, emptyLambda), init) 
 } 
@@ -840,15 +1013,15 @@ fun WarpScript.nBounds(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.nBounds(mu: Number, sigma: Number, n: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to mu, 2 to sigma, 3 to n)
+    val data = hashMapOf<Number, Any?>(1 to mu, 2 to sigma, 3 to n)
     return initTag(Functions("NBOUNDS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.nBounds(mu: Number, muElements: Element.() -> Unit = emptyLambda, 
-            sigma: Number, sigmaElements: Element.() -> Unit = emptyLambda, 
-            n: Long, nElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.nBounds(mu: Number? = null, muElements: Element.() -> Unit = emptyLambda, 
+            sigma: Number? = null, sigmaElements: Element.() -> Unit = emptyLambda, 
+            n: Long? = null, nElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to mu, 2 to sigma, 3 to n)
+    val data = hashMapOf<Number, Any?>(1 to mu, 2 to sigma, 3 to n)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to muElements, 2 to sigmaElements, 3 to nElements)
     return initTag(Functions("NBOUNDS", data, elements, this, emptyLambda), init) 
 } 
@@ -858,14 +1031,14 @@ fun WarpScript.nextAfter(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.nextAfter(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("NEXTAFTER", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.nextAfter(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.nextAfter(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("NEXTAFTER", data, elements, this, emptyLambda), init) 
 } 
@@ -875,13 +1048,13 @@ fun WarpScript.nextUp(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.nextUp(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("NEXTUP", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.nextUp(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.nextUp(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("NEXTUP", data, elements, this, emptyLambda), init) 
 } 
@@ -890,19 +1063,51 @@ fun WarpScript.notANumber(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("NaN"), init) 
 } 
 
+fun WarpScript.notAfter(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("NOTAFTER"), init) 
+} 
+
+fun WarpScript.notAfter(timestamp: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    return initTag(Functions("NOTAFTER", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.notAfter(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements)
+    return initTag(Functions("NOTAFTER", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.notBefore(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("NOTBEFORE"), init) 
+} 
+
+fun WarpScript.notBefore(timestamp: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    return initTag(Functions("NOTBEFORE", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.notBefore(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements)
+    return initTag(Functions("NOTBEFORE", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.notEqual(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("!="), init) 
 } 
 
 fun WarpScript.notEqual(p1: Any, p2: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("!=", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.notEqual(p1: Any, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Any, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.notEqual(p1: Any? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Any? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("!=", data, elements, this, emptyLambda), init) 
 } 
@@ -912,13 +1117,13 @@ fun WarpScript.notLogical(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.notLogical(value: Boolean, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("!", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.notLogical(value: Boolean, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.notLogical(value: Boolean? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("!", data, elements, this, emptyLambda), init) 
 } 
@@ -932,14 +1137,14 @@ fun WarpScript.npdf(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.npdf(mu: Number, sigma: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to mu, 2 to sigma)
+    val data = hashMapOf<Number, Any?>(1 to mu, 2 to sigma)
     return initTag(Functions("NPDF", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.npdf(mu: Number, muElements: Element.() -> Unit = emptyLambda, 
-            sigma: Number, sigmaElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.npdf(mu: Number? = null, muElements: Element.() -> Unit = emptyLambda, 
+            sigma: Number? = null, sigmaElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to mu, 2 to sigma)
+    val data = hashMapOf<Number, Any?>(1 to mu, 2 to sigma)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to muElements, 2 to sigmaElements)
     return initTag(Functions("NPDF", data, elements, this, emptyLambda), init) 
 } 
@@ -949,13 +1154,13 @@ fun WarpScript.ns(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.ns(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ns", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.ns(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.ns(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ns", data, elements, this, emptyLambda), init) 
 } 
@@ -969,14 +1174,14 @@ fun WarpScript.or(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.or(p1: Boolean, p2: Boolean, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("||", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.or(p1: Boolean, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Boolean, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.or(p1: Boolean? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Boolean? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("||", data, elements, this, emptyLambda), init) 
 } 
@@ -986,14 +1191,14 @@ fun WarpScript.orBitWise(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.orBitWise(p1: Long, p2: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("|", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.orBitWise(p1: Long, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Long, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.orBitWise(p1: Long? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Long? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("|", data, elements, this, emptyLambda), init) 
 } 
@@ -1011,13 +1216,13 @@ fun WarpScript.probability(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.probability(valueHistogram: HashMap<Any,Number>, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to valueHistogram)
+    val data = hashMapOf<Number, Any?>(1 to valueHistogram)
     return initTag(Functions("PROBABILITY", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.probability(valueHistogram: HashMap<Any,Number>, valueHistogramElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.probability(valueHistogram: HashMap<Any,Number>? = null, valueHistogramElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to valueHistogram)
+    val data = hashMapOf<Number, Any?>(1 to valueHistogram)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueHistogramElements)
     return initTag(Functions("PROBABILITY", data, elements, this, emptyLambda), init) 
 } 
@@ -1027,13 +1232,13 @@ fun WarpScript.ps(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.ps(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ps", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.ps(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.ps(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ps", data, elements, this, emptyLambda), init) 
 } 
@@ -1063,13 +1268,13 @@ fun WarpScript.quaternionTo(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.quaternionTo(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("Q->", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.quaternionTo(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.quaternionTo(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("Q->", data, elements, this, emptyLambda), init) 
 } 
@@ -1079,13 +1284,13 @@ fun WarpScript.rInt(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.rInt(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("RINT", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.rInt(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.rInt(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("RINT", data, elements, this, emptyLambda), init) 
 } 
@@ -1099,13 +1304,13 @@ fun WarpScript.randPDF(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.randPDF(valueHistogram: HashMap<Any,Number>, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to valueHistogram)
+    val data = hashMapOf<Number, Any?>(1 to valueHistogram)
     return initTag(Functions("RANDPDF", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.randPDF(valueHistogram: HashMap<Any,Number>, valueHistogramElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.randPDF(valueHistogram: HashMap<Any,Number>? = null, valueHistogramElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to valueHistogram)
+    val data = hashMapOf<Number, Any?>(1 to valueHistogram)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueHistogramElements)
     return initTag(Functions("RANDPDF", data, elements, this, emptyLambda), init) 
 } 
@@ -1115,13 +1320,13 @@ fun WarpScript.range(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.range(rangeList: List<Number>, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to rangeList)
+    val data = hashMapOf<Number, Any?>(1 to rangeList)
     return initTag(Functions("RANGE", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.range(rangeList: List<Number>, rangeListElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.range(rangeList: List<Number>? = null, rangeListElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to rangeList)
+    val data = hashMapOf<Number, Any?>(1 to rangeList)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to rangeListElements)
     return initTag(Functions("RANGE", data, elements, this, emptyLambda), init) 
 } 
@@ -1131,13 +1336,13 @@ fun WarpScript.revBits(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.revBits(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("REVBITS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.revBits(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.revBits(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("REVBITS", data, elements, this, emptyLambda), init) 
 } 
@@ -1147,14 +1352,14 @@ fun WarpScript.rightShiftBitsOfALong(init: Element.() -> Unit = {}) : Functions 
 } 
 
 fun WarpScript.rightShiftBitsOfALong(number: Long, shiftedBits: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     return initTag(Functions(">>", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.rightShiftBitsOfALong(number: Long, numberElements: Element.() -> Unit = emptyLambda, 
-            shiftedBits: Long, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.rightShiftBitsOfALong(number: Long? = null, numberElements: Element.() -> Unit = emptyLambda, 
+            shiftedBits: Long? = null, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to numberElements, 2 to shiftedBitsElements)
     return initTag(Functions(">>", data, elements, this, emptyLambda), init) 
 } 
@@ -1164,14 +1369,14 @@ fun WarpScript.rightShiftBitsOfALongWithoutSign(init: Element.() -> Unit = {}) :
 } 
 
 fun WarpScript.rightShiftBitsOfALongWithoutSign(number: Long, shiftedBits: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     return initTag(Functions(">>>", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.rightShiftBitsOfALongWithoutSign(number: Long, numberElements: Element.() -> Unit = emptyLambda, 
-            shiftedBits: Long, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.rightShiftBitsOfALongWithoutSign(number: Long? = null, numberElements: Element.() -> Unit = emptyLambda, 
+            shiftedBits: Long? = null, shiftedBitsElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
+    val data = hashMapOf<Number, Any?>(1 to number, 2 to shiftedBits)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to numberElements, 2 to shiftedBitsElements)
     return initTag(Functions(">>>", data, elements, this, emptyLambda), init) 
 } 
@@ -1181,16 +1386,16 @@ fun WarpScript.rotationToQuaternion(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.rotationToQuaternion(w: Double, x: Double, y: Double, z: Double, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val data = hashMapOf<Number, Any?>(1 to w, 2 to x, 3 to y, 4 to z)
     return initTag(Functions("ROTATIONQ", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.rotationToQuaternion(w: Double, wElements: Element.() -> Unit = emptyLambda, 
-            x: Double, xElements: Element.() -> Unit = emptyLambda, 
-            y: Double, yElements: Element.() -> Unit = emptyLambda, 
-            z: Double, zElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.rotationToQuaternion(w: Double? = null, wElements: Element.() -> Unit = emptyLambda, 
+            x: Double? = null, xElements: Element.() -> Unit = emptyLambda, 
+            y: Double? = null, yElements: Element.() -> Unit = emptyLambda, 
+            z: Double? = null, zElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val data = hashMapOf<Number, Any?>(1 to w, 2 to x, 3 to y, 4 to z)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to wElements, 2 to xElements, 3 to yElements, 4 to zElements)
     return initTag(Functions("ROTATIONQ", data, elements, this, emptyLambda), init) 
 } 
@@ -1200,13 +1405,13 @@ fun WarpScript.round(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.round(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("ROUND", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.round(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.round(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("ROUND", data, elements, this, emptyLambda), init) 
 } 
@@ -1216,15 +1421,19 @@ fun WarpScript.s(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.s(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("s", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.s(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.s(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("s", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.sTU(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("STU"), init) 
 } 
 
 fun WarpScript.sigNum(init: Element.() -> Unit = {}) : Functions {
@@ -1232,13 +1441,13 @@ fun WarpScript.sigNum(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.sigNum(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("SIGNUM", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.sigNum(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.sigNum(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("SIGNUM", data, elements, this, emptyLambda), init) 
 } 
@@ -1248,13 +1457,13 @@ fun WarpScript.sin(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.sin(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("SIN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.sin(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.sin(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("SIN", data, elements, this, emptyLambda), init) 
 } 
@@ -1264,13 +1473,13 @@ fun WarpScript.sinh(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.sinh(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("SINH", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.sinh(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.sinh(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("SINH", data, elements, this, emptyLambda), init) 
 } 
@@ -1280,13 +1489,13 @@ fun WarpScript.sqrt(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.sqrt(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("SQRT", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.sqrt(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.sqrt(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("SQRT", data, elements, this, emptyLambda), init) 
 } 
@@ -1296,14 +1505,14 @@ fun WarpScript.sub(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.sub(p1: Number, p2: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("-", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.sub(p1: Number, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Number, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.sub(p1: Number? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Number? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("-", data, elements, this, emptyLambda), init) 
 } 
@@ -1317,13 +1526,13 @@ fun WarpScript.tan(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.tan(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TAN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.tan(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.tan(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TAN", data, elements, this, emptyLambda), init) 
 } 
@@ -1333,13 +1542,13 @@ fun WarpScript.tanh(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.tanh(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TANH", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.tanh(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.tanh(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TANH", data, elements, this, emptyLambda), init) 
 } 
@@ -1349,13 +1558,13 @@ fun WarpScript.toBin(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toBin(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TOBIN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toBin(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toBin(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TOBIN", data, elements, this, emptyLambda), init) 
 } 
@@ -1365,13 +1574,13 @@ fun WarpScript.toBoolean(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toBoolean(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TOBOOLEAN", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toBoolean(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toBoolean(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TOBOOLEAN", data, elements, this, emptyLambda), init) 
 } 
@@ -1381,13 +1590,13 @@ fun WarpScript.toDegrees(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toDegrees(radians: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to radians)
+    val data = hashMapOf<Number, Any?>(1 to radians)
     return initTag(Functions("TODEGREES", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toDegrees(radians: Number, radiansElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toDegrees(radians: Number? = null, radiansElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to radians)
+    val data = hashMapOf<Number, Any?>(1 to radians)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to radiansElements)
     return initTag(Functions("TODEGREES", data, elements, this, emptyLambda), init) 
 } 
@@ -1397,13 +1606,13 @@ fun WarpScript.toDouble(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toDouble(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TODOUBLE", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toDouble(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toDouble(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TODOUBLE", data, elements, this, emptyLambda), init) 
 } 
@@ -1413,13 +1622,13 @@ fun WarpScript.toJSON(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toJSON(item: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to item)
+    val data = hashMapOf<Number, Any?>(1 to item)
     return initTag(Functions("->JSON", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toJSON(item: Any, itemElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toJSON(item: Any? = null, itemElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to item)
+    val data = hashMapOf<Number, Any?>(1 to item)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to itemElements)
     return initTag(Functions("->JSON", data, elements, this, emptyLambda), init) 
 } 
@@ -1429,13 +1638,13 @@ fun WarpScript.toLong(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toLong(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TOLONG", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toLong(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toLong(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TOLONG", data, elements, this, emptyLambda), init) 
 } 
@@ -1445,13 +1654,13 @@ fun WarpScript.toPickle(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toPickle(pickle: HashMap<Any,Any>, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to pickle)
+    val data = hashMapOf<Number, Any?>(1 to pickle)
     return initTag(Functions("->PICKLE", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toPickle(pickle: HashMap<Any,Any>, pickleElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toPickle(pickle: HashMap<Any,Any>? = null, pickleElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to pickle)
+    val data = hashMapOf<Number, Any?>(1 to pickle)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to pickleElements)
     return initTag(Functions("->PICKLE", data, elements, this, emptyLambda), init) 
 } 
@@ -1461,16 +1670,16 @@ fun WarpScript.toQuaternion(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toQuaternion(w: Double, x: Double, y: Double, z: Double, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val data = hashMapOf<Number, Any?>(1 to w, 2 to x, 3 to y, 4 to z)
     return initTag(Functions("->Q", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toQuaternion(w: Double, wElements: Element.() -> Unit = emptyLambda, 
-            x: Double, xElements: Element.() -> Unit = emptyLambda, 
-            y: Double, yElements: Element.() -> Unit = emptyLambda, 
-            z: Double, zElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toQuaternion(w: Double? = null, wElements: Element.() -> Unit = emptyLambda, 
+            x: Double? = null, xElements: Element.() -> Unit = emptyLambda, 
+            y: Double? = null, yElements: Element.() -> Unit = emptyLambda, 
+            z: Double? = null, zElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val data = hashMapOf<Number, Any?>(1 to w, 2 to x, 3 to y, 4 to z)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to wElements, 2 to xElements, 3 to yElements, 4 to zElements)
     return initTag(Functions("->Q", data, elements, this, emptyLambda), init) 
 } 
@@ -1480,13 +1689,13 @@ fun WarpScript.toRadians(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toRadians(degrees: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to degrees)
+    val data = hashMapOf<Number, Any?>(1 to degrees)
     return initTag(Functions("TORADIANS", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toRadians(degrees: Number, degreesElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toRadians(degrees: Number? = null, degreesElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to degrees)
+    val data = hashMapOf<Number, Any?>(1 to degrees)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to degreesElements)
     return initTag(Functions("TORADIANS", data, elements, this, emptyLambda), init) 
 } 
@@ -1496,13 +1705,13 @@ fun WarpScript.toString(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toString(value: Any, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TOSTRING", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toString(value: Any, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toString(value: Any? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TOSTRING", data, elements, this, emptyLambda), init) 
 } 
@@ -1512,15 +1721,81 @@ fun WarpScript.toTimestamp(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.toTimestamp(value: String, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("TOTIMESTAMP", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.toTimestamp(value: String, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.toTimestamp(value: String? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("TOTIMESTAMP", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.toTsElements(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("->TSELEMENTS"), init) 
+} 
+
+fun WarpScript.toTsElements(timestamp: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    return initTag(Functions("->TSELEMENTS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.toTsElements(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements)
+    return initTag(Functions("->TSELEMENTS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.toTsElementsWithTimeZone(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("->TSELEMENTS"), init) 
+} 
+
+fun WarpScript.toTsElementsWithTimeZone(timestamp: Long, timeZone: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone)
+    return initTag(Functions("->TSELEMENTS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.toTsElementsWithTimeZone(timestamp: Long? = null, timestampElements: Element.() -> Unit = emptyLambda, 
+            timeZone: String? = null, timeZoneElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to timestamp, 2 to timeZone)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to timestampElements, 2 to timeZoneElements)
+    return initTag(Functions("->TSELEMENTS", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.tsElementTo(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("TSELEMENTS->"), init) 
+} 
+
+fun WarpScript.tsElementTo(tsElementsList: List<Number>, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to tsElementsList)
+    return initTag(Functions("TSELEMENTS->", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.tsElementTo(tsElementsList: List<Number>? = null, tsElementsListElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to tsElementsList)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to tsElementsListElements)
+    return initTag(Functions("TSELEMENTS->", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.tsElementToWithTimeZone(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("TSELEMENTS->"), init) 
+} 
+
+fun WarpScript.tsElementToWithTimeZone(tsElementsList: List<Number>, timeZone: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to tsElementsList, 2 to timeZone)
+    return initTag(Functions("TSELEMENTS->", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.tsElementToWithTimeZone(tsElementsList: List<Number>? = null, tsElementsListElements: Element.() -> Unit = emptyLambda, 
+            timeZone: String? = null, timeZoneElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to tsElementsList, 2 to timeZone)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to tsElementsListElements, 2 to timeZoneElements)
+    return initTag(Functions("TSELEMENTS->", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.unaryComplementBitWise(init: Element.() -> Unit = {}) : Functions {
@@ -1528,13 +1803,13 @@ fun WarpScript.unaryComplementBitWise(init: Element.() -> Unit = {}) : Functions
 } 
 
 fun WarpScript.unaryComplementBitWise(value: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("~", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.unaryComplementBitWise(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.unaryComplementBitWise(value: Long? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("~", data, elements, this, emptyLambda), init) 
 } 
@@ -1544,13 +1819,13 @@ fun WarpScript.us(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.us(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("us", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.us(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.us(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("us", data, elements, this, emptyLambda), init) 
 } 
@@ -1560,13 +1835,13 @@ fun WarpScript.w(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.w(value: Number, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     return initTag(Functions("w", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.w(value: Number, valueElements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.w(value: Number? = null, valueElements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to value)
+    val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("w", data, elements, this, emptyLambda), init) 
 } 
@@ -1576,14 +1851,14 @@ fun WarpScript.xorBitWise(init: Element.() -> Unit = {}) : Functions {
 } 
 
 fun WarpScript.xorBitWise(p1: Long, p2: Long, init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     return initTag(Functions("^", data, HashMap(), this, emptyLambda), init) 
 } 
 
-fun WarpScript.xorBitWise(p1: Long, p1Elements: Element.() -> Unit = emptyLambda, 
-            p2: Long, p2Elements: Element.() -> Unit = emptyLambda, 
+fun WarpScript.xorBitWise(p1: Long? = null, p1Elements: Element.() -> Unit = emptyLambda, 
+            p2: Long? = null, p2Elements: Element.() -> Unit = emptyLambda, 
             init: Element.() -> Unit = {}) : Functions {
-    val data = hashMapOf<Number, Any>(1 to p1, 2 to p2)
+    val data = hashMapOf<Number, Any?>(1 to p1, 2 to p2)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to p1Elements, 2 to p2Elements)
     return initTag(Functions("^", data, elements, this, emptyLambda), init) 
 } 

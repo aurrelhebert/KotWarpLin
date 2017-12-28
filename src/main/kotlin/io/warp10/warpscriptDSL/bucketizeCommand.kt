@@ -45,6 +45,7 @@ fun main(args: Array<String>) {
         //  now()
         //})
         add( 2, 3)
+        add(p2Elements= { now() })
     }
 
     print(tmp)

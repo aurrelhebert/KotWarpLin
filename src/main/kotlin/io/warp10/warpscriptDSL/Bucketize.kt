@@ -29,10 +29,10 @@ class Bucketize {
                                          lastBucket: Long = 0L,
                                          bucketspan: Long = 0L,
                                          bucketcount: Long = 0L
-                                        ): HashMap<Number, Any> {
+                                        ): HashMap<Number, Any?> {
 
 
-            val elements = hashMapOf<Number, Any>(1 to StringElement(input),
+            val elements = hashMapOf<Number, Any?>(1 to StringElement(input),
                     3 to lastBucket, 4 to bucketspan,
                     5 to bucketcount)
             if (bucketizer != null) {
