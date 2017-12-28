@@ -127,7 +127,7 @@
       "attributes": [
         {
           "index": 2,
-          "name": "p2",
+          "name": "value",
           "type": "Any"
         }
       ]
@@ -154,7 +154,7 @@
       "attributes": [
         {
           "index": 2,
-          "name": "p2",
+          "name": "element",
           "type": "Any"
         }
       ]
@@ -197,7 +197,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "p1",
+          "name": "value",
           "type": "Double"
         }
       ]
@@ -208,7 +208,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "p1",
+          "name": "value",
           "type": "Double"
         }
       ]
@@ -267,7 +267,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "p1",
+          "name": "value",
           "type": "Long"
         }
       ]
@@ -459,10 +459,369 @@
       "attributes": [
         {
           "index": 1,
-          "name": "p1",
+          "name": "value",
           "type": "Boolean"
         }
       ]
+    },
+    {
+      "function": "abs",
+      "warpScriptName": "ABS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "cubicRoot",
+      "warpScriptName": "CBRT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ceil",
+      "warpScriptName": "CEIL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "copySign",
+      "warpScriptName": "COPYSIGN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "longBitsToDouble",
+      "warpScriptName": "DOUBLEBITS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "eulerNumber",
+      "warpScriptName": "EXP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "power",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "longBitsToFloatToDouble",
+      "warpScriptName": "FLOATBITS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "floor",
+      "warpScriptName": "FLOOR",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ieeeRemainder",
+      "warpScriptName": "IEEEREMAINDER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "f1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "f2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "isNotANumber",
+      "warpScriptName": "ISNaN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "isNullWarp10",
+      "warpScriptName": "ISNULL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lBounds",
+      "warpScriptName": "LBOUNDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "a",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "b",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "M",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "log",
+      "warpScriptName": "LOG",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "log10",
+      "warpScriptName": "LOG10",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "max",
+      "warpScriptName": "MAX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "min",
+      "warpScriptName": "MIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "nBounds",
+      "warpScriptName": "NBOUNDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mu",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "sigma",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "nextAfter",
+      "warpScriptName": "NEXTAFTER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "nextUp",
+      "warpScriptName": "NEXTUP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "npdf",
+      "warpScriptName": "NPDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mu",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "sigma",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "probability",
+      "warpScriptName": "PROBABILITY",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "valueHistogram",
+          "type": "HashMap<Any,Number>"
+        }
+      ]
+    },
+    {
+      "function": "rand",
+      "warpScriptName": "RAND"
+    },
+    {
+      "function": "randPDF",
+      "warpScriptName": "RANDPDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "valueHistogram",
+          "type": "HashMap<Any,Number>"
+        }
+      ]
+    },
+    {
+      "function": "revBits",
+      "warpScriptName": "REVBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rInt",
+      "warpScriptName": "RINT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "round",
+      "warpScriptName": "ROUND",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sigNum",
+      "warpScriptName": "SIGNUM",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sqrt",
+      "warpScriptName": "SQRT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
     },
     {
       "function": "",

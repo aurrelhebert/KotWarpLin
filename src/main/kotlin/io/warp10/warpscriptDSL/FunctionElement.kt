@@ -172,6 +172,8 @@ abstract class FunctionElement(val name: String) : Element {
                 value = mapValue.toString()
             } else if (mapValue is List<*>) {
                 value = getListString(mapValue)
+            } else if (mapValue is Map<*,*>) {
+                value = getMapString(mapValue)
             } else if (mapValue is StringElement) {
                 value = mapValue.toString().removeSuffix("\n")
             } else if (mapValue is Element) {
