@@ -270,6 +270,30 @@ fun WarpScript.cosh(value: Number, valueElements: Element.() -> Unit = emptyLamb
     return initTag(Functions("COSH", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.counter(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("COUNTER"), init) 
+} 
+
+fun WarpScript.counterDelta(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("COUNTERDELTA"), init) 
+} 
+
+fun WarpScript.counterDelta(value: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to value)
+    return initTag(Functions("COUNTERDELTA", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.counterDelta(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("COUNTERDELTA", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.counterValue(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("COUNTERVALUE"), init) 
+} 
+
 fun WarpScript.cubicRoot(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("CBRT"), init) 
 } 
@@ -986,6 +1010,42 @@ fun WarpScript.ps(value: Number, valueElements: Element.() -> Unit = emptyLambda
     return initTag(Functions("ps", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.quaternionConjugate(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("QCONJUGATE"), init) 
+} 
+
+fun WarpScript.quaternionDivide(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("QDIVIDE"), init) 
+} 
+
+fun WarpScript.quaternionMultiply(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("QMULTIPLY"), init) 
+} 
+
+fun WarpScript.quaternionRotate(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("QROTATE"), init) 
+} 
+
+fun WarpScript.quaternionRotation(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("QROTATION"), init) 
+} 
+
+fun WarpScript.quaternionTo(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("Q->"), init) 
+} 
+
+fun WarpScript.quaternionTo(value: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to value)
+    return initTag(Functions("Q->", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.quaternionTo(value: Long, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("Q->", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.rInt(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("RINT"), init) 
 } 
@@ -1020,6 +1080,22 @@ fun WarpScript.randPDF(valueHistogram: HashMap<Any,Number>, valueHistogramElemen
     val data = hashMapOf<Number, Any>(1 to valueHistogram)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueHistogramElements)
     return initTag(Functions("RANDPDF", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.range(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("RANGE"), init) 
+} 
+
+fun WarpScript.range(rangeList: List<Number>, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to rangeList)
+    return initTag(Functions("RANGE", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.range(rangeList: List<Number>, rangeListElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to rangeList)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to rangeListElements)
+    return initTag(Functions("RANGE", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.revBits(init: Element.() -> Unit = {}) : Functions {
@@ -1070,6 +1146,25 @@ fun WarpScript.rightShiftBitsOfALongWithoutSign(number: Long, numberElements: El
     val data = hashMapOf<Number, Any>(1 to number, 2 to shiftedBits)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to numberElements, 2 to shiftedBitsElements)
     return initTag(Functions(">>>", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.rotationToQuaternion(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ROTATIONQ"), init) 
+} 
+
+fun WarpScript.rotationToQuaternion(w: Double, x: Double, y: Double, z: Double, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    return initTag(Functions("ROTATIONQ", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.rotationToQuaternion(w: Double, wElements: Element.() -> Unit = emptyLambda, 
+            x: Double, xElements: Element.() -> Unit = emptyLambda, 
+            y: Double, yElements: Element.() -> Unit = emptyLambda, 
+            z: Double, zElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to wElements, 2 to xElements, 3 to yElements, 4 to zElements)
+    return initTag(Functions("ROTATIONQ", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.round(init: Element.() -> Unit = {}) : Functions {
@@ -1253,6 +1348,22 @@ fun WarpScript.toBoolean(value: Any, valueElements: Element.() -> Unit = emptyLa
     return initTag(Functions("TOBOOLEAN", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.toDegrees(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("TODEGREES"), init) 
+} 
+
+fun WarpScript.toDegrees(radians: Number, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to radians)
+    return initTag(Functions("TODEGREES", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.toDegrees(radians: Number, radiansElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to radians)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to radiansElements)
+    return initTag(Functions("TODEGREES", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.toDouble(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("TODOUBLE"), init) 
 } 
@@ -1315,6 +1426,41 @@ fun WarpScript.toPickle(pickle: HashMap<Any,Any>, pickleElements: Element.() -> 
     val data = hashMapOf<Number, Any>(1 to pickle)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to pickleElements)
     return initTag(Functions("->PICKLE", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.toQuaternion(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("->Q"), init) 
+} 
+
+fun WarpScript.toQuaternion(w: Double, x: Double, y: Double, z: Double, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    return initTag(Functions("->Q", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.toQuaternion(w: Double, wElements: Element.() -> Unit = emptyLambda, 
+            x: Double, xElements: Element.() -> Unit = emptyLambda, 
+            y: Double, yElements: Element.() -> Unit = emptyLambda, 
+            z: Double, zElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to w, 2 to x, 3 to y, 4 to z)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to wElements, 2 to xElements, 3 to yElements, 4 to zElements)
+    return initTag(Functions("->Q", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.toRadians(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("TORADIANS"), init) 
+} 
+
+fun WarpScript.toRadians(degrees: Number, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to degrees)
+    return initTag(Functions("TORADIANS", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.toRadians(degrees: Number, degreesElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to degrees)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to degreesElements)
+    return initTag(Functions("TORADIANS", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.toString(init: Element.() -> Unit = {}) : Functions {
