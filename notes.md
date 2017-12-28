@@ -1,5 +1,6 @@
 ## Functions changed:
 
+- Operator replacement
 - NULL --> nullWarp10
 - \+ for List --> Function specific (addCloneList)
 - +! --> Specific function (addList...)

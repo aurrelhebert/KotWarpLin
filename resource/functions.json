@@ -2118,13 +2118,13 @@
       "attributes": [
         {
           "index": 1,
-          "name": "input",
-          "type": "String"
+          "name": "numberOfComponents",
+          "type": "Long"
         },
         {
           "index": 2,
-          "name": "input",
-          "type": "String"
+          "name": "bitWidth",
+          "type": "Long"
         }
       ]
     },
@@ -2138,7 +2138,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "class",
+          "name": "className",
           "type": "String"
         }
       ]
@@ -2149,7 +2149,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "class",
+          "name": "className",
           "type": "String"
         }
       ]
@@ -2190,7 +2190,7 @@
       "attributes": [
         {
           "index": 1,
-          "name": "2DList",
+          "name": "twoDList",
           "type": "List<List<Number>>"
         }
       ]
