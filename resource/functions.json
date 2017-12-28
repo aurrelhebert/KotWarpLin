@@ -816,6 +816,307 @@
       ]
     },
     {
+      "function": "w",
+      "warpScriptName": "w",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "d",
+      "warpScriptName": "d",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "h",
+      "warpScriptName": "h",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "m",
+      "warpScriptName": "m",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "s",
+      "warpScriptName": "s",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ms",
+      "warpScriptName": "ms",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "us",
+      "warpScriptName": "us",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ns",
+      "warpScriptName": "ns",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ps",
+      "warpScriptName": "ps",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "toPickle",
+      "warpScriptName": "->PICKLE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "pickle",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "JSONto",
+      "warpScriptName": "JSON->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "jsonString",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toJSON",
+      "warpScriptName": "->JSON",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "item",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "pickleTo",
+      "warpScriptName": "PICKLE->"
+    },
+    {
+      "function": "toBin",
+      "warpScriptName": "TOBIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toBoolean",
+      "warpScriptName": "TOBOOLEAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toLong",
+      "warpScriptName": "TOLONG",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toDouble",
+      "warpScriptName": "TODOUBLE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toString",
+      "warpScriptName": "TOSTRING",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toTimestamp",
+      "warpScriptName": "TOTIMESTAMP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "cos",
+      "warpScriptName": "COS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "cosh",
+      "warpScriptName": "COSH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "acos",
+      "warpScriptName": "ACOS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sin",
+      "warpScriptName": "SIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sinh",
+      "warpScriptName": "SINH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "asin",
+      "warpScriptName": "ASIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "tan",
+      "warpScriptName": "TAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "tanh",
+      "warpScriptName": "TANH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "atan",
+      "warpScriptName": "ATAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
       "function": "",
       "warpScriptName": ""
     },
