@@ -1252,8 +1252,27 @@
       ]
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "bitCount",
+      "warpScriptName": "BITCOUNT"
+    },
+    {
+      "function": "bitGet",
+      "warpScriptName": "BITGET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "bitsToBytes",
+      "warpScriptName": "BITSTOBYTES"
+    },
+    {
+      "function": "bytesToBits",
+      "warpScriptName": "BYTESTOBITS"
     },
     {
       "function": "",

@@ -205,6 +205,34 @@ fun WarpScript.atan(value: Number, valueElements: Element.() -> Unit = emptyLamb
     return initTag(Functions("ATAN", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.bitCount(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("BITCOUNT"), init) 
+} 
+
+fun WarpScript.bitGet(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("BITGET"), init) 
+} 
+
+fun WarpScript.bitGet(index: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to index)
+    return initTag(Functions("BITGET", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.bitGet(index: Long, indexElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any>(1 to index)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to indexElements)
+    return initTag(Functions("BITGET", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.bitsToBytes(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("BITSTOBYTES"), init) 
+} 
+
+fun WarpScript.bytesToBits(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("BYTESTOBITS"), init) 
+} 
+
 fun WarpScript.ceil(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("CEIL"), init) 
 } 
