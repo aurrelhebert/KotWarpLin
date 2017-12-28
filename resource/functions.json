@@ -1529,6 +1529,497 @@
       ]
     },
     {
+      "function": "toBin",
+      "warpScriptName": "->BIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toHex",
+      "warpScriptName": "->HEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "base64ToHex",
+      "warpScriptName": "B64TOHEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "base64To",
+      "warpScriptName": "B64->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "base64UrlTo",
+      "warpScriptName": "B64URL->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "binTo",
+      "warpScriptName": "BIN->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "binToHex",
+      "warpScriptName": "BINTOHEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "bytesTo",
+      "warpScriptName": "BYTES->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "charset",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "fromBin",
+      "warpScriptName": "FROMBIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "fromBits",
+      "warpScriptName": "FROMBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "fromHex",
+      "warpScriptName": "FROMHEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "hash",
+      "warpScriptName": "HASH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "hexTo",
+      "warpScriptName": "HEX->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "hexToBase64",
+      "warpScriptName": "HEXTOB64",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "hexToBin",
+      "warpScriptName": "HEXTOBIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "join",
+      "warpScriptName": "JOIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "separator",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "elementsToLoad",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "match",
+      "warpScriptName": "MATCH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "regExp",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "matcher",
+      "warpScriptName": "MATCHER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "regExp",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "OBPBase64to",
+      "warpScriptName": "OBP64->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "OBPBase64toHex",
+      "warpScriptName": "OPB64TOHEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "replace",
+      "warpScriptName": "REPLACE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "regExp",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "replacement",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "replaceAll",
+      "warpScriptName": "REPLACEALL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "regExp",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "replacement",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "split",
+      "warpScriptName": "SPLIT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "delimiter",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "substring",
+      "warpScriptName": "SUBSTRING",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "startIndex",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "length",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "substringStartAt",
+      "warpScriptName": "SUBSTRING",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "startIndex",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "template",
+      "warpScriptName": "TEMPLATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "template",
+          "type": "HashMap<String, Any>"
+        }
+      ]
+    },
+    {
+      "function": "toBase64Url",
+      "warpScriptName": "->B64URL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toBase64",
+      "warpScriptName": "->B64",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toBin",
+      "warpScriptName": "->BIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toBytes",
+      "warpScriptName": "->BYTES",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "charset",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toOPBase64",
+      "warpScriptName": "->OPB64",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toHex",
+      "warpScriptName": "TOHEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toLower",
+      "warpScriptName": "TOLOWER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "tuUpper",
+      "warpScriptName": "TOUPPER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "trim",
+      "warpScriptName": "TRIM",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "urlDecode",
+      "warpScriptName": "URLDECODE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "urlEncode",
+      "warpScriptName": "URLENCODE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "uuid",
+      "warpScriptName": "UUID"
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
       "function": "",
       "warpScriptName": ""
     },
