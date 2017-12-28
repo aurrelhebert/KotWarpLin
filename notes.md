@@ -1,9 +1,9 @@
-- Functions changed:
+## Functions changed:
 
-NULL --> nullWarp10
-+ for List --> Function specific (addCloneList)
-+! --> Specific function (addList...)
+- NULL --> nullWarp10
+- \+ for List --> Function specific (addCloneList)
+- +! --> Specific function (addList...)
+- ! --> not
 
-
-- multiple functions when a parameter is optional
+## Multiple functions when a parameter is optional
 

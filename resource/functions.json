@@ -926,7 +926,7 @@
       ]
     },
     {
-      "function": "JSONto",
+      "function": "jsonTo",
       "warpScriptName": "JSON->",
       "attributes": [
         {
@@ -937,7 +937,7 @@
       ]
     },
     {
-      "function": "toJSON",
+      "function": "toJson",
       "warpScriptName": "->JSON",
       "attributes": [
         {
@@ -1737,8 +1737,8 @@
       ]
     },
     {
-      "function": "OBPBase64to",
-      "warpScriptName": "OBP64->",
+      "function": "opBase64to",
+      "warpScriptName": "OPB64->",
       "attributes": [
         {
           "index": 1,
@@ -1748,7 +1748,7 @@
       ]
     },
     {
-      "function": "OBPBase64toHex",
+      "function": "opBase64toHex",
       "warpScriptName": "OPB64TOHEX",
       "attributes": [
         {
@@ -1919,7 +1919,7 @@
       ]
     },
     {
-      "function": "toOPBase64",
+      "function": "toOpBase64",
       "warpScriptName": "->OPB64",
       "attributes": [
         {
@@ -2000,12 +2000,133 @@
       "warpScriptName": "UUID"
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "aesUnwrap",
+      "warpScriptName": "AESUNWRAP"
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "aesWrap",
+      "warpScriptName": "AESWRAP"
+    },
+    {
+      "function": "md5",
+      "warpScriptName": "MD5"
+    },
+    {
+      "function": "rsaDecrypt",
+      "warpScriptName": "RSADECRYPT"
+    },
+    {
+      "function": "rsaEncrypt",
+      "warpScriptName": "RSAENCRYPT"
+    },
+    {
+      "function": "rsaGen",
+      "warpScriptName": "RSAGEN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "exponent",
+          "type": "String"
+        },
+        {
+          "index": 1,
+          "name": "keyLength",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rsaPrivate",
+      "warpScriptName": "RSAPRIVATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "rsaPublic",
+      "warpScriptName": "RSAPUBLIC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "rsaSign",
+      "warpScriptName": "RSASIGN"
+    },
+    {
+      "function": "rsaVerify",
+      "warpScriptName": "RSAVERIFY"
+    },
+    {
+      "function": "sha1",
+      "warpScriptName": "SHA1"
+    },
+    {
+      "function": "sha1Hmac",
+      "warpScriptName": "SHA1HMAC"
+    },
+    {
+      "function": "sha256",
+      "warpScriptName": "SHA256"
+    },
+    {
+      "function": "sha256Hmac",
+      "warpScriptName": "SHA256HMAC"
+    },
+    {
+      "function": "toZOrderCurve",
+      "warpScriptName": "->Z",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "List<Long>"
+        },
+        {
+          "index": 2,
+          "name": "bitwidth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "gzip",
+      "warpScriptName": "GZIP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "unGzip",
+      "warpScriptName": "UNGZIP"
+    },
+    {
+      "function": "zOrderCurveTo",
+      "warpScriptName": "Z->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        },
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        }
+      ]
     },
     {
       "function": "",

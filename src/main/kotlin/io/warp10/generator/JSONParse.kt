@@ -76,7 +76,9 @@ class JSONParse {
                 }
 
                 // Add curent function to JSON map
-                jsonMap.put(javaName, function)
+                if (!javaName.equals("")) {
+                    jsonMap.put(javaName, function)
+                }
             }
         }
     }
