@@ -2,20 +2,479 @@
   "data":
   [
     {
+      "function": "eulerConstant",
+      "warpScriptName": "e"
+    },
+    {
+      "function": "maxLong",
+      "warpScriptName": "MAXLONG"
+    },
+    {
+      "function": "minLong",
+      "warpScriptName": "MINLONG"
+    },
+    {
+      "function": "notANumber",
+      "warpScriptName": "NaN"
+    },
+    {
+      "function": "nullWarp10",
+      "warpScriptName": "NULL"
+    },
+    {
+      "function": "pi",
+      "warpScriptName": "PI"
+    },
+    {
+      "function": "and",
+      "warpScriptName": "&&",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "or",
+      "warpScriptName": "||",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "andBitWise",
+      "warpScriptName": "&",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "orBitWise",
+      "warpScriptName": "|",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "xorBitWise",
+      "warpScriptName": "^",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
       "function": "add",
       "warpScriptName": "+",
       "attributes": [
         {
-          "index": 0,
+          "index": 1,
           "name": "p1",
           "type": "Any"
         },
         {
-          "index": 1,
+          "index": 2,
           "name": "p2",
           "type": "Any"
         }
       ]
+    },
+    {
+      "function": "addToStackElement",
+      "warpScriptName": "+",
+      "attributes": [
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToCloneList",
+      "warpScriptName": "+",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToExistingListFromStack",
+      "warpScriptName": "+!",
+      "attributes": [
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToExistingList",
+      "warpScriptName": "+!",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "sub",
+      "warpScriptName": "-",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "doubleToBits",
+      "warpScriptName": "->DOUBLEBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "doubleToFloatToBits",
+      "warpScriptName": "->FLOATBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "mul",
+      "warpScriptName": "*",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "div",
+      "warpScriptName": "/",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "mod",
+      "warpScriptName": "%",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "unaryComplementBitWise",
+      "warpScriptName": "~",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "exp",
+      "warpScriptName": "**",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "base",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "power",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "leftShiftBitsOfALong",
+      "warpScriptName": "<<",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rightShiftBitsOfALong",
+      "warpScriptName": ">>",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rightShiftBitsOfALongWithoutSign",
+      "warpScriptName": ">>>",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "equal",
+      "warpScriptName": "==",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "equalWithToleranceFactor",
+      "warpScriptName": "~=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "lambda",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "notEqual",
+      "warpScriptName": "!=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lowerThan",
+      "warpScriptName": "<",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "greaterThan",
+      "warpScriptName": ">",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lowerOrEqual",
+      "warpScriptName": "<=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "greaterOrEqual",
+      "warpScriptName": ">=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "notLogical",
+      "warpScriptName": "!",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
     },
     {
       "function": "now",

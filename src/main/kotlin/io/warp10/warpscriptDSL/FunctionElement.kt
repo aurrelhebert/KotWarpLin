@@ -161,7 +161,7 @@ abstract class FunctionElement(val name: String) : Element {
 
         for ((key,mapValue) in mapElements) {
             val elements = ArrayList<Element>()
-            var value:String
+            var value: String
 
             // For each native case
             if (mapValue is Number) {
@@ -170,6 +170,8 @@ abstract class FunctionElement(val name: String) : Element {
                 value = "\'$mapValue\'"
             } else if (mapValue is Boolean) {
                 value = mapValue.toString()
+            } else if (mapValue is List<*>) {
+                value = getListString(mapValue)
             } else if (mapValue is StringElement) {
                 value = mapValue.toString().removeSuffix("\n")
             } else if (mapValue is Element) {
