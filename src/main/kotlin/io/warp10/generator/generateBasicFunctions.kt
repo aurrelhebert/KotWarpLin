@@ -9,22 +9,12 @@ import java.io.File
 //
 
 //
-// Standalone Map
-// Change NULL to nullWarp
-//
-val basicFunctions: HashMap<String, ParameterFunction> = hashMapOf(
-        "add" to ParameterFunction("+",
-                hashMapOf(0 to Param("p1", "Any"), 1 to Param("p2", "Any"))),
-        "now" to ParameterFunction("NOW"),
-        "swap" to ParameterFunction("SWAP"),
-        "drop" to ParameterFunction("DROP")
-)
-
-//
 // First WarpScript commands generator
 //
 
 fun main(args: Array<String>) {
+
+    val basicFunctions: HashMap<String, ParameterFunction> = JSONParse.parseResourceFile()
 
     val standaloneData = StringBuilder()
 

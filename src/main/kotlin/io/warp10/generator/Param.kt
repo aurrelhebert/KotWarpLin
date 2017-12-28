@@ -20,4 +20,9 @@ class Param {
         this.name = name
         this.type = type
     }
+
+    override fun toString(): String {
+        return "Param(name='$name', type='$type')"
+    }
+
 }

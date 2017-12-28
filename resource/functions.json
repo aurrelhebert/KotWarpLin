@@ -4,11 +4,18 @@
     {
       "function": "add",
       "warpScriptName": "+",
-      "attributes": {
-        "0": {
-          "p1": "Any"
+      "attributes": [
+        {
+          "index": 0,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 1,
+          "name": "p2",
+          "type": "Any"
         }
-      }
+      ]
     },
     {
       "function": "now",

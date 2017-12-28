@@ -22,3 +22,13 @@ class ParameterFunction(
         // Map position in Warp 10 stack, attribute name
         val attributes: HashMap<Number, Param> = HashMap()
 )
+{
+    fun addAttribute(index: Number, p: Param) {
+        this.attributes.put(index,p)
+    }
+
+    override fun toString(): String {
+        return "ParameterFunction(warpScriptName='$warpScriptName', attributes=$attributes)"
+    }
+
+}
