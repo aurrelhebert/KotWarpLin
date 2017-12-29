@@ -178,6 +178,7 @@ fun main(args: Array<String>) {
             })
             load("test")
         }, { now() })
+        pi()
     }
 
     print(tmp)

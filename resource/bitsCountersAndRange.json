@@ -1,0 +1,58 @@
+{
+  "category": "BitsCountersAndRangeFunction",
+  "data": [
+    {
+      "function": "counter",
+      "warpScriptName": "COUNTER"
+    },
+    {
+      "function": "counterDelta",
+      "warpScriptName": "COUNTERDELTA",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "counterValue",
+      "warpScriptName": "COUNTERVALUE"
+    },
+    {
+      "function": "range",
+      "warpScriptName": "RANGE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "rangeList",
+          "type": "List<Number>"
+        }
+      ]
+    },
+    {
+      "function": "bitCount",
+      "warpScriptName": "BITCOUNT"
+    },
+    {
+      "function": "bitGet",
+      "warpScriptName": "BITGET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "bitsToBytes",
+      "warpScriptName": "BITSTOBYTES"
+    },
+    {
+      "function": "bytesToBits",
+      "warpScriptName": "BYTESTOBITS"
+    }
+  ]
+}

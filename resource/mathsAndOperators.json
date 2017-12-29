@@ -1,0 +1,795 @@
+{
+  "category": "MathsAndOperatorsFunction",
+  "data": [
+    {
+      "function": "and",
+      "warpScriptName": "&&",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "or",
+      "warpScriptName": "||",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "andBitWise",
+      "warpScriptName": "&",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "orBitWise",
+      "warpScriptName": "|",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "xorBitWise",
+      "warpScriptName": "^",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "add",
+      "warpScriptName": "+",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToStackElement",
+      "warpScriptName": "+",
+      "attributes": [
+        {
+          "index": 2,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToCloneList",
+      "warpScriptName": "+",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToExistingListFromStack",
+      "warpScriptName": "+!",
+      "attributes": [
+        {
+          "index": 2,
+          "name": "element",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "addToExistingList",
+      "warpScriptName": "+!",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "sub",
+      "warpScriptName": "-",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "doubleToBits",
+      "warpScriptName": "->DOUBLEBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "doubleToFloatToBits",
+      "warpScriptName": "->FLOATBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "mul",
+      "warpScriptName": "*",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "div",
+      "warpScriptName": "/",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "mod",
+      "warpScriptName": "%",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "unaryComplementBitWise",
+      "warpScriptName": "~",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "exp",
+      "warpScriptName": "**",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "base",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "power",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "leftShiftBitsOfALong",
+      "warpScriptName": "<<",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rightShiftBitsOfALong",
+      "warpScriptName": ">>",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rightShiftBitsOfALongWithoutSign",
+      "warpScriptName": ">>>",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "number",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "shiftedBits",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "equal",
+      "warpScriptName": "==",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "equalWithToleranceFactor",
+      "warpScriptName": "~=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "lambda",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "notEqual",
+      "warpScriptName": "!=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lowerThan",
+      "warpScriptName": "<",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "greaterThan",
+      "warpScriptName": ">",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lowerOrEqual",
+      "warpScriptName": "<=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "greaterOrEqual",
+      "warpScriptName": ">=",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Any"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "notLogical",
+      "warpScriptName": "!",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "abs",
+      "warpScriptName": "ABS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "cubicRoot",
+      "warpScriptName": "CBRT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ceil",
+      "warpScriptName": "CEIL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "copySign",
+      "warpScriptName": "COPYSIGN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "longBitsToDouble",
+      "warpScriptName": "DOUBLEBITS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "eulerNumber",
+      "warpScriptName": "EXP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "power",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "longBitsToFloatToDouble",
+      "warpScriptName": "FLOATBITS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "floor",
+      "warpScriptName": "FLOOR",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ieeeRemainder",
+      "warpScriptName": "IEEEREMAINDER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "f1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "f2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "isNotANumber",
+      "warpScriptName": "ISNaN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "isNullWarp10",
+      "warpScriptName": "ISNULL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "lBounds",
+      "warpScriptName": "LBOUNDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "a",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "b",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "M",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "log",
+      "warpScriptName": "LOG",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "log10",
+      "warpScriptName": "LOG10",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "max",
+      "warpScriptName": "MAX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "min",
+      "warpScriptName": "MIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "nBounds",
+      "warpScriptName": "NBOUNDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mu",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "sigma",
+          "type": "Number"
+        },
+        {
+          "index": 3,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "nextAfter",
+      "warpScriptName": "NEXTAFTER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "nextUp",
+      "warpScriptName": "NEXTUP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "npdf",
+      "warpScriptName": "NPDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mu",
+          "type": "Number"
+        },
+        {
+          "index": 2,
+          "name": "sigma",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "probability",
+      "warpScriptName": "PROBABILITY",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "valueHistogram",
+          "type": "HashMap<Any,Number>"
+        }
+      ]
+    },
+    {
+      "function": "rand",
+      "warpScriptName": "RAND"
+    },
+    {
+      "function": "randPDF",
+      "warpScriptName": "RANDPDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "valueHistogram",
+          "type": "HashMap<Any,Number>"
+        }
+      ]
+    },
+    {
+      "function": "revBits",
+      "warpScriptName": "REVBITS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rInt",
+      "warpScriptName": "RINT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "round",
+      "warpScriptName": "ROUND",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sigNum",
+      "warpScriptName": "SIGNUM",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sqrt",
+      "warpScriptName": "SQRT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    }
+  ]
+}

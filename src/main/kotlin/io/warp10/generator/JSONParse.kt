@@ -18,13 +18,12 @@ class JSONParse {
     companion object {
 
         // Load resource file
-        fun parseResourceFile(): HashMap<String, ParameterFunction> {
-
+        fun parseResourceFile(file: String, category: StringBuilder): HashMap<String, ParameterFunction> {
 
             val parser: Parser = Parser()
             val lineList = mutableListOf<String>()
             val stringBuilder = StringBuilder()
-            File("resource/functions.json").useLines {
+            File("resource/$file").useLines {
                 lines -> lines.forEach { stringBuilder.append(it) }}
 
             // Initalize result map
@@ -32,13 +31,23 @@ class JSONParse {
             val json: JsonObject = parser.parse(stringBuilder) as JsonObject
 
             // Fill result map
-            parseData(json, returnMap)
+            try {
+                parseData(json, returnMap, category)
+            } catch (e: Exception) {
+                val message = e.message + " in file: $file"
+                throw Exception(message)
+            }
             //println(json)
             return returnMap
         }
 
-        private fun parseData(json: JsonObject, jsonMap: HashMap<String, ParameterFunction>) {
+        private fun parseData(json: JsonObject, jsonMap: HashMap<String, ParameterFunction>, category: StringBuilder) {
 
+            if (!json.containsKey("data") || !json.containsKey("category")) {
+                throw Exception("Expect json files to contains a category and a data key")
+            }
+
+            category.append(json.get("category") as String)
             // Load JSON data
             val data = json.get("data") as JsonArray<JsonObject>
             for (element in data) {

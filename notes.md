@@ -16,6 +16,7 @@
 - <%, %> --> openMacro and closeMacro
 - <%, %> --> openList and closeList
 - <%, %> --> openMap and closeMacro
+- <S, S> --> openSafeScript and closeSafeScript
 
 ## Multiple functions when a parameter is optional
 
@@ -34,6 +35,7 @@
 
 ## Rework todo - Features idea list
 
+- Split JSON and WarpScript extension per function category
 - Native operators
 - List and maps framework
 - Native time series framework
@@ -42,3 +44,4 @@
 - Script validator? Spelling error/Verify at exec (Exeption)/Post ws generation check
 - WarpScript in a function?
 - Create a WsStack ?
+- Manage String functions too

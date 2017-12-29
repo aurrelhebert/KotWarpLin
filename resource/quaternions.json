@@ -1,0 +1,88 @@
+{
+  "category": "QuaternionsFunction",
+  "data": [
+    {
+      "function": "toQuaternion",
+      "warpScriptName": "->Q",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "w",
+          "type": "Double"
+        },
+        {
+          "index": 2,
+          "name": "x",
+          "type": "Double"
+        },
+        {
+          "index": 3,
+          "name": "y",
+          "type": "Double"
+        },
+        {
+          "index": 4,
+          "name": "z",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "quaternionTo",
+      "warpScriptName": "Q->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "quaternionConjugate",
+      "warpScriptName": "QCONJUGATE"
+    },
+    {
+      "function": "quaternionDivide",
+      "warpScriptName": "QDIVIDE"
+    },
+    {
+      "function": "quaternionMultiply",
+      "warpScriptName": "QMULTIPLY"
+    },
+    {
+      "function": "quaternionRotate",
+      "warpScriptName": "QROTATE"
+    },
+    {
+      "function": "quaternionRotation",
+      "warpScriptName": "QROTATION"
+    },
+    {
+      "function": "rotationToQuaternion",
+      "warpScriptName": "ROTATIONQ",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "w",
+          "type": "Double"
+        },
+        {
+          "index": 2,
+          "name": "x",
+          "type": "Double"
+        },
+        {
+          "index": 3,
+          "name": "y",
+          "type": "Double"
+        },
+        {
+          "index": 4,
+          "name": "z",
+          "type": "Double"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "category": "DatesFunction",
+  "data": [
+    {
+      "function": "toTsElements",
+      "warpScriptName": "->TSELEMENTS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toTsElementsWithTimeZone",
+      "warpScriptName": "->TSELEMENTS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "timeZone",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "addDays",
+      "warpScriptName": "ADDDAYS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "NumberOfDaysToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "addDaysWithTimeZone",
+      "warpScriptName": "ADDDAYS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "timeZone",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "NumberOfDaysToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "addMonths",
+      "warpScriptName": "ADDMONTHS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "NumberOfMonthsToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "addMonthsWithTimeZone",
+      "warpScriptName": "ADDMONTHS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "timeZone",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "NumberOfMonthsToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "addYears",
+      "warpScriptName": "ADDYEARS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "NumberOfYearsToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "addYearsWithTimeZone",
+      "warpScriptName": "ADDYEARS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "timeZone",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "NumberOfYearsToAdd",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "ago",
+      "warpScriptName": "AGO",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "duration",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "duration",
+      "warpScriptName": "DURATION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "ISO8601Duration",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "humanDuration",
+      "warpScriptName": "HUMANDURATION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timeUnit",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "humanDuration",
+      "warpScriptName": "HUMANDURATION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timeUnit",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "iso8601",
+      "warpScriptName": "ISO8601",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "msTU",
+      "warpScriptName": "MSTU"
+    },
+    {
+      "function": "notAfter",
+      "warpScriptName": "NOTAFTER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "notBefore",
+      "warpScriptName": "NOTBEFORE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "now",
+      "warpScriptName": "NOW"
+    },
+    {
+      "function": "sTU",
+      "warpScriptName": "STU"
+    },
+    {
+      "function": "tsElementTo",
+      "warpScriptName": "TSELEMENTS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "tsElementsList",
+          "type": "List<Number>"
+        }
+      ]
+    },
+    {
+      "function": "tsElementToWithTimeZone",
+      "warpScriptName": "TSELEMENTS->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "tsElementsList",
+          "type": "List<Number>"
+        },
+        {
+          "index": 2,
+          "name": "timeZone",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

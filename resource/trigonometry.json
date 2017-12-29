@@ -1,0 +1,126 @@
+{
+  "category": "TrigonometryFunction",
+  "data": [
+    {
+      "function": "cos",
+      "warpScriptName": "COS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "cosh",
+      "warpScriptName": "COSH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "acos",
+      "warpScriptName": "ACOS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sin",
+      "warpScriptName": "SIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "sinh",
+      "warpScriptName": "SINH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "asin",
+      "warpScriptName": "ASIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "tan",
+      "warpScriptName": "TAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "tanh",
+      "warpScriptName": "TANH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "atan",
+      "warpScriptName": "ATAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "toDegrees",
+      "warpScriptName": "TODEGREES",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "radians",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "toRadians",
+      "warpScriptName": "TORADIANS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "degrees",
+          "type": "Number"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "category": "TimeUnitsFunction",
+  "data": [
+    {
+      "function": "w",
+      "warpScriptName": "w",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "d",
+      "warpScriptName": "d",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "h",
+      "warpScriptName": "h",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "m",
+      "warpScriptName": "m",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "s",
+      "warpScriptName": "s",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ms",
+      "warpScriptName": "ms",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "us",
+      "warpScriptName": "us",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ns",
+      "warpScriptName": "ns",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "ps",
+      "warpScriptName": "ps",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Number"
+        }
+      ]
+    }
+  ]
+}

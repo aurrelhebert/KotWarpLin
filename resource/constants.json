@@ -1,0 +1,29 @@
+{
+  "category": "ConstantValuesFunction",
+  "data": [
+    {
+      "function": "eulerConstant",
+      "warpScriptName": "e"
+    },
+    {
+      "function": "maxLong",
+      "warpScriptName": "MAXLONG"
+    },
+    {
+      "function": "minLong",
+      "warpScriptName": "MINLONG"
+    },
+    {
+      "function": "notANumber",
+      "warpScriptName": "NaN"
+    },
+    {
+      "function": "nullWarp10",
+      "warpScriptName": "NULL"
+    },
+    {
+      "function": "pi",
+      "warpScriptName": "PI"
+    }
+  ]
+}

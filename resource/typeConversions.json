@@ -1,0 +1,108 @@
+{
+  "category": "TypeConversionsFunction",
+  "data": [
+    {
+      "function": "toPickle",
+      "warpScriptName": "->PICKLE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "pickle",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "jsonTo",
+      "warpScriptName": "JSON->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "jsonString",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "toJson",
+      "warpScriptName": "->JSON",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "item",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "pickleTo",
+      "warpScriptName": "PICKLE->"
+    },
+    {
+      "function": "toBin",
+      "warpScriptName": "TOBIN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toBoolean",
+      "warpScriptName": "TOBOOLEAN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toLong",
+      "warpScriptName": "TOLONG",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toDouble",
+      "warpScriptName": "TODOUBLE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toString",
+      "warpScriptName": "TOSTRING",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "toTimestamp",
+      "warpScriptName": "TOTIMESTAMP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}
