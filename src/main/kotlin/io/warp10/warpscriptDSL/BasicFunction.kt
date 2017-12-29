@@ -319,6 +319,22 @@ fun WarpScript.asin(value: Number? = null, valueElements: Element.() -> Unit = e
     return initTag(Functions("ASIN", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.assert(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("ASSERT"), init) 
+} 
+
+fun WarpScript.assert(value: Boolean, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    return initTag(Functions("ASSERT", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.assert(value: Boolean? = null, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("ASSERT", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.atan(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("ATAN"), init) 
 } 
@@ -437,6 +453,10 @@ fun WarpScript.bitGet(index: Long? = null, indexElements: Element.() -> Unit = e
 
 fun WarpScript.bitsToBytes(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("BITSTOBYTES"), init) 
+} 
+
+fun WarpScript.breakWarp10(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("BREAK"), init) 
 } 
 
 fun WarpScript.bytesTo(init: Element.() -> Unit = {}) : Functions {
@@ -562,6 +582,10 @@ fun WarpScript.containsValue(input: HashMap<Any,Any>? = null, inputElements: Ele
     return initTag(Functions("CONTAINSVALUE", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.continueWarp10(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("CONTINUE"), init) 
+} 
+
 fun WarpScript.copySign(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("COPYSIGN"), init) 
 } 
@@ -665,6 +689,38 @@ fun WarpScript.d(value: Number? = null, valueElements: Element.() -> Unit = empt
     val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("d", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.defined(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("DEFINED"), init) 
+} 
+
+fun WarpScript.defined(value: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    return initTag(Functions("DEFINED", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.defined(value: String? = null, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("DEFINED", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.definedMacro(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("DEFINEDMACRO"), init) 
+} 
+
+fun WarpScript.definedMacro(value: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    return initTag(Functions("DEFINEDMACRO", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.definedMacro(value: String? = null, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("DEFINEDMACRO", data, elements, this, emptyLambda), init) 
 } 
 
 fun WarpScript.difference(init: Element.() -> Unit = {}) : Functions {
@@ -803,6 +859,22 @@ fun WarpScript.eulerNumber(power: Long? = null, powerElements: Element.() -> Uni
     return initTag(Functions("EXP", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.eval(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("EVAL"), init) 
+} 
+
+fun WarpScript.eval(value: String, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    return initTag(Functions("EVAL", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.eval(value: String? = null, valueElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to value)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
+    return initTag(Functions("EVAL", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.exp(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("**"), init) 
 } 
@@ -818,6 +890,10 @@ fun WarpScript.exp(base: Number? = null, baseElements: Element.() -> Unit = empt
     val data = hashMapOf<Number, Any?>(1 to base, 2 to power)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to baseElements, 2 to powerElements)
     return initTag(Functions("**", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.fail(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("FAIL"), init) 
 } 
 
 fun WarpScript.flatten(init: Element.() -> Unit = {}) : Functions {
@@ -1517,6 +1593,22 @@ fun WarpScript.msTU(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("MSTU"), init) 
 } 
 
+fun WarpScript.msgFail(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("NRETURN"), init) 
+} 
+
+fun WarpScript.msgFail(numberOfMacroToExit: Long, init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to numberOfMacroToExit)
+    return initTag(Functions("NRETURN", data, HashMap(), this, emptyLambda), init) 
+} 
+
+fun WarpScript.msgFail(numberOfMacroToExit: Long? = null, numberOfMacroToExitElements: Element.() -> Unit = emptyLambda, 
+            init: Element.() -> Unit = {}) : Functions {
+    val data = hashMapOf<Number, Any?>(1 to numberOfMacroToExit)
+    val elements = hashMapOf<Number, Element.() -> Unit>(1 to numberOfMacroToExitElements)
+    return initTag(Functions("NRETURN", data, elements, this, emptyLambda), init) 
+} 
+
 fun WarpScript.mul(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("*"), init) 
 } 
@@ -1994,6 +2086,10 @@ fun WarpScript.replaceAll(input: String? = null, inputElements: Element.() -> Un
     return initTag(Functions("REPLACEALL", data, elements, this, emptyLambda), init) 
 } 
 
+fun WarpScript.returnWarp10(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("RETURN"), init) 
+} 
+
 fun WarpScript.revBits(init: Element.() -> Unit = {}) : Functions {
     return initTag(Functions("REVBITS"), init) 
 } 
@@ -2313,6 +2409,10 @@ fun WarpScript.sqrt(value: Number? = null, valueElements: Element.() -> Unit = e
     val data = hashMapOf<Number, Any?>(1 to value)
     val elements = hashMapOf<Number, Element.() -> Unit>(1 to valueElements)
     return initTag(Functions("SQRT", data, elements, this, emptyLambda), init) 
+} 
+
+fun WarpScript.stop(init: Element.() -> Unit = {}) : Functions {
+    return initTag(Functions("STOP"), init) 
 } 
 
 fun WarpScript.sub(init: Element.() -> Unit = {}) : Functions {
