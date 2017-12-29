@@ -1,0 +1,158 @@
+{
+  "category": "GTSOutlierDetectionFunction",
+  "data": [
+    {
+      "function": "hybridTest2",
+      "warpScriptName": "HYBRIDTEST2",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "period",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "piece",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "k",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "alpha",
+          "type": "Double",
+          "defaultValue": "0.5"
+        }
+      ]
+    },
+    {
+      "function": "hybridTest",
+      "warpScriptName": "HYBRIDTEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "period",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "piece",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "k",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "alpha",
+          "type": "Double",
+          "defaultValue": "0.5"
+        },
+        {
+          "index": 5,
+          "name": "parameters",
+          "type": "HashMap<Any,Any>?"
+        }
+      ]
+    },
+    {
+      "function": "stlesdTest",
+      "warpScriptName": "STLESDTEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "k",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "alpha",
+          "type": "Double",
+          "defaultValue": "0.5"
+        },
+        {
+          "index": 4,
+          "name": "parameters",
+          "type": "HashMap<Any,Any>?"
+        }
+      ]
+    },
+    {
+      "function": "esdTest",
+      "warpScriptName": "ESDTEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "k",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "mad",
+          "type": "Boolean"
+        },
+        {
+          "index": 3,
+          "name": "alpha",
+          "type": "Double",
+          "defaultValue": "0.5"
+        }
+      ]
+    },
+    {
+      "function": "grubbsTest",
+      "warpScriptName": "GRUBBSTEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mad",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "alpha",
+          "type": "Double",
+          "defaultValue": "0.5"
+        }
+      ]
+    },
+    {
+      "function": "zScoreTest",
+      "warpScriptName": "ZSCORETEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "mad",
+          "type": "Boolean"
+        },
+        {
+          "index": 2,
+          "name": "t",
+          "type": "Double",
+          "defaultValue": "3.5"
+        }
+      ]
+    },
+    {
+      "function": "thresholdTest",
+      "warpScriptName": "THRESHOLDTEST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "t",
+          "type": "Double"
+        }
+      ]
+    }
+  ]
+}

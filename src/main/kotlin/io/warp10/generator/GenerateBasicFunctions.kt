@@ -13,7 +13,7 @@ val jsonFiles = listOf<String>("constants.json", "functions.json", "mathsAndOper
         "strings.json","cryptographic.json", "compress.json", "udf.json", "listMap.json", "set.json", "list-mutable.json",
         "logic.json", "stackRelated.json", "platform.json", "gtsCoreData.json", "gtsCoreMeta.json", "gtsPatternMatching.json",
         "gtsPlatformRelated.json", "gtsSeriesCreation.json", "gtsSeriesManipulation.json", "gtsSignalTreatment.json",
-        "gtsStatsRelated.json", "gtsTimeRelated.json")
+        "gtsStatsRelated.json", "gtsTimeRelated.json", "gtsOutlierDetection.json", "gtsBucketized.json")
 
 //
 // First WarpScript commands generator

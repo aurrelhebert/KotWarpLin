@@ -1,0 +1,70 @@
+{
+  "category": "GTSBucketizedRelatedFunction",
+  "data": [
+    {
+      "function": "atBucket",
+      "warpScriptName": "ATBUCKET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "bucketCount",
+      "warpScriptName": "BUCKETCOUNT"
+    },
+    {
+      "function": "bucketSpan",
+      "warpScriptName": "BUCKETSPAN"
+    },
+    {
+      "function": "crop",
+      "warpScriptName": "CROP"
+    },
+    {
+      "function": "fillNext",
+      "warpScriptName": "FILLNEXT"
+    },
+    {
+      "function": "fillPrevious",
+      "warpScriptName": "FILLPREVIOUS"
+    },
+    {
+      "function": "fillValue",
+      "warpScriptName": "FILLVALUE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "interpolate",
+      "warpScriptName": "INTERPOLATE"
+    },
+    {
+      "function": "lastBucket",
+      "warpScriptName": "LASTBUCKET"
+    },
+    {
+      "function": "stl",
+      "warpScriptName": "STL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameters",
+          "type": "Map<String,Any>"
+        }
+      ]
+    },
+    {
+      "function": "unBucketize",
+      "warpScriptName": "UNBUCKETIZE"
+    }
+  ]
+}
