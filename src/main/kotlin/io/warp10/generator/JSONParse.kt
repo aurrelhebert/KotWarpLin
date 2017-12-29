@@ -79,6 +79,9 @@ class JSONParse {
                         val stackId = paramObject.get("index") as Int
                         val param = Param(paramObject.get("name") as String, paramObject.get("type") as String)
 
+                        if (paramObject.containsKey("defaultValue")) {
+                            param.defaultValue=paramObject.get("defaultValue") as String
+                        }
                         // Add it to current function attribute
                         function.addAttribute(stackId, param)
                     }

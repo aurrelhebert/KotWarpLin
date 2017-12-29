@@ -1,0 +1,87 @@
+{
+  "category": "GTSCoreMetaFunction",
+  "data": [
+    {
+      "function": "attributes",
+      "warpScriptName": "ATTRIBUTES"
+    },
+    {
+      "function": "labels",
+      "warpScriptName": "LABELS"
+    },
+    {
+      "function": "meta",
+      "warpScriptName": "META",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "metaSort",
+      "warpScriptName": "METASORT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "metaData",
+          "type": "List<String>"
+        }
+      ]
+    },
+    {
+      "function": "name",
+      "warpScriptName": "NAME"
+    },
+    {
+      "function": "parseSelector",
+      "warpScriptName": "PARSESELECTOR",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "selector",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "relabel",
+      "warpScriptName": "RELABEL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "labels",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "rename",
+      "warpScriptName": "RENAME",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "name",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "setAttributes",
+      "warpScriptName": "SETATTRIBUTES",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "name",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "toSelector",
+      "warpScriptName": "TOSELECTOR"
+    }
+  ]
+}

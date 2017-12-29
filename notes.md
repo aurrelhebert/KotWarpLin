@@ -32,6 +32,7 @@
 - SWITCH
 - UNTIL
 - WHILE
+- SORTBY
 
 ## Rework todo - Features idea list
 
@@ -45,3 +46,6 @@
 - WarpScript in a function?
 - Create a WsStack ?
 - Manage String functions too
+- Add "_NULL" to defaultValue (example for list/add function)
+- Impl FIND & FINDSTATS methods
+- Impl FETCH fw (BOOLEAN & co)

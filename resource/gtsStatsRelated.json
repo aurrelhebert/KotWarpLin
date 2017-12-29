@@ -1,0 +1,142 @@
+{
+  "category": "GTSStatsRelatedFunction",
+  "data": [
+    {
+      "function": "correlate",
+      "warpScriptName": "CORRELATE"
+    },
+    {
+      "function": "cProb",
+      "warpScriptName": "CPROB",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "separator",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "IsoNormalize",
+      "warpScriptName": "ISONORMALIZE"
+    },
+    {
+      "function": "lowess",
+      "warpScriptName": "LOWESS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "bandwidth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "lttb",
+      "warpScriptName": "LTTB",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "threshold",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "mode",
+      "warpScriptName": "MODE"
+    },
+    {
+      "function": "monotonic",
+      "warpScriptName": "MONOTONIC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "decreasing",
+          "type": "Boolean",
+          "defaultValue": "true"
+        }
+      ]
+    },
+    {
+      "function": "musigma",
+      "warpScriptName": "MUSIGMA",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "besselCorrection",
+          "type": "Boolean",
+          "defaultValue": "true"
+        }
+      ]
+    },
+    {
+      "function": "normalize",
+      "warpScriptName": "NORMALIZE"
+    },
+    {
+      "function": "nSumSumSq",
+      "warpScriptName": "NSUMSUMSQ"
+    },
+    {
+      "function": "prob",
+      "warpScriptName": "PROB"
+    },
+    {
+      "function": "rLowess",
+      "warpScriptName": "RLOWESS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "q",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "r",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "d",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "p",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "singleExponentialSmoothing",
+      "warpScriptName": "SINGLEEXPONENTIALSMOOTHING",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "alpha",
+          "type": "Number"
+        }
+      ]
+    },
+    {
+      "function": "standardize",
+      "warpScriptName": "STANDARDIZE"
+    },
+    {
+      "function": "tlttb",
+      "warpScriptName": "TLTTB",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "threshold",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "valueHistogram",
+      "warpScriptName": "VALUEHISTOGRAM"
+    }
+  ]
+}

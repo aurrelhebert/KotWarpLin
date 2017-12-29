@@ -1,0 +1,47 @@
+{
+  "category": "GTSPlatformRelatedFunction",
+  "data": [
+    {
+      "function": "delete",
+      "warpScriptName": "DELETE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "selector",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "startTimestamp",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "endTimestamp",
+          "type": "Long"
+        },
+        {
+          "index": 5,
+          "name": "gtsCount",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "update",
+      "warpScriptName": "UPDATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

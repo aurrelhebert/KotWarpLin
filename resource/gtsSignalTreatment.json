@@ -1,0 +1,50 @@
+{
+  "category": "GTSSignalTreatmentFunction",
+  "data": [
+    {
+      "function": "dwtSplit",
+      "warpScriptName": "DWTSPLIT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "label",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "fdwt",
+      "warpScriptName": "FDWT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "label",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "fft",
+      "warpScriptName": "FFT"
+    },
+    {
+      "function": "fftap",
+      "warpScriptName": "FFTAP"
+    },
+    {
+      "function": "idwt",
+      "warpScriptName": "IDWT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "label",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "ifft",
+      "warpScriptName": "IFFT"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "category": "GTSSeriesCreationFunction",
+  "data": [
+    {
+      "function": "makeGTS",
+      "warpScriptName": "MAKEGTS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamps",
+          "type": "List<Long>",
+          "defaultValue": "ArrayList<Long>()"
+        },
+        {
+          "index": 2,
+          "name": "latitudes",
+          "type": "List<Double>",
+          "defaultValue": "ArrayList<Double>()"
+        },
+        {
+          "index": 3,
+          "name": "longitudes",
+          "type": "List<Double>",
+          "defaultValue": "ArrayList<Double>()"
+        },
+        {
+          "index": 4,
+          "name": "elevation",
+          "type": "List<Long>",
+          "defaultValue": "ArrayList<Long>()"
+        },
+        {
+          "index": 5,
+          "name": "values",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "newGts",
+      "warpScriptName": "NEWGTS"
+    },
+    {
+      "function": "parse",
+      "warpScriptName": "PARSE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamps",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

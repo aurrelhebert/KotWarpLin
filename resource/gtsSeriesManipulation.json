@@ -1,0 +1,159 @@
+{
+  "category": "GTSSeriesManipulationFunction",
+  "data": [
+    {
+      "function": "clone",
+      "warpScriptName": "CLONE"
+    },
+    {
+      "function": "cloneEmpty",
+      "warpScriptName": "CLONEEMPTY"
+    },
+    {
+      "function": "commonTicks",
+      "warpScriptName": "COMMONTICKS"
+    },
+    {
+      "function": "compact",
+      "warpScriptName": "COMPACT"
+    },
+    {
+      "function": "dedup",
+      "warpScriptName": "DEDUP"
+    },
+    {
+      "function": "fillTicks",
+      "warpScriptName": "FILLTICKS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "arg",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "integrate",
+      "warpScriptName": "INTEGRATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "initialValue",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "lastSort",
+      "warpScriptName": "LASTSORT"
+    },
+    {
+      "function": "merge",
+      "warpScriptName": "MERGE"
+    },
+    {
+      "function": "nonEmpty",
+      "warpScriptName": "NONEMPTY"
+    },
+    {
+      "function": "partition",
+      "warpScriptName": "PARTITION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "labels",
+          "type": "List<String>"
+        }
+      ]
+    },
+    {
+      "function": "quantize",
+      "warpScriptName": "QUANTIZE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "bounds",
+          "type": "List<Any>"
+        },
+        {
+          "index": 1,
+          "name": "values",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "rangeCompact",
+      "warpScriptName": "RANGECOMPACT"
+    },
+    {
+      "function": "resets",
+      "warpScriptName": "RESETS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "counterType",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "rSort",
+      "warpScriptName": "RSORT"
+    },
+    {
+      "function": "rValueSort",
+      "warpScriptName": "RVALUESORT"
+    },
+    {
+      "function": "sort",
+      "warpScriptName": "SORT"
+    },
+    {
+      "function": "unWrap",
+      "warpScriptName": "UNWRAP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "wrapSeries",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "valueDedup",
+      "warpScriptName": "VALUEDEDUP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "age",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "valueSort",
+      "warpScriptName": "VALUESORT"
+    },
+    {
+      "function": "valueSplit",
+      "warpScriptName": "VALUESPLIT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "split",
+          "type": "String",
+          "defaultValue": "\"split-by-value\""
+        }
+      ]
+    },
+    {
+      "function": "wrap",
+      "warpScriptName": "WRAP"
+    },
+    {
+      "function": "wrapRaw",
+      "warpScriptName": "WRAPRAW"
+    }
+  ]
+}

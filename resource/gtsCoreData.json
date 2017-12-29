@@ -1,0 +1,119 @@
+{
+  "category": "GTSCoreDataFunction",
+  "data": [
+    {
+      "function": "addValue",
+      "warpScriptName": "ADDVALUE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "latitude",
+          "type": "Double",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 3,
+          "name": "longitude",
+          "type": "Double",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 4,
+          "name": "elevation",
+          "type": "Number",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 5,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "atIndex",
+      "warpScriptName": "ATINDEX",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "atTick",
+      "warpScriptName": "ATTICK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "firstTick",
+      "warpScriptName": "FIRSTTICK"
+    },
+    {
+      "function": "lastTick",
+      "warpScriptName": "LASTTICK"
+    },
+    {
+      "function": "setValue",
+      "warpScriptName": "SETVALUE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "timestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "latitude",
+          "type": "Double",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 3,
+          "name": "longitude",
+          "type": "Double",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 4,
+          "name": "elevation",
+          "type": "Number",
+          "defaultValue": "Double.NaN"
+        },
+        {
+          "index": 5,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "tickIndex",
+      "warpScriptName": "TICKINDEX"
+    },
+    {
+      "function": "tickList",
+      "warpScriptName": "TICKLIST"
+    },
+    {
+      "function": "ticks",
+      "warpScriptName": "TICKS"
+    },
+    {
+      "function": "values",
+      "warpScriptName": "VALUES"
+    }
+  ]
+}

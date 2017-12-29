@@ -1,0 +1,139 @@
+{
+  "category": "GTSTimeRelatedFunction",
+  "data": [
+    {
+      "function": "chunk",
+      "warpScriptName": "CHUNK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "lastchunkend",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "chunkwidth",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "chunkoverlap",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "chunkcount",
+          "type": "Long"
+        },
+        {
+          "index": 5,
+          "name": "chunklabel",
+          "type": "String"
+        },
+        {
+          "index": 6,
+          "name": "keepempty",
+          "type": "Boolean",
+          "defaultValue": "true"
+        }
+      ]
+    },
+    {
+      "function": "clip",
+      "warpScriptName": "CLIP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "limits",
+          "type": "List<List<Long>>"
+        }
+      ]
+    },
+    {
+      "function": "shrink",
+      "warpScriptName": "SHRINK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "size",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "timeClip",
+      "warpScriptName": "TIMECLIP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "originTimestamp",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "duration",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "timeModulo",
+      "warpScriptName": "TIMEMODULO",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "modulo",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "label",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "timeScale",
+      "warpScriptName": "TIMESCALE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "scalingFactor",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "timeShift",
+      "warpScriptName": "TIMESHIFT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "scalingFactor",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "timeSplit",
+      "warpScriptName": "TIMESPLIT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quietPeriod",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "minValues",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "label",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

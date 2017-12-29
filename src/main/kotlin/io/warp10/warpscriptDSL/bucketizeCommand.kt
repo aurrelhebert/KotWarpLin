@@ -47,6 +47,7 @@ fun main(args: Array<String>) {
         add( 2, 3)
         add(p2Elements= { now() })
         pi()
+        addValue(timestamp = 2, value = 3)
     }
 
     print(tmp)

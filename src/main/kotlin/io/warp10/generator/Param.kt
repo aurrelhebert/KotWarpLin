@@ -15,6 +15,7 @@ package io.warp10.generator
 class Param {
     var name: String
     var type: String
+    var defaultValue: String? = null
 
     constructor(name: String, type: String) {
         this.name = name
@@ -24,5 +25,4 @@ class Param {
     override fun toString(): String {
         return "Param(name='$name', type='$type')"
     }
-
 }

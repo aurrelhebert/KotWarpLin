@@ -1,0 +1,198 @@
+{
+  "category": "GTSPatternMatchingFunction",
+  "data": [
+    {
+      "function": "discords",
+      "warpScriptName": "DISCORDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "maxDiscords",
+          "type": "Long"
+        },
+        {
+          "index": 5,
+          "name": "overlapping",
+          "type": "Boolean",
+          "defaultValue": "false"
+        },
+        {
+          "index": 6,
+          "name": "distanceRatio",
+          "type": "Number",
+          "defaultValue": "0.0"
+        }
+      ]
+    },
+    {
+      "function": "dtw",
+      "warpScriptName": "DTW",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "threshold",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "optDtw",
+      "warpScriptName": "OPTDTW",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "threshold",
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "function": "patternDetection",
+      "warpScriptName": "PATTERNDETECTION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "patterns",
+      "warpScriptName": "PATTERNS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "zDiscords",
+      "warpScriptName": "ZDISCORDS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        },
+        {
+          "index": 4,
+          "name": "maxDiscords",
+          "type": "Long"
+        },
+        {
+          "index": 5,
+          "name": "overlapping",
+          "type": "Boolean",
+          "defaultValue": "false"
+        },
+        {
+          "index": 6,
+          "name": "distanceRatio",
+          "type": "Number",
+          "defaultValue": "0.0"
+        }
+      ]
+    },
+    {
+      "function": "zPatternDetection",
+      "warpScriptName": "ZPATTERNDETECTION",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "zPatterns",
+      "warpScriptName": "ZPATTERNS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "quantizationScale",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "patternLength",
+          "type": "Long"
+        },
+        {
+          "index": 3,
+          "name": "windowSize",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "zScore",
+      "warpScriptName": "ZSCORE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "flag",
+          "type": "Boolean"
+        }
+      ]
+    }
+  ]
+}

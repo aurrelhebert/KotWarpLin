@@ -11,7 +11,9 @@ import java.io.File
 val jsonFiles = listOf<String>("constants.json", "functions.json", "mathsAndOperators.json", "timeUnits.json",
         "typeConversions.json", "trigonometry.json", "quaternions.json", "bitsCountersAndRange.json", "dates.json",
         "strings.json","cryptographic.json", "compress.json", "udf.json", "listMap.json", "set.json", "list-mutable.json",
-        "logic.json", "stackRelated.json", "platform.json")
+        "logic.json", "stackRelated.json", "platform.json", "gtsCoreData.json", "gtsCoreMeta.json", "gtsPatternMatching.json",
+        "gtsPlatformRelated.json", "gtsSeriesCreation.json", "gtsSeriesManipulation.json", "gtsSignalTreatment.json",
+        "gtsStatsRelated.json", "gtsTimeRelated.json")
 
 //
 // First WarpScript commands generator
@@ -110,7 +112,11 @@ fun getInlineMethod(render: StringBuilder, warpScript: ParameterFunction,indent:
 //
 fun getParameter(render: StringBuilder, warpScript: ParameterFunction) {
     for ((_,param) in warpScript.attributes) {
-        render.append(param.name + ": " +  param.type + ", ")
+        render.append(param.name + ": " +  param.type)
+        if (null != param.defaultValue) {
+            render.append(" = ${param.defaultValue}")
+        }
+        render.append(", ")
     }
 }
 
