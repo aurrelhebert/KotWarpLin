@@ -2694,12 +2694,12 @@
       ]
     },
     {
-      "function": "msgFail",
+      "function": "nReturn",
       "warpScriptName": "NRETURN",
       "attributes": [
         {
           "index": 1,
-          "name": "numberOfMacroToExit",
+          "name": "n",
           "type": "Long"
         }
       ]
@@ -2717,24 +2717,327 @@
       "warpScriptName": "STOP"
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "openMacro",
+      "warpScriptName": "<%"
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "closeMacro",
+      "warpScriptName": "%>"
     },
     {
-      "function": "",
-      "warpScriptName": ""
+      "function": "openList",
+      "warpScriptName": "["
+    },
+    {
+      "function": "closeList",
+      "warpScriptName": "]"
+    },
+    {
+      "function": "openMap",
+      "warpScriptName": "{"
+    },
+    {
+      "function": "closeMap",
+      "warpScriptName": "}"
+    },
+    {
+      "function": "authenticate",
+      "warpScriptName": "AUTHENTICATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "bootstrap",
+      "warpScriptName": "BOOTSTRAP"
+    },
+    {
+      "function": "countToMark",
+      "warpScriptName": "COUNTTOMARK"
+    },
+    {
+      "function": "clear",
+      "warpScriptName": "CLEAR"
+    },
+    {
+      "function": "clearDefs",
+      "warpScriptName": "CLEARDEFS"
+    },
+    {
+      "function": "clearSymbols",
+      "warpScriptName": "CLEARSYMBOLS"
+    },
+    {
+      "function": "clearToMark",
+      "warpScriptName": "CLEARTOMARK"
+    },
+    {
+      "function": "def",
+      "warpScriptName": "DEF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "name",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "depth",
+      "warpScriptName": "DEPTH"
+    },
+    {
+      "function": "debugon",
+      "warpScriptName": "DEBUGON"
+    },
+    {
+      "function": "debugoff",
+      "warpScriptName": "DEBUGOFF"
+    },
+    {
+      "function": "doc",
+      "warpScriptName": "DOC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "documentation",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "docMode",
+      "warpScriptName": "DOCMODE"
     },
     {
       "function": "drop",
       "warpScriptName": "DROP"
     },
     {
+      "function": "dropn",
+      "warpScriptName": "DROPN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "dup",
+      "warpScriptName": "DUP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "dupn",
+      "warpScriptName": "DUPN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "elapsed",
+      "warpScriptName": "ELAPSED"
+    },
+    {
+      "function": "exportSymbol",
+      "warpScriptName": "EXPORT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "exportList",
+      "warpScriptName": "EXPORT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "values",
+          "type": "List<String>"
+        }
+      ]
+    },
+    {
+      "function": "forget",
+      "warpScriptName": "FORGET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "mark",
+      "warpScriptName": "MARK"
+    },
+    {
+      "function": "nDebugOn",
+      "warpScriptName": "NDEBUGON",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "noTimings",
+      "warpScriptName": "NOTIMINGS"
+    },
+    {
+      "function": "pick",
+      "warpScriptName": "PICK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "reset",
+      "warpScriptName": "RESET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "depth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rExec",
+      "warpScriptName": "REXEC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "code",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "url",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "roll",
+      "warpScriptName": "ROLL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rollD",
+      "warpScriptName": "ROLLD",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rot",
+      "warpScriptName": "ROT"
+    },
+    {
+      "function": "run",
+      "warpScriptName": "RUN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "name",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "snapshot",
+      "warpScriptName": "SNAPSHOT"
+    },
+    {
+      "function": "snapshotAll",
+      "warpScriptName": "SNAPSHOTALL"
+    },
+    {
+      "function": "snapshotAllToMark",
+      "warpScriptName": "SNAPSHOTALLTOMARK"
+    },
+    {
+      "function": "snapshotToMark",
+      "warpScriptName": "SNAPSHOTTOMARK"
+    },
+    {
+      "function": "stackAttribute",
+      "warpScriptName": "STACKATTRIBUTE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "attribute",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "stackToList",
+      "warpScriptName": "STACKTOLIST"
+    },
+    {
       "function": "swap",
       "warpScriptName": "SWAP"
+    },
+    {
+      "function": "timings",
+      "warpScriptName": "TIMINGS"
+    },
+    {
+      "function": "typeOf",
+      "warpScriptName": "TYPEOF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "element",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
+    },
+    {
+      "function": "",
+      "warpScriptName": ""
     }
   ]
 

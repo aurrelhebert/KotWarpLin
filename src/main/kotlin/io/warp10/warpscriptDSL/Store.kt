@@ -30,4 +30,8 @@ class Store : FunctionElement {
         this.saved="\'" + saved + "\'"
     }
 
+    constructor(name: String, saved: String) : super(name) {
+        this.saved="\'" + saved + "\'"
+    }
+
 }

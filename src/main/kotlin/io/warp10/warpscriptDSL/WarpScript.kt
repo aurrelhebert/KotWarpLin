@@ -533,6 +533,17 @@ class WarpScript(name: String) : Tag(name) {
     }
 
     //
+    // Single Store function
+    //
+
+    fun cStore(saved: String, init: Store.() -> Unit = {}): Store {
+        if (!storedVariable.contains(saved)) {
+            this.storedVariable.add(saved)
+        }
+        return initTag(Store("CSTORE", saved), init)
+    }
+
+    //
     // Single Load function (custom function added for KotlinDSL, corresponds to $varName in WarpScript)
     //
 
