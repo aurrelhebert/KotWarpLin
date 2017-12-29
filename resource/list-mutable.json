@@ -1,0 +1,96 @@
+{
+  "category": "MutableListAndMapFunction",
+  "data": [
+    {
+      "function": "append",
+      "warpScriptName": "APPEND",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "p1",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "p2",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "lSort",
+      "warpScriptName": "LSORT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "put",
+      "warpScriptName": "PUT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        },
+        {
+          "index": 2,
+          "name": "value",
+          "type": "Any"
+        },
+        {
+          "index": 3,
+          "name": "key",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "removeList",
+      "warpScriptName": "REMOVE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "index",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "removeMap",
+      "warpScriptName": "REMOVE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "Map<Any,Any>"
+        },
+        {
+          "index": 2,
+          "name": "key",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "reverse",
+      "warpScriptName": "REVERSE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "category": "UserDefinedFunction",
+  "data": [
+    {
+      "function": "call",
+      "warpScriptName": "CALL"
+    },
+    {
+      "function": "cachedUdf",
+      "warpScriptName": "CUDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "className",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "udf",
+      "warpScriptName": "UDF",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "className",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

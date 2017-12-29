@@ -1,0 +1,211 @@
+{
+  "category": "PlatformFunction",
+  "data": [
+
+    {
+      "function": "openSafeScript",
+      "warpScriptName": "<S"
+    },
+    {
+      "function": "closeSafeScript",
+      "warpScriptName": "S>"
+    },
+    {
+      "function": "evalSecure",
+      "warpScriptName": "EVALSECURE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "statement",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "header",
+      "warpScriptName": "HEADER",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "key",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "ident",
+      "warpScriptName": "IDENT"
+    },
+    {
+      "function": "jsonLoose",
+      "warpScriptName": "JSONLOOSE"
+    },
+    {
+      "function": "jsonStrict",
+      "warpScriptName": "JSONSTRICT"
+    },
+    {
+      "function": "limit",
+      "warpScriptName": "LIMIT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxBuckets",
+      "warpScriptName": "MAXBUCKETS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxDepth",
+      "warpScriptName": "MAXDEPTH",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxGts",
+      "warpScriptName": "MAXGTS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxLoop",
+      "warpScriptName": "MAXLOOP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxOps",
+      "warpScriptName": "MAXOPS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "maxSymbols",
+      "warpScriptName": "MAXSYMBOLS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "ops",
+      "warpScriptName": "OPS"
+    },
+    {
+      "function": "ops",
+      "warpScriptName": "OPS"
+    },
+    {
+      "function": "restore",
+      "warpScriptName": "RESTORE"
+    },
+    {
+      "function": "rev",
+      "warpScriptName": "REV"
+    },
+    {
+      "function": "save",
+      "warpScriptName": "SAVE"
+    },
+    {
+      "function": "secureKey",
+      "warpScriptName": "SECUREKEY",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "key",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "tokenInfo",
+      "warpScriptName": "TOKENINFO",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "unsecure",
+      "warpScriptName": "UNSECURE"
+    },
+    {
+      "function": "urlFetch",
+      "warpScriptName": "URLFETCH"
+    },
+    {
+      "function": "webCall",
+      "warpScriptName": "WEBCALL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "token",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "method",
+          "type": "String"
+        },
+        {
+          "index": 3,
+          "name": "url",
+          "type": "String"
+        },
+        {
+          "index": 4,
+          "name": "headers",
+          "type": "HashMap<String,String>"
+        },
+        {
+          "index": 5,
+          "name": "body",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

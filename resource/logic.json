@@ -1,0 +1,95 @@
+{
+  "category": "LogicFunction",
+  "data": [
+    {
+      "function": "assert",
+      "warpScriptName": "ASSERT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "Boolean"
+        }
+      ]
+    },
+    {
+      "function": "breakWarp10",
+      "warpScriptName": "BREAK"
+    },
+    {
+      "function": "continueWarp10",
+      "warpScriptName": "CONTINUE"
+    },
+    {
+      "function": "defined",
+      "warpScriptName": "DEFINED",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "definedMacro",
+      "warpScriptName": "DEFINEDMACRO",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "eval",
+      "warpScriptName": "EVAL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "fail",
+      "warpScriptName": "FAIL"
+    },
+    {
+      "function": "msgFail",
+      "warpScriptName": "MSGFAIL",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "nReturn",
+      "warpScriptName": "NRETURN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "n",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "returnWarp10",
+      "warpScriptName": "RETURN"
+    },
+    {
+      "function": "stop",
+      "warpScriptName": "STOP"
+    },
+    {
+      "function": "stop",
+      "warpScriptName": "STOP"
+    }
+  ]
+}

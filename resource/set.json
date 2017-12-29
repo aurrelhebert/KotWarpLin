@@ -1,0 +1,53 @@
+{
+  "category": "SetFunction",
+  "data": [
+    {
+      "function": "difference",
+      "warpScriptName": "DIFFERENCE"
+    },
+    {
+      "function": "intersection",
+      "warpScriptName": "INTERSECTION"
+    },
+    {
+      "function": "set",
+      "warpScriptName": "SET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "elem",
+          "type": "Any"
+        },
+        {
+          "index": 3,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "setTo",
+      "warpScriptName": "SET->"
+    },
+    {
+      "function": "toSet",
+      "warpScriptName": "->SET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "union",
+      "warpScriptName": "UNION"
+    }
+  ]
+}

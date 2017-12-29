@@ -1,0 +1,87 @@
+{
+  "category": "CryptographicFunction",
+  "data": [
+    {
+      "function": "aesUnwrap",
+      "warpScriptName": "AESUNWRAP"
+    },
+    {
+      "function": "aesWrap",
+      "warpScriptName": "AESWRAP"
+    },
+    {
+      "function": "md5",
+      "warpScriptName": "MD5"
+    },
+    {
+      "function": "rsaDecrypt",
+      "warpScriptName": "RSADECRYPT"
+    },
+    {
+      "function": "rsaEncrypt",
+      "warpScriptName": "RSAENCRYPT"
+    },
+    {
+      "function": "rsaGen",
+      "warpScriptName": "RSAGEN",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "exponent",
+          "type": "String"
+        },
+        {
+          "index": 2,
+          "name": "keyLength",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "rsaPrivate",
+      "warpScriptName": "RSAPRIVATE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "rsaPublic",
+      "warpScriptName": "RSAPUBLIC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "HashMap<String,String>"
+        }
+      ]
+    },
+    {
+      "function": "rsaSign",
+      "warpScriptName": "RSASIGN"
+    },
+    {
+      "function": "rsaVerify",
+      "warpScriptName": "RSAVERIFY"
+    },
+    {
+      "function": "sha1",
+      "warpScriptName": "SHA1"
+    },
+    {
+      "function": "sha1Hmac",
+      "warpScriptName": "SHA1HMAC"
+    },
+    {
+      "function": "sha256",
+      "warpScriptName": "SHA256"
+    },
+    {
+      "function": "sha256Hmac",
+      "warpScriptName": "SHA256HMAC"
+    }
+  ]
+}

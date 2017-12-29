@@ -46,6 +46,7 @@ fun main(args: Array<String>) {
         //})
         add( 2, 3)
         add(p2Elements= { now() })
+        pi()
     }
 
     print(tmp)

@@ -10,7 +10,8 @@ import java.io.File
 
 val jsonFiles = listOf<String>("constants.json", "functions.json", "mathsAndOperators.json", "timeUnits.json",
         "typeConversions.json", "trigonometry.json", "quaternions.json", "bitsCountersAndRange.json", "dates.json",
-        "strings.json")
+        "strings.json","cryptographic.json", "compress.json", "udf.json", "listMap.json", "set.json", "list-mutable.json",
+        "logic.json", "stackRelated.json", "platform.json")
 
 //
 // First WarpScript commands generator

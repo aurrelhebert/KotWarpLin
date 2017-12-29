@@ -1,0 +1,52 @@
+{
+  "category": "CompressionsFunction",
+  "data": [
+    {
+      "function": "toZOrderCurve",
+      "warpScriptName": "->Z",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "parameter",
+          "type": "List<Long>"
+        },
+        {
+          "index": 2,
+          "name": "bitwidth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "gzip",
+      "warpScriptName": "GZIP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "unGzip",
+      "warpScriptName": "UNGZIP"
+    },
+    {
+      "function": "zOrderCurveTo",
+      "warpScriptName": "Z->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "numberOfComponents",
+          "type": "Long"
+        },
+        {
+          "index": 2,
+          "name": "bitWidth",
+          "type": "Long"
+        }
+      ]
+    }
+  ]
+}

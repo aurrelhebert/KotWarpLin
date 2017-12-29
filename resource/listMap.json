@@ -1,0 +1,338 @@
+{
+  "category": "ListAndMapFunction",
+  "data": [
+    {
+      "function": "emptyList",
+      "warpScriptName": "[]"
+    },
+    {
+      "function": "emptyMap",
+      "warpScriptName": "{}"
+    },
+    {
+      "function": "toList",
+      "warpScriptName": "->LIST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "depth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toMap",
+      "warpScriptName": "->MAP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "depth",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "toMat",
+      "warpScriptName": "->MAT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "twoDList",
+          "type": "List<List<Number>>"
+        }
+      ]
+    },
+    {
+      "function": "toV",
+      "warpScriptName": "->V",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<Number>"
+        }
+      ]
+    },
+    {
+      "function": "toVector",
+      "warpScriptName": "->VEC",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<Number>"
+        }
+      ]
+    },
+    {
+      "function": "cloneReverse",
+      "warpScriptName": "CLONEREVERSE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "containsKey",
+      "warpScriptName": "CONTAINSKEY",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        },
+        {
+          "index": 2,
+          "name": "key",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "containsValue",
+      "warpScriptName": "CONTAINSVALUE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        },
+        {
+          "index": 2,
+          "name": "key",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "contains",
+      "warpScriptName": "CONTAINS",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "key",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "function": "flatten",
+      "warpScriptName": "FLATTEN"
+    },
+    {
+      "function": "get",
+      "warpScriptName": "GET",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "index",
+          "type": "Long"
+        }
+      ]
+    },
+    {
+      "function": "keyList",
+      "warpScriptName": "KEYLIST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "listTo",
+      "warpScriptName": "LIST->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "mapTo",
+      "warpScriptName": "MAP->",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "matTo",
+      "warpScriptName": "MAT->"
+    },
+    {
+      "function": "mapId",
+      "warpScriptName": "MAPID",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "mSort",
+      "warpScriptName": "MSORT",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "HashMap<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "pack",
+      "warpScriptName": "PACK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "format",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "size",
+      "warpScriptName": "SIZE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "subList",
+      "warpScriptName": "SUBLIST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        },
+        {
+          "index": 2,
+          "name": "indexes",
+          "type": "List<Long>"
+        }
+      ]
+    },
+    {
+      "function": "subMap",
+      "warpScriptName": "SUBMAP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "Map<Any,Any>"
+        },
+        {
+          "index": 2,
+          "name": "keys",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "unique",
+      "warpScriptName": "UNIQUE",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "unList",
+      "warpScriptName": "UNLIST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "List<Any>"
+        }
+      ]
+    },
+    {
+      "function": "unMap",
+      "warpScriptName": "UNMAP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "Map<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "unPack",
+      "warpScriptName": "UNPACK",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "format",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "function": "valueList",
+      "warpScriptName": "VALUELIST",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "input",
+          "type": "Map<Any,Any>"
+        }
+      ]
+    },
+    {
+      "function": "vTo",
+      "warpScriptName": "V->"
+    },
+    {
+      "function": "vTo",
+      "warpScriptName": "V->"
+    },
+    {
+      "function": "vectorTo",
+      "warpScriptName": "VEC->"
+    },
+    {
+      "function": "zip",
+      "warpScriptName": "ZIP",
+      "attributes": [
+        {
+          "index": 1,
+          "name": "value",
+          "type": "List<List<Any>>"
+        }
+      ]
+    }
+  ]
+}
