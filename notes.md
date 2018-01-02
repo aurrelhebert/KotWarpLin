@@ -36,7 +36,7 @@
 
 ## Rework todo - Features idea list
 
-- Split JSON and WarpScript extension per function category
+- Apply refactoring !!!
 - Native operators
 - List and maps framework
 - Native time series framework
@@ -49,3 +49,7 @@
 - Add "_NULL" to defaultValue (example for list/add function)
 - Impl FIND & FINDSTATS methods
 - Impl FETCH fw (BOOLEAN & co)
+
+## Done: 
+
+- Split JSON and WarpScript extension per function category
