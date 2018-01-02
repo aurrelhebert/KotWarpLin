@@ -59,7 +59,7 @@ abstract class Tag(val name: String) : Element {
             }
             var value = u.toString()
             if ( u is String) {
-                key = "\'$t\'"
+                value = "\'$u\'"
             }
             sb.append(key + " " + value + " ")
         }

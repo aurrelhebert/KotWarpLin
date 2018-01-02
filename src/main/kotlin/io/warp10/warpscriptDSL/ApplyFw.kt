@@ -10,7 +10,7 @@ package io.warp10.warpscriptDSL
 // Apply framework builder
 //
 
-class ApplyFw<T> : ListTag {
+class ApplyFw : ListTag {
 
     //
     // Create an Apply framework
@@ -18,7 +18,7 @@ class ApplyFw<T> : ListTag {
     // Apply operator
     //
 
-    private fun createFilter(labels: List<T>, op: Element) {
+    private fun createFilter(labels: List<Any>, op: Element) {
         this.attributes.put(1, FunctionElement.getListString(labels))
         this.attributes.put(2, op.toString().removeSuffix("\n").removePrefix(" "))
     }
@@ -42,14 +42,14 @@ class ApplyFw<T> : ListTag {
     }
 
     // Constructor when loader is a String (variable)
-    constructor(load: String = "SWAP",labels: List<T>, op: Element) : super("APPLY") {
+    constructor(load: String = "SWAP",labels: List<Any>, op: Element) : super("APPLY") {
 
         this.attributes.put(0, load)
         this.createFilter(labels, op)
     }
 
     // Constructor when loader is an Element (function)
-    constructor(load: Element,labels: List<T>, op: Element) : super("APPLY") {
+    constructor(load: Element,labels: List<Any>, op: Element) : super("APPLY") {
 
         //this.attributes.put(0, load.render())
         this.loader.add(load)
@@ -57,7 +57,7 @@ class ApplyFw<T> : ListTag {
     }
 
     // Basic constructor
-    constructor(labels: List<T>, op: Element) : super("APPLY") {
+    constructor(labels: List<Any>, op: Element) : super("APPLY") {
         this.createFilter(labels, op)
     }
 }

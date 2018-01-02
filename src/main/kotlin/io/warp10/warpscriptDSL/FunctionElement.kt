@@ -62,7 +62,7 @@ abstract class FunctionElement(val name: String) : Element {
                 }
                 var value = u.toString()
                 if ( u is String) {
-                    key = "\'$t\'"
+                    value = "\'$u\'"
                 }
                 sb.append(key + " " + value + " ")
             }
@@ -106,7 +106,7 @@ abstract class FunctionElement(val name: String) : Element {
             builder.append(indent + post + "\n")
         }
 
-        builder.append(indent + "$name")
+        builder.append(indent + "$name ")
         builder.append("\n")
     }
 
@@ -179,9 +179,9 @@ abstract class FunctionElement(val name: String) : Element {
             } else if (mapValue is Map<*,*>) {
                 value = getMapString(mapValue)
             } else if (mapValue is StringElement) {
-                value = mapValue.toString().removeSuffix("\n")
+                value = mapValue.toString().removeSuffix(" \n")
             } else if (mapValue is Element) {
-                value = mapValue.toString().removeSuffix("\n")
+                value = mapValue.toString().removeSuffix(" \n")
             } else {
                 throw Exception("Expect native type for a parameter: String, Number or Boolean")
             }

@@ -14,6 +14,19 @@ import kotlin.collections.HashMap
 
 class WarpScript(name: String) : Tag(name) {
 
+    companion object {
+
+        //
+        // Warp Script init functions
+        //
+
+        fun generate(init: WarpScript.() -> Unit): WarpScript {
+            val ws = WarpScript("ws")
+            ws.init()
+            return ws
+        }
+
+    }
     var storedVariable = ArrayList<String>()
 
     val emptyLambda: Element.() -> Unit = {}
@@ -205,11 +218,11 @@ class WarpScript(name: String) : Tag(name) {
     // Apply framework
     //
 
-    fun <T> apply(entry: Element.() -> Unit,labels: List<T>, op: ApplyFunction, init: ListTag.() -> Unit = {}): ApplyFw<T> {
+    fun apply(entry: Element.() -> Unit, labels: List<Any> = ArrayList<Any>(), op: ApplyFunction, init: ListTag.() -> Unit = {}): ApplyFw {
 
-        val filter = initTag(ApplyFw(labels, op), init)
-        filter.applyLoader(this, entry)
-        return filter
+        val apply = initTag(ApplyFw(labels, op), init)
+        apply.applyLoader(this, entry)
+        return apply
     }
 
     //
@@ -525,22 +538,24 @@ class WarpScript(name: String) : Tag(name) {
     // Single Store function
     //
 
-    fun store(saved: String, init: Store.() -> Unit = {}): Store {
+    fun store(saved: String, init: Functions.() -> Unit = {}): Functions {
         if (!storedVariable.contains(saved)) {
             this.storedVariable.add(saved)
         }
-        return initTag(Store(saved), init)
+        val data = hashMapOf<Number, Any?>(1 to saved)
+        return initTag(Functions("STORE", data, HashMap(), this, emptyLambda), init)
     }
 
     //
     // Single Store function
     //
 
-    fun cStore(saved: String, init: Store.() -> Unit = {}): Store {
+    fun cStore(saved: String, init: Functions.() -> Unit = {}): Functions {
         if (!storedVariable.contains(saved)) {
             this.storedVariable.add(saved)
         }
-        return initTag(Store("CSTORE", saved), init)
+        val data = hashMapOf<Number, Any?>(1 to saved)
+        return initTag(Functions("CSTORE", data, HashMap(), this, emptyLambda), init)
     }
 
     //
@@ -576,11 +591,11 @@ class WarpScript(name: String) : Tag(name) {
     // Single Push function (custom function add for KotlinDSL allowing the user to push it's CUSTOM WarpScript code)
     //
 
-    fun push(data: String) = initTag(Push(data), {})
+    fun push(data: Any) = initTag(Push(data), {})
 
-    fun <T>push(data: List<T>) = initTag(Push(this.getListString(data)), {})
+    //fun <T>push(data: List<T>) = initTag(Push(this.getListString(data)), {})
 
-    fun <T, U>push(data: Map<T, U>) = initTag(Push(this.getMapString(data)), {})
+    //fun <T, U>push(data: Map<T, U>) = initTag(Push(this.getMapString(data)), {})
 
     //
     // Add WarpScript parameters function

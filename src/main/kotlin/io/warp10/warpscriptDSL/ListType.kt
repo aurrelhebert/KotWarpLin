@@ -15,8 +15,8 @@ class ListType : FunctionElement {
         ws: WarpScript,
         emptyLambda: Element.() -> Unit) : super (name, native, nativeElements, ws, emptyLambda) {
 
-        this.pre = "["
-        this.post = "]"
+        this.pre = "[ "
+        this.post = "] "
     }
 
     constructor(name: String) : super (name)

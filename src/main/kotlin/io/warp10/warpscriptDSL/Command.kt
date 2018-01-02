@@ -13,7 +13,8 @@ package io.warp10.warpscriptDSL
 fun main(args: Array<String>) {
     //println(true.toString())
 
-    var tmp = warpScript {
+    var tmp = WarpScript.generate {
+        now()
         allowVariableName(listOf("test", "token"))
         push("NOW")
         push("\'test\' STORE")
@@ -31,12 +32,6 @@ fun main(args: Array<String>) {
         bucketize(loadElements =
                 {
                     fetch("token", "test")
-                    bucketize( loadElements =
-                            {
-                                swap()
-                                drop()
-                                swap()
-                            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
                 }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
         load("test")
@@ -188,9 +183,9 @@ fun main(args: Array<String>) {
 // Warp Script init functions
 //
 
-fun warpScript(init: WarpScript.() -> Unit): WarpScript {
-    val ws = WarpScript("ws")
-    ws.init()
-    return ws
-}
+// fun warpScript(init: WarpScript.() -> Unit): WarpScript {
+//    val ws = WarpScript("ws")
+//    ws.init()
+//    return ws
+// }
 

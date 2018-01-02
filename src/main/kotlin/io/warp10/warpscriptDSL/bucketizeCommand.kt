@@ -13,7 +13,7 @@ package io.warp10.warpscriptDSL
 fun main(args: Array<String>) {
     //println(true.toString())
 
-    var tmp = warp {
+    var tmp = WarpScript.generate {
 
         allowVariableName(listOf("test"))
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
@@ -52,14 +52,3 @@ fun main(args: Array<String>) {
 
     print(tmp)
 }
-
-//
-// Warp Script init functions
-//
-
-fun warp(init: WarpScript.() -> Unit): WarpScript {
-    val ws = WarpScript("ws")
-    ws.init()
-    return ws
-}
-
