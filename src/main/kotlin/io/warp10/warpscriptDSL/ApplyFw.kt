@@ -10,54 +10,45 @@ package io.warp10.warpscriptDSL
 // Apply framework builder
 //
 
-class ApplyFw : ListTag {
+class ApplyFw {
 
-    //
-    // Create an Apply framework
-    // labels to create an equivalence class
-    // Apply operator
-    //
+    companion object {
 
-    private fun createFilter(labels: List<Any>, op: Element) {
-        this.attributes.put(1, FunctionElement.getListString(labels))
-        this.attributes.put(2, op.toString().removeSuffix("\n").removePrefix(" "))
-    }
+        // Generate hashMap of native elements for an Apply function
+        //
+        // Initialize apply with it's main parameters:
+        // Labels for equivalence class
+        // Apply operator
+        //
 
-    // Apply rendering output
-    override fun render(builder: StringBuilder, indent: String) {
+        fun getNativeApplyParameters(
+                                      labels: List<Any>,
+                                      op: Element?
+        ): HashMap<Number, Any?> {
 
-        builder.append("$indent [ \n")
+            val elements = hashMapOf<Number, Any?>(
+                    2 to StringElement(FunctionElement.getListString(labels)))
+            if (op != null) {
+                elements.put(3, op)
+            }
+            return elements
+        }
 
-        if (!loader.isEmpty()) {
-            for (items in loader) {
-                items.render(builder,indent + "  ")
+        // Generate hashMap of elements for a Fetch function
+        fun getElementApplyParameters(inputElements: Element.() -> Unit,
+                                       labelsElements: Element.() -> Unit,
+                                       opElements: Element.() -> Unit
+        ): HashMap<Number, Element.() -> Unit> {
+            val elements = hashMapOf<Number, Element.() -> Unit>(1 to inputElements, 2 to labelsElements,
+                    3 to opElements)
+            return elements
+        }
+
+        // Verify operator validity
+        fun verifyOperator(op: Element?, opElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
+            if (op==null && opElements == emptyLambda) {
+                throw Exception("WarpScrip Syntax error for Apply function: expect a valid operator")
             }
         }
-
-        for ((_,value) in attributes) {
-            builder.append(indent + "   $value \n")
-        }
-
-        builder.append(indent + " ] $name\n")
-    }
-
-    // Constructor when loader is a String (variable)
-    constructor(load: String = "SWAP",labels: List<Any>, op: Element) : super("APPLY") {
-
-        this.attributes.put(0, load)
-        this.createFilter(labels, op)
-    }
-
-    // Constructor when loader is an Element (function)
-    constructor(load: Element,labels: List<Any>, op: Element) : super("APPLY") {
-
-        //this.attributes.put(0, load.render())
-        this.loader.add(load)
-        this.createFilter(labels, op)
-    }
-
-    // Basic constructor
-    constructor(labels: List<Any>, op: Element) : super("APPLY") {
-        this.createFilter(labels, op)
     }
 }

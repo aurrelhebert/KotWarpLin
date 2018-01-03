@@ -1,29 +1,28 @@
-
 import io.warp10.warpscriptDSL.*
 import org.junit.Test
 import org.junit.Assert.*
 
-class ApplyTest {
+class ReduceTest {
 
     @Test
-    fun minimalApply() {
+    fun minimalReduce() {
         var tmp = WarpScript.generate {
             allowVariableName(listOf("test"))
-            apply(loadElements = { load("test")
-                load("test")}, op = Apply().add())
+            reduce(loadElements = { load("test")
+                load("test")}, reducer = Reducer().sum())
         }
-        val output = "[ \n  \$test \n  \$test \n  [] \n  op.add \n] \nAPPLY \n"
+        val output = "[ \n  \$test \n  \$test \n  [] \n  reducer.sum \n] \nREDUCE \n"
         assertEquals(output, tmp.toString())
     }
 
     @Test
-    fun applyTestNativeElement() {
+    fun reduceTestNativeElement() {
         var tmp = WarpScript.generate {
             allowVariableName(listOf("test"))
-            apply(loadElements = { load("test")
-                load("test")}, labels = listOf("test"), op = Apply().add())
+            reduce(loadElements = { load("test")
+                load("test")}, labels = listOf("test"), reducer = Reducer().sum())
         }
-        val output = "[ \n  \$test \n  \$test \n  [ \'test\' ] \n  op.add \n] \nAPPLY \n"
+        val output = "[ \n  \$test \n  \$test \n  [ \'test\' ] \n  reducer.sum \n] \nREDUCE \n"
         assertEquals(output, tmp.toString())
     }
 
@@ -31,24 +30,24 @@ class ApplyTest {
     fun onlyWarpScriptExceptOp() {
         var tmp = WarpScript.generate {
             allowVariableName(listOf("test"))
-            apply(loadElements = { load("test")
-                load("test")}, labelsElements = { emptyList() }, op = Apply().add())
+            reduce(loadElements = { load("test")
+                load("test")}, labelsElements = { emptyList() }, reducer = Reducer().sum())
         }
-        val output = "[ \n  \$test \n  \$test \n  [] \n  op.add \n] \nAPPLY \n"
+        val output = "[ \n  \$test \n  \$test \n  [] \n  reducer.sum \n] \nREDUCE \n"
         assertEquals(output, tmp.toString())
     }
 
     @Test()
-    fun chainApplyWarpScript() {
+    fun chainReduceWarpScript() {
         var tmp = WarpScript.generate {
             allowVariableName(listOf("test"))
-            apply(loadElements = {
-                apply(loadElements = { load("test")
+            reduce(loadElements = {
+                reduce(loadElements = { load("test")
                     load("test")}, labelsElements = {
                     emptyList()
                     addToExistingList(p2="label")
-                }, op = Apply().add())
-            }, op = Apply().mask())
+                }, reducer = Reducer().sum())
+            }, reducer = Reducer().min())
         }
         val output = StringBuilder()
         output.append("[ \n")
@@ -58,21 +57,21 @@ class ApplyTest {
         output.append("    [] \n")
         output.append("      \'label\' \n")
         output.append("    +! \n")
-        output.append("    op.add \n")
+        output.append("    reducer.sum \n")
         output.append("  ] \n")
-        output.append("  APPLY \n")
+        output.append("  REDUCE \n")
         output.append("  [] \n")
-        output.append("  op.mask \n")
+        output.append("  reducer.min \n")
         output.append("] \n")
-        output.append("APPLY \n")
+        output.append("REDUCE \n")
         assertEquals(output.toString(), tmp.toString())
     }
 
     @Test(expected = Exception::class)
-    fun failMissingOp() {
+    fun failMissingReducer() {
         var tmp = WarpScript.generate {
             allowVariableName(listOf("test"))
-            apply(loadElements = { load("test")
+            reduce(loadElements = { load("test")
                 load("test")}, labelsElements = { emptyList() })
         }
     }

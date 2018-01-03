@@ -49,7 +49,7 @@ class FilterFw {
         // Verify filter validity
         fun verifyFilter(filter: Element?, filterElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
             if (filter==null && filterElements == emptyLambda) {
-                throw Exception("WarpScrip Syntax error for Bucketize function: expect a valid bucketizer")
+                throw Exception("WarpScrip Syntax error for Filter function: expect a valid filter")
             }
         }
     }

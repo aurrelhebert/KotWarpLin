@@ -210,7 +210,7 @@ class WarpScript(name: String) : Tag(name) {
     // Filter framework
     //
 
-    fun filter(load: String = "SWAP", labels: List<Any>, filterFun: FilterFunction, init: ListType.() -> Unit = {}): ListType {
+    fun filter(load: String = "SWAP", labels: List<Any> = ArrayList(), filterFun: FilterFunction, init: ListType.() -> Unit = {}): ListType {
         val filter = initTag(ListType(
                 "FILTER",
                 FilterFw.getNativeFilterParameters(load,labels,filterFun),
@@ -255,11 +255,90 @@ class WarpScript(name: String) : Tag(name) {
     // Apply framework
     //
 
-    fun apply(entry: Element.() -> Unit, labels: List<Any> = ArrayList<Any>(), op: ApplyFunction, init: ListTag.() -> Unit = {}): ApplyFw {
-
-        val apply = initTag(ApplyFw(labels, op), init)
-        apply.applyLoader(this, entry)
+    fun apply(loadElements: Element.() -> Unit = emptyLambda, labels: List<Any> = ArrayList(), op: ApplyFunction, init: ListType.() -> Unit = {}): ListType {
+        val apply = initTag(ListType(
+                "APPLY",
+                ApplyFw.getNativeApplyParameters(labels,op),
+                ApplyFw.getElementApplyParameters(loadElements,emptyLambda,emptyLambda),
+                this,
+                emptyLambda
+        ), init)
         return apply
+    }
+
+    fun apply(loadElements: Element.() -> Unit = emptyLambda,
+               labels: List<Any> = ArrayList(), labelsElements: Element.() -> Unit = emptyLambda,
+               op: ApplyFunction? = null, opElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        ApplyFw.verifyOperator(op, opElements, emptyLambda)
+        val apply = initTag(ListType(
+                "APPLY",
+                ApplyFw.getNativeApplyParameters(labels,op),
+                ApplyFw.getElementApplyParameters(loadElements,labelsElements,opElements),
+                this,
+                emptyLambda
+        ), init)
+        return apply
+    }
+
+    fun apply(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var apply = initTag(ListType("APPLY"), init)
+        if (parameters != emptyLambda) {
+            apply = initTag(ListType("APPLY",
+                    HashMap<Number,Any?>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
+        }
+
+        return apply
+    }
+
+    //
+    // Reduce framework
+    //
+
+    fun reduce(loadElements: Element.() -> Unit = emptyLambda, labels: List<Any> = ArrayList(), reducer: ReduceFunction, init: ListType.() -> Unit = {}): ListType {
+        val reduce = initTag(ListType(
+                "REDUCE",
+                ReduceFw.getNativeReduceParameters(labels,reducer),
+                ReduceFw.getElementReduceParameters(loadElements,emptyLambda,emptyLambda),
+                this,
+                emptyLambda
+        ), init)
+        return reduce
+    }
+
+    fun reduce(loadElements: Element.() -> Unit = emptyLambda,
+              labels: List<Any> = ArrayList(), labelsElements: Element.() -> Unit = emptyLambda,
+              reducer: ReduceFunction? = null, reducerElements: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        ApplyFw.verifyOperator(reducer, reducerElements, emptyLambda)
+        val reduce = initTag(ListType(
+                "REDUCE",
+                ReduceFw.getNativeReduceParameters(labels,reducer),
+                ReduceFw.getElementReduceParameters(loadElements,labelsElements,reducerElements),
+                this,
+                emptyLambda
+        ), init)
+        return reduce
+    }
+
+    fun reduce(parameters: Element.() -> Unit = emptyLambda, init: ListType.() -> Unit = {}): ListType {
+
+        var reduce = initTag(ListType("REDUCE"), init)
+        if (parameters != emptyLambda) {
+            reduce = initTag(ListType("REDUCE",
+                    HashMap<Number,Any?>(),
+                    hashMapOf(0 to parameters),
+                    this,
+                    emptyLambda
+            ), init)
+        }
+
+        return reduce
     }
 
     //

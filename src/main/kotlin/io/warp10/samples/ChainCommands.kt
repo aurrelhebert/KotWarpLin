@@ -158,7 +158,7 @@ fun main(args: Array<String>) {
             }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, labels = ArrayList<String>(), filterFun = Filter().byclass("myClass"))
 
-        apply({
+        apply(loadElements = {
             fetch("token", "test")
             bucketize(loadElements =
             {
@@ -166,7 +166,7 @@ fun main(args: Array<String>) {
                 drop()
                 swap()
             }, bucketizer = Bucketizer().min(), bucketcount = 1L)
-        }, ArrayList<String>(), Apply().and())
+        }, labels = ArrayList<String>(), op= Apply().and())
 
         timeShift(100)
         timeShift({ load("test") })

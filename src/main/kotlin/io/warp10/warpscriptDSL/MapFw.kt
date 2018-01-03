@@ -57,7 +57,7 @@ class MapFw {
         // Verify mapper validity
         fun verifyMapper(mapper: Element?, mapperElements: Element.() -> Unit, emptyLambda: Element.() -> Unit) {
             if (mapper==null && mapperElements == emptyLambda) {
-                throw Exception("WarpScrip Syntax error for Bucketize function: expect a valid bucketizer")
+                throw Exception("WarpScrip Syntax error for Map function: expect a valid mapper")
             }
         }
 
