@@ -95,7 +95,7 @@ You will also find other examples in the Test repository.
 
 ## RoadMap and features to add
 
-- Apply refactoring
+- Framework operators refactoring
 - Macro function refactoring
 - Use WarpScript correct generated signature
 - Null as possible default value

@@ -36,7 +36,7 @@
 
 ## Rework todo - Features idea list
 
-- Apply refactoring !!!
+- Frameworks operators refactoring --> Static, load from JSON, add a WS parameter
 - Native operators
 - List and maps framework
 - Native time series framework
@@ -53,3 +53,5 @@
 ## Done: 
 
 - Split JSON and WarpScript extension per function category
+- Apply refactoring
+- Reducer Framework
