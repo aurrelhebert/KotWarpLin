@@ -1,4 +1,6 @@
-package io.warp10.warpscriptDSL
+package io.warp10.samples
+
+import io.warp10.warpscriptDSL.*
 
 //
 // WarpScript KOTLINDSL
@@ -7,7 +9,7 @@ package io.warp10.warpscriptDSL
 //
 
 //
-// First WarpScript commands generator
+// Complete example that can be executed on a Warp 10 instance
 //
 
 fun main(args: Array<String>) {
@@ -23,12 +25,12 @@ fun main(args: Array<String>) {
 
 
         bucketize(loadElements =
-                {
-                    bucketize(loadElements =
-                            {
-                                rot()
-                            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
-                }
+        {
+            bucketize(loadElements =
+            {
+                rot()
+            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
+        }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
 
         map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 0)
@@ -36,8 +38,8 @@ fun main(args: Array<String>) {
         //fetch(parameters = {
         //  now()
         //})
-        add( 2, 3)
-        add(p2Elements= { now() })
+        add(2, 3)
+        add(p2Elements = { now() })
         pi()
     }
 

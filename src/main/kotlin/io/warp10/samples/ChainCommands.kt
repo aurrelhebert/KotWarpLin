@@ -1,4 +1,6 @@
-package io.warp10.warpscriptDSL
+package io.warp10.samples
+
+import io.warp10.warpscriptDSL.*
 
 //
 // WarpScript KOTLINDSL
@@ -7,7 +9,9 @@ package io.warp10.warpscriptDSL
 //
 
 //
-// First WarpScript commands generator
+// WarpScript chain commands example
+// This code only show how to use the Kotlin syntax in the DSL
+// This example will not run on a Warp 10 instance
 //
 
 fun main(args: Array<String>) {
@@ -21,8 +25,8 @@ fun main(args: Array<String>) {
         drop()
         now()
         store("now")
-        fetch(token= "token", selector="name")
-        fetch("token2", "name", hashMapOf("key" to "value", "k2" to "3" ))
+        fetch(token = "token", selector = "name")
+        fetch("token2", "name", hashMapOf("key" to "value", "k2" to "3"))
         //fetch("token", "name", start = now(), end = "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "-100")
         fetch("token", "name", hashMapOf("key" to "value"), "1550000", "-100")
@@ -30,9 +34,9 @@ fun main(args: Array<String>) {
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
 
         bucketize(loadElements =
-                {
-                    fetch("token", "test")
-                }
+        {
+            fetch("token", "test")
+        }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
         load("test")
         drop()
@@ -75,14 +79,14 @@ fun main(args: Array<String>) {
                     fetch("token", "test-2")
                 })
 
-        fetch("token", "name", hashMapOf("key" to "value"),end= "-100")
+        fetch("token", "name", hashMapOf("key" to "value"), end = "-100")
         timeShift(100)
 
         push("\'test\' STORE")
 
         timeShift(100, {
-                fetch("inside", "inside")
-            }
+            fetch("inside", "inside")
+        }
         )
 
         evalMacro("test")
@@ -124,50 +128,50 @@ fun main(args: Array<String>) {
         load("titi")
         map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 1)
 
-        map("\$titi", Mapper().abs(), 0, 0,1)
+        map("\$titi", Mapper().abs(), 0, 0, 1)
 
-        map(loadElements= {
+        map(loadElements = {
             fetch("token", "test")
             bucketize(loadElements =
-                    {
-                        swap()
-                        drop()
-                        swap()
-                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
-        },mapper =  Mapper().abs(),pre= 0,post =  0, occurrences = 1)
+            {
+                swap()
+                drop()
+                swap()
+            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
+        }, mapper = Mapper().abs(), pre = 0, post = 0, occurrences = 1)
 
-        filter(loadElements = { swap() },labels =  ArrayList<String>(), filterFun = Filter().byclass("myClass"))
+        filter(loadElements = { swap() }, labels = ArrayList<String>(), filterFun = Filter().byclass("myClass"))
         filter("test", ArrayList<String>(), Filter().byclass("myClass"))
 
-        val test = HashMap<String,String>()
-        test.put("2","label0")
+        val test = HashMap<String, String>()
+        test.put("2", "label0")
         filter("test", ArrayList<String>(), Filter().bylabels(test))
 
         push(test)
         filter(loadElements = {
             fetch("token", "test")
             bucketize(loadElements =
-                    {
-                        swap()
-                        drop()
-                        swap()
-                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
+            {
+                swap()
+                drop()
+                swap()
+            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, labels = ArrayList<String>(), filterFun = Filter().byclass("myClass"))
 
         apply({
             fetch("token", "test")
             bucketize(loadElements =
-                    {
-                        swap()
-                        drop()
-                        swap()
-                    }, bucketizer = Bucketizer().min(), bucketcount = 1L)
+            {
+                swap()
+                drop()
+                swap()
+            }, bucketizer = Bucketizer().min(), bucketcount = 1L)
         }, ArrayList<String>(), Apply().and())
 
         timeShift(100)
-        timeShift({load("test")})
+        timeShift({ load("test") })
         timeShift({
-            timeShift( {
+            timeShift({
                 now()
                 load("test")
             })
