@@ -15,31 +15,23 @@ fun main(args: Array<String>) {
 
     var tmp = WarpScript.generate {
 
-        allowVariableName(listOf("test"))
+        newGts()
+        addValue(timestamp = 2, value = 3)
+        addValue(timestamp = 3, value = 5)
+        addValue(timestamp = 10, value = 5)
         bucketize(bucketizer = Bucketizer().max(), bucketcount = 1L)
 
 
-        bucketize(bucketizer = Bucketizer().max(), bucketcountElements = {
-            swap()
-            fetch(selector = "rien")
-        }, bucketcount = 1L)
-
         bucketize(loadElements =
                 {
-                    fetch("token", "test")
                     bucketize(loadElements =
                             {
-                                swap()
-                                drop()
-                                swap()
+                                rot()
                             }, bucketizer = Bucketizer().min(), bucketcount = 1L)
                 }
                 , bucketizer = Bucketizer().count(), bucketcount = 1L)
-        fetch( selectorElements = {
-            load("test")
-        })
 
-        map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 1)
+        map(loadElements = { swap() }, mapper = Mapper().add(2), pre = 0, post = 0, occurrences = 0)
 
         //fetch(parameters = {
         //  now()
@@ -47,8 +39,9 @@ fun main(args: Array<String>) {
         add( 2, 3)
         add(p2Elements= { now() })
         pi()
-        addValue(timestamp = 2, value = 3)
     }
 
-    print(tmp)
+    var output = WarpScript.exec(tmp, "http://127.0.0.1:8080/api/v0/exec")
+
+    println(output.toJsonString(true))
 }

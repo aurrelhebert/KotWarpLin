@@ -6,6 +6,9 @@ package io.warp10.warpscriptDSL
 // @license apache 2.0
 //
 
+import com.beust.klaxon.JsonArray
+import com.beust.klaxon.Parser
+import com.github.kittinunf.fuel.Fuel
 import kotlin.collections.HashMap
 
 //
@@ -20,10 +23,44 @@ class WarpScript(name: String) : Tag(name) {
         // Warp Script init functions
         //
 
+        //
+        // Generate a WarpScript object containing WarpScript string to execute
+        //
+
         fun generate(init: WarpScript.() -> Unit): WarpScript {
             val ws = WarpScript("ws")
             ws.init()
             return ws
+        }
+
+        //
+        // Apply an HTTP post to a Warp 10 instance and return result stack as JsonArray
+        //
+
+        fun exec(ws: WarpScript,url: String): JsonArray<Any>  {
+            val builder = StringBuilder()
+            ws.render(builder, "")
+
+            var json = JsonArray<Any>()
+
+            // Wait for HTTP post result
+            val (request, response, result) = Fuel.post(url).body(builder.toString()).responseString()
+
+            val (data, error) = result
+
+            // When an error occurred send error message
+            if (error != null) {
+                throw Exception("Post http failed with message: " + error.exception)
+            }
+
+            if (data != null) {
+                val parser: Parser = Parser()
+                val result = StringBuilder()
+                result.append(data)
+                json = parser.parse(result) as JsonArray<Any>
+            }
+
+            return json
         }
 
     }
